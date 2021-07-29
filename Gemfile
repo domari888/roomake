@@ -36,6 +36,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rails_best_practices'
   gem 'rspec-rails'
+  gem 'rails-i18n', '~> 6.0'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
