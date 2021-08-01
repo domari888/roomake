@@ -6,5 +6,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:age])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:household])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:age])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:address])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:household])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:favorite_items])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:profile])
   end
 end

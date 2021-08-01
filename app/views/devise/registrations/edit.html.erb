@@ -4,6 +4,11 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
@@ -25,6 +30,31 @@
     <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control' %>
 
     <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :age %>
+    <%= f.select :age, User.ages.keys.map {|k|[k, k]}, {}, class: 'form-control' , required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.select :address, User.addresses.keys.map {|k|[k, k]}, {}, class: 'form-control' , required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :household %>
+    <%= f.select :household, User.households.keys.map {|k|[k, k]}, {}, class: 'form-control' , required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :favorite_items %>
+    <%= f.text_field :favorite_items, autofocus: true, autocomplete: 'favorite_items', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :profile %>
+    <%= f.text_area :profile, autofocus: true, autocomplete: 'profile', class: 'form-control' %>
   </div>
 
   <div class="form-group">
