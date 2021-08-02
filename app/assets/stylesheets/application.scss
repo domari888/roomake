@@ -27,3 +27,15 @@ span.description {
   width: 256px;
   height: 300px;
 }
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+button.close {
+  outline: none;
+}
