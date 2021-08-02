@@ -5,17 +5,22 @@
 
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control' %>
+    <span><%= t('devise.shared.required') %></span>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', 
+    required:true, maxlength: 30 %>
+    <small class="form-text text-muted"><%= t('devise.shared.maximum_user_length') %></small>
   </div>
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    <span><%= t('devise.shared.required') %></span>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true %>
   </div>
 
   <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+    <span><%= t('devise.shared.required') %></span>
+    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', required: true %>
 
     <% if @minimum_password_length %>
       <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
@@ -24,22 +29,25 @@
 
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
+    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', required: true %>
   </div>
 
   <div class="form-group">
     <%= f.label :age %>
-    <%= f.select :age, User.ages.keys.map {|k|[k, k]}, {include_blank: '選択してください'}, class: 'form-control' , required: true %>
+    <span><%= t('devise.shared.required') %></span>
+    <%= f.select :age, User.ages_i18n.invert, {include_blank: '選択してください'}, class: 'form-control' , required: true %>
   </div>
 
   <div class="form-group">
     <%= f.label :address %>
-    <%= f.select :address, User.addresses.keys.map {|k|[k, k]}, {include_blank: '選択してください'}, class: 'form-control' , required: true %>
+    <span><%= t('devise.shared.required') %></span>
+    <%= f.select :address, User.addresses_i18n.invert, {include_blank: '選択してください'}, class: 'form-control' , required: true %>
   </div>
 
   <div class="form-group">
     <%= f.label :household %>
-    <%= f.select :household, User.households.keys.map {|k|[k, k]}, {include_blank: '選択してください'}, class: 'form-control' , required: true %>
+    <span><%= t('devise.shared.required') %></span>
+    <%= f.select :household, User.households_i18n.invert, {include_blank: '選択してください'}, class: 'form-control' , required: true %>
   </div>
 
   <div class="form-group">
