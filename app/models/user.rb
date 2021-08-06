@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :profile, length: { maximum: 2000 }
   validates :household, presence: true
+  mount_uploader :avater, AvaterUploader
 
   enum age: {
     teens: 1,
