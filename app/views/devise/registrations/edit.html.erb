@@ -4,6 +4,13 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :avater do %>
+      <p><%= image_tag @user.avater.url, class: "rounded-circle", id: 'preview' %></p>
+      <%= f.file_field :avater, class: 'previewImage', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :name %>
     <span><%= t('devise.shared.required') %></span>
     <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', required: true, maxlength: 30 %>
