@@ -21,6 +21,19 @@ body {
   background-color: #EEEDEC;
 }
 
+.base-container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.mw-sm {
+  max-width: 576px;
+}
+
+.mw-xl {
+  max-width: 1200px;
+}
+
 span.description {
   display: inline-block;
   margin: 0;

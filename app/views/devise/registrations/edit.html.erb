@@ -1,4 +1,8 @@
-<h1>編集</h1>
+<div class="title-group">
+  <h1>Edit</h1>
+  <p class="sub-title mb-0">編集</p>
+</div>
+<hr class="devise-link mt-0 mb-4">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= bootstrap_devise_error_messages! %>
@@ -11,15 +15,15 @@
   </div>
 
   <div class="form-group">
+    <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :name %>
-    <span><%= t('devise.shared.required') %></span>
     <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', required: true, maxlength: 30 %>
     <small class="form-text text-muted"><%= t('devise.shared.maximum_user_length') %></small>
   </div>
 
   <div class="form-group">
+    <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :email %>
-    <span><%= t('devise.shared.required') %></span>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
 
@@ -36,28 +40,28 @@
   </div>
 
   <div class="form-group">
+    <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :current_password %>
-    <span><%= t('devise.shared.required') %></span>
     <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control' %>
 
     <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
   </div>
 
   <div class="form-group">
+    <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :age %>
-    <span><%= t('devise.shared.required') %></span>
     <%= f.select :age, User.ages_i18n.invert, {}, class: 'form-control' , required: true %>
   </div>
 
   <div class="form-group">
+    <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :address %>
-    <span><%= t('devise.shared.required') %></span>
     <%= f.select :address, User.addresses_i18n.invert, {}, class: 'form-control' , required: true %>
   </div>
 
   <div class="form-group">
+    <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :household %>
-    <span><%= t('devise.shared.required') %></span>
     <%= f.select :household, User.households_i18n.invert, {}, class: 'form-control' , required: true %>
   </div>
 
@@ -68,15 +72,17 @@
 
   <div class="form-group">
     <%= f.label :profile %>
-    <%= f.text_area :profile, autofocus: true, autocomplete: 'profile', class: 'form-control', maxlength: 2000 %>
+    <%= f.text_area :profile, autofocus: true, autocomplete: 'profile', class: 'form-control', rows: '5', maxlength: 2000 %>
     <small class="form-text text-muted"><%= t('devise.shared.maximum_profile_length') %></small>
   </div>
 
   <div class="form-group">
-    <%= f.submit t('.update'), class: 'btn btn-primary' %>
+    <%= f.submit t('.update'), class: 'btn btn-info btn-block' %>
   </div>
 <% end %>
 
-<p><%= t('.unhappy') %>? <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
+<hr class="devise-link my-5">
 
-<%= link_to t('.back'), :back %>
+<div class="form-group">
+  <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: 'btn btn-secondary btn-block' %>
+</div>

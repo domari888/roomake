@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :profile, length: { maximum: 2000 }
   validates :household, presence: true
+
+  # AvaterUploader と users テーブルの avater カラムを連携
   mount_uploader :avater, AvaterUploader
 
   enum age: {

@@ -105,7 +105,7 @@ ja:
         leave_blank_if_you_don_t_want_to_change_it: 変更する場合のみ入力してください
         title: "%{resource}編集"
         unhappy: アカウントを削除しますか
-        update: 変更
+        update: 変更する
         back: 戻る
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
       new:

@@ -38,7 +38,7 @@ class AvaterUploader < CarrierWave::Uploader::Base
 
   # ファイル形式のバリデーション
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg png)
   end
 
   # Override the filename of the uploaded files:
