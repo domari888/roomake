@@ -3,24 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def controller_name?
-    unless controller_name == 'homes'
-      true
-    end
+    true unless controller_name == 'homes'
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:avater])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:age])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:household])
-
-    devise_parameter_sanitizer.permit(:account_update, keys: [:avater])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:age])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:address])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:household])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:favorite_items])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:profile])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:avater, :name, :age, :address, :household])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:avater, :name, :age, :address, :household, :favorite_items, :profile])
   end
 end

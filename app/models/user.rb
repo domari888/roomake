@@ -80,5 +80,4 @@ class User < ApplicationRecord
     five_person_household: 5,
     others_household: 6
   }
-
 end
