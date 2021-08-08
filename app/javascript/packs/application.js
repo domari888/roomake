@@ -10,6 +10,7 @@ import "channels"
 
 // Bootstrap をインクルード
 import "bootstrap/dist/js/bootstrap"
+import "./preview"
 
 Rails.start()
 Turbolinks.start()

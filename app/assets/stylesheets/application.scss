@@ -21,9 +21,39 @@ body {
   background-color: #EEEDEC;
 }
 
+.base-container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.mw-sm {
+  max-width: 576px;
+}
+
+.mw-xl {
+  max-width: 1200px;
+}
+
 span.description {
   display: inline-block;
   margin: 0;
   width: 256px;
   height: 300px;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+button.close {
+  outline: none;
+}
+
+#preview {
+  height: 200px;
+  width: 200px;
 }

@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/flash_messages' %>
+    <div class='base-container py-4 <%= max_width %>'>
+      <%= yield %>
+    </div>
   </body>
 </html>

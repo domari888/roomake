@@ -23,6 +23,25 @@ Rails/Output:
   Exclude:
     - 'db/seeds.rb'
 
+# html_safe、raw、safe_concat などの出力安全コールの使用をチェック
+Rails/OutputSafety:
+  Enabled:
+    - 'app/helpers/devise_helper.rb'
+
+# デフォルト値のないカラムでの NOT NULL 制約を許可
+Rails/NotNullColumn:
+  Enabled:
+    - 'db/migrate/20210801061841_add_column_to_users.rb'
+
+# メソッドの最大行数を 20 に変更
+Metrics/MethodLength:
+  Max: 20
+
+# ヒアドキュメントで END と EO* の使用を許可
+Naming/HeredocDelimiterNaming:
+  Exclude:
+    - 'app/helpers/devise_helper.rb'
+
 # 日本語のコメントを許可
 Style/AsciiComments:
   Enabled: false
