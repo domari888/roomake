@@ -7,6 +7,6 @@ FactoryBot.define do
     address { rand(1..47) }
     household { rand(1..6) }
     profile { Faker::Lorem.sentence }
-    avater { File.open("#{Rails.root}/public/images/fallback/default.png") }
+    avater { Rack::Test::UploadedFile.new(Rails.root.join('images/fallback/default.png')) }
   end
 end
