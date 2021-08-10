@@ -30,6 +30,26 @@
           <i class="fas fa-sign-out-alt"></i> ログアウト
         <% end %>
       </div>
+    <% else %>
+      <div class="navbar-nav ml-auto">
+        <%= link_to "#", class: "nav-item nav-link" do %>
+          <i class="fas fa-id-card-alt"></i> ゲストログイン
+        <% end %>
+        <%= link_to new_user_registration_path, class: "nav-item nav-link" do %>
+          <i class="fas fa-user-plus"></i> 会員登録
+        <% end %>
+        <%= link_to new_user_session_path, class: "nav-item nav-link" do %>
+          <i class="fas fa-sign-in-alt"></i> ログイン
+        <% end %>
+        <div class="d-sm-none">
+          <%= link_to "#", class: "nav-item nav-link" do %>
+            <i class="fas fa-chart-pie"></i> データ
+          <% end %>
+          <%= link_to "#", class: "nav-item nav-link" do %>
+            <i class="fas fa-book"></i> ノウハウ
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 </nav>
