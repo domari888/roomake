@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <%= link_to "MOKNOW", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <% if user_signed_in? %>
+      <button type="button" class="btn btn-info">
+        <i class="fas fa-plus-square"></i> 投稿する
+      </button>
+      <button type="button" class="btn btn-outline-secondary">
+        <i class="fas fa-search"></i> 検索する
+      </button>
+      <%# 要素を右寄せで配置 %>
+      <div class="navbar-nav ml-auto">
+        <%= link_to "#", class: "nav-item nav-link" do %>
+          <i class="fas fa-chart-pie"></i> データ
+        <% end %>
+        <%= link_to "#", class: "nav-item nav-link" do %>
+          <i class="fas fa-book"></i> ノウハウ
+        <% end %>
+        <%= link_to "#", class: "nav-item nav-link" do %>
+          <i class="fas fa-home"></i> タイムライン
+        <% end %>
+        <%= link_to "#", class: "nav-item nav-link" do %>
+          <i class="fas fa-user"></i> マイページ
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか?"}, class: "nav-item nav-link" do %>
+          <i class="fas fa-sign-out-alt"></i> ログアウト
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</nav>
