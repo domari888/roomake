@@ -10,6 +10,8 @@ import "channels"
 
 // Bootstrap をインクルード
 import "bootstrap/dist/js/bootstrap"
+// FontAwesome をインクルード
+import "@fortawesome/fontawesome-free/js/all"
 import "./preview"
 
 Rails.start()
