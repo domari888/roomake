@@ -20,14 +20,14 @@
         <%= link_to "#", class: "nav-item nav-link" do %>
           <i class="fas fa-book"></i> ノウハウ
         <% end %>
-        <%= link_to "#", class: "nav-item nav-link" do %>
-          <i class="fas fa-home"></i> タイムライン
-        <% end %>
-        <%= link_to "#", class: "nav-item nav-link" do %>
-          <i class="fas fa-user"></i> マイページ
-        <% end %>
         <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか?"}, class: "nav-item nav-link" do %>
           <i class="fas fa-sign-out-alt"></i> ログアウト
+        <% end %>
+        <%= link_to "#", class: "nav-item nav-link d-sm-block d-none" do %>
+          <i class="fas fa-home"></i> タイムライン
+        <% end %>
+        <%= link_to "#", class: "nav-item nav-link d-sm-block d-none" do %>
+          <i class="fas fa-user"></i> マイページ
         <% end %>
       </div>
     <% else %>
@@ -41,15 +41,35 @@
         <%= link_to new_user_session_path, class: "nav-item nav-link" do %>
           <i class="fas fa-sign-in-alt"></i> ログイン
         <% end %>
-        <div class="d-sm-none">
-          <%= link_to "#", class: "nav-item nav-link" do %>
-            <i class="fas fa-chart-pie"></i> データ
-          <% end %>
-          <%= link_to "#", class: "nav-item nav-link" do %>
-            <i class="fas fa-book"></i> ノウハウ
-          <% end %>
-        </div>
+        <%= link_to "#", class: "nav-item nav-link d-sm-none" do %>
+          <i class="fas fa-chart-pie"></i> データ
+        <% end %>
+        <%= link_to "#", class: "nav-item nav-link d-sm-none" do %>
+          <i class="fas fa-book"></i> ノウハウ
+        <% end %>
       </div>
     <% end %>
   </div>
 </nav>
+
+<% if user_signed_in? %>
+<nav class="navbar navbar-expand navbar-light bg-light fixed-bottom d-sm-none">
+  <div class="navbar-nav w-100 justify-content-between">
+    <button type="button" class="btn btn-info">
+      <i class="fas fa-plus-square"></i>
+    </button>
+    <button type="button" class="btn btn-outline-secondary">
+      <i class="fas fa-search"></i>
+    </button>
+    <%= link_to "#", class: "nav-item nav-link fa-lg" do %>
+      <i class="fas fa-couch"></i>
+    <% end %>
+    <%= link_to "#", class: "nav-item nav-link fa-lg" do %>
+      <i class="fas fa-home"></i>
+    <% end %>
+    <%= link_to "#", class: "nav-item nav-link fa-lg" do %>
+      <i class="fas fa-user"></i>
+    <% end %>
+  </div>
+</nav>
+<% end %>

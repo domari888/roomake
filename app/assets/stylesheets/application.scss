@@ -24,7 +24,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 body {
   margin: 0;
-  padding-top: 56px;
+  padding: 56px 0;
   background-color: #EEEDEC;
 }
 
@@ -56,9 +56,9 @@ span.description {
   @extend .alert-danger;
 }
 
-button.close {
-  outline: none;
-}
+button.close, button.navbar-toggler {
+    outline: none;
+  }
 
 #preview {
   height: 200px;
