@@ -11,7 +11,8 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header_top' %>
+    <%= render 'layouts/header_bottom' %>
     <%= render 'layouts/flash_messages' %>
     <div class='base-container py-4 <%= max_width %>'>
       <%= yield %>

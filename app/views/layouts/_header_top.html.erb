@@ -51,25 +51,3 @@
     <% end %>
   </div>
 </nav>
-
-<% if user_signed_in? %>
-<nav class="navbar navbar-expand navbar-light bg-light fixed-bottom d-sm-none">
-  <div class="navbar-nav w-100 justify-content-between">
-    <button type="button" class="btn btn-info">
-      <i class="fas fa-plus-square"></i>
-    </button>
-    <button type="button" class="btn btn-outline-secondary">
-      <i class="fas fa-search"></i>
-    </button>
-    <%= link_to "#", class: "nav-item nav-link fa-lg" do %>
-      <i class="fas fa-couch"></i>
-    <% end %>
-    <%= link_to "#", class: "nav-item nav-link fa-lg" do %>
-      <i class="fas fa-home"></i>
-    <% end %>
-    <%= link_to "#", class: "nav-item nav-link fa-lg" do %>
-      <i class="fas fa-user"></i>
-    <% end %>
-  </div>
-</nav>
-<% end %>
