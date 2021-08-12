@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    model:
+      post: 投稿
+    attributes:
+      post:
+        content: 投稿内容
+        likes_count: いいね数
+        marks_count: マーク数
+        user: ユーザー
