@@ -1,6 +1,8 @@
 <h1>MOKNOW</h1>
-<%= link_to "会員登録", new_user_registration_path, class: 'btn btn-info' %>
-<%= link_to "ログイン", new_user_session_path, class: 'btn btn-info' %>
+<% unless user_signed_in? %>
+  <%= link_to "会員登録", new_user_registration_path, class: 'btn btn-info' %>
+  <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info' %>
+<% end %>
   <h2>Feature</h2>
   <p>アプリについて</p>
   <div>
