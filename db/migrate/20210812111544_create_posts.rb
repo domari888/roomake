@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :likes_count, default: 0
       t.integer :marks_count, default: 0
       t.references :user, null: false, foreign_key: true
-      
+
       t.timestamps
     end
   end
