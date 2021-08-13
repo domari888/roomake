@@ -10,6 +10,7 @@ RSpec.describe Post, type: :model do
         expect(subject).to eq true
       end
     end
+
     # content のバリデーションテスト
     context 'content が空のとき' do
       let(:post) { build(:post, content: '') }
@@ -19,8 +20,9 @@ RSpec.describe Post, type: :model do
         # expect { subject }.to raise_error 'バリデーションに失敗しました: 投稿内容を入力してください'
       end
     end
+
     context 'content が 2001 文字以上のとき' do
-      let(:post) { build(:post, content: "a" * 2001) }
+      let(:post) { build(:post, content: 'a' * 2001) }
       it 'エラーが発生すること' do
         expect(subject).to eq false
         expect(post.errors.messages[:content]).to include 'は2000文字以内で入力してください'
