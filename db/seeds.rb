@@ -22,3 +22,10 @@ User.find_or_create_by!(email: email) do |user|
   user.household = household
   puts 'ユーザーの初期データインポートに成功しました。'
 end
+
+# テスト投稿の初期データ
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE posts RESTART IDENTITY CASCADE")
+Post.create!(content: "テスト", user_id: 1)
+Post.create!(content: "テスト<br>テスト", user_id: 1)
+Post.create!(content: "<h1>テスト</h1>", user_id: 1)
+puts '投稿内容の初期データインポートに成功しました。'
