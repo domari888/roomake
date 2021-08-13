@@ -23,7 +23,7 @@
         <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか?"}, class: "nav-item nav-link" do %>
           <i class="fas fa-sign-out-alt"></i> ログアウト
         <% end %>
-        <%= link_to "#", class: "nav-item nav-link d-sm-block d-none" do %>
+        <%= link_to posts_path, class: "nav-item nav-link d-sm-block d-none" do %>
           <i class="fas fa-home"></i> タイムライン
         <% end %>
         <%= link_to "#", class: "nav-item nav-link d-sm-block d-none" do %>
