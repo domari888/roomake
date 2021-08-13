@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :post do
-    content { 'MyText' }
-    likes_count { 1 }
-    marks_count { 1 }
-    user { nil }
+    content { Faker::Lorem.paragraph }
+    likes_count { rand(0..100) }
+    marks_count { rand(0..100) }
+    user
   end
 end
