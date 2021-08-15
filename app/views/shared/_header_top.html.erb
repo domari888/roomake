@@ -6,7 +6,7 @@
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <% if user_signed_in? %>
-      <button type="button" class="btn btn-info d-sm-inline d-none">
+      <button type="button" class="btn btn-info d-sm-inline d-none" data-toggle="modal" data-target="#new-modal">
         <i class="fas fa-plus-square"></i> 投稿する
       </button>
       <button type="button" class="btn btn-outline-secondary d-sm-inline d-none">
@@ -51,3 +51,5 @@
     <% end %>
   </div>
 </nav>
+<%# モーダルの部分テンプレート %>
+<%= render 'shared/modal', action: 'new', title: '新規登録' %>
