@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show; end
 
   def create
-    post = current_user.posts.build(post_params)
+    post = PostForm.new(post_params.merge(current_user_id: current_user.id))
     if post.save
       flash[:notice] = '投稿しました'
     else
@@ -20,6 +20,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post_form).permit(:content, :image)
   end
 end
