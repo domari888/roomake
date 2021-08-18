@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :photo do
-    image { "MyString" }
+    image { 'MyString' }
     post { nil }
   end
 end
