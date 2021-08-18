@@ -1,2 +1,12 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="card mb-6 border-0">
+  <div class="row no-gutters">
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <%= image_tag @post.photos.first.image.url, class: "img-fluid details-image" %>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <p class="card-text"><%= simple_format(h @post.content) %></p>
+      </div>
+    </div>
+  </div>
+</div>

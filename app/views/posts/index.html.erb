@@ -5,7 +5,9 @@
 <hr class="devise-link mt-0 mb-4">
 
 <% @posts.each do |post| %>
-  <%= image_tag post.photos.first.image.url %>
+  <%= link_to post do %>
+    <%= image_tag post.photos.first.image.url %>
+  <% end %>
   <p><%= post.content %></p>
   <hr class="devise-link mt-0 mb-4">
 <% end %>

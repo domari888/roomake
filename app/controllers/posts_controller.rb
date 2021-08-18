@@ -3,7 +3,9 @@ class PostsController < ApplicationController
     @posts = Post.includes(:photos).order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   def create
     post = PostForm.new(post_params.merge(current_user_id: current_user.id))
