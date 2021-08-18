@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  def index; end
+  def index
+    @posts = Post.includes(:photos).order(created_at: :desc)
+  end
 
   def show; end
 
