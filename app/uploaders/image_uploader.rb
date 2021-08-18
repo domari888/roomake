@@ -37,7 +37,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   # ファイル形式のバリデーション
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg png]
   end
 
   # Override the filename of the uploaded files:
