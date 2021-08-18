@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
-  def index; end
+  def index
+    @posts = Post.includes(:photos).order(created_at: :desc)
+  end
 
   def show; end
 
   def create
-    post = current_user.posts.build(post_params)
+    post = PostForm.new(post_params.merge(current_user_id: current_user.id))
     if post.save
       flash[:notice] = '投稿しました'
     else
@@ -18,6 +20,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post_form).permit(:content, :image)
   end
 end

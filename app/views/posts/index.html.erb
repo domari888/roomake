@@ -1,2 +1,11 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="title-group">
+  <h1>Time Line</h1>
+  <p class="sub-title mb-0">タイムライン</p>
+</div>
+<hr class="devise-link mt-0 mb-4">
+
+<% @posts.each do |post| %>
+  <%= image_tag post.photos.first.image.url %>
+  <p><%= post.content %></p>
+  <hr class="devise-link mt-0 mb-4">
+<% end %>
