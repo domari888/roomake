@@ -3,9 +3,25 @@
     <div class="col-md-6 d-flex align-items-center justify-content-center">
       <%= image_tag @post.photos.first.image.url, class: "img-fluid details-image" %>
     </div>
-    <div class="col-md-6">
-      <div class="card-body">
-        <p class="card-text"><%= simple_format(h @post.content) %></p>
+    <div class="col-md-6 details-card">
+        <div class="card-header">
+          <%= image_tag @post.user.avater.url, class: "rounded-circle", size: "32x32" %>
+          <%= @post.user.name %>
+          <div class="dropdown float-right">
+            <div class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-cog"></i>
+            </div>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item btn btn-light" type="button">編集</button>
+              <button class="dropdown-item btn btn-light" type="button">削除</button>
+            </div>
+          </div>
+        </div>
+      <div class="card-body overflow-auto details-content">
+        <%= simple_format(h @post.content) %>
+      </div>
+      <div class="card-body border-top">
+        コメント欄を追加
       </div>
     </div>
   </div>

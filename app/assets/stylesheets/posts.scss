@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-img.details-image {
+.details-image {
   object-fit: contain;
   max-height: 600px;
+}
+
+.details-card {
+  max-height: 600px;
+}
+
+.details-content {
+  height: 80%;
 }
