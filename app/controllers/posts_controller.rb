@@ -8,8 +8,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = PostForm.new(post_params.merge(current_user_id: current_user.id))
-    if post.save
+    post = Post.new
+    post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: post))
+    if post_form.save
       flash[:notice] = '投稿しました'
     else
       flash[:alert] = 'エラーが発生しました'

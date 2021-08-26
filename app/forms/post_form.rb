@@ -11,7 +11,6 @@ class PostForm
   def save
     # バリデーションチェック
     return false if invalid?
-    # binding.pry
     # 投稿が存在する場合、投稿内容とその画像を更新
     ActiveRecord::Base.transaction do
       if post.persisted?
