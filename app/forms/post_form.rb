@@ -14,14 +14,14 @@ class PostForm
 
     # 投稿が存在する場合、投稿内容とその画像を更新
     ActiveRecord::Base.transaction do
-      if post.persisted?
-        post.photos.delete_all
-        post.update!(content: content, user_id: current_user_id)
+      if @post.persisted?
+        @post.photos.delete_all
+        @post.update!(content: content, user_id: current_user_id)
       else
         # 投稿を作成して、画像を保存
-        post = Post.new(content: content, user_id: current_user_id)
+        @post = Post.new(content: content, user_id: current_user_id)
       end
-      post.photos.build(image: image).save!
+      @post.photos.build(image: image).save!
     end
   end
 end
