@@ -7,16 +7,16 @@
   max-height: 600px;
 }
 
-.details-card {
-  max-height: 600px;
-}
-
-.details-content {
-  height: 80%;
-}
-
 .dropdown-menu {
   .delete-link {
     text-decoration: none;
+  }
+}
+
+.card-body {
+  position:relative;
+  .card-comment {
+    position:absolute;
+		bottom: 0;
   }
 }
