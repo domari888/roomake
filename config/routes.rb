@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'homes#index'
-  resources :posts, only: %i[index show create update]
+  resources :posts, except: %i[new edit]
 end

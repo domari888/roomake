@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[update destroy]
+
   def index
     @posts = Post.includes(:photos).order(created_at: :desc)
   end
@@ -8,18 +10,34 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = PostForm.new(post_params.merge(current_user_id: current_user.id))
-    if post.save
-      flash[:notice] = '投稿しました'
+    post = Post.new
+    post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: post))
+    if post_form.save
+      redirect_to posts_path, notice: '投稿しました'
     else
-      flash[:alert] = 'エラーが発生しました'
+      redirect_to posts_path, alert: 'エラーが発生しました'
     end
-    redirect_to posts_path
   end
 
-  def update; end
+  def update
+    post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: @post))
+    if post_form.save
+      redirect_to @post, notice: '投稿を編集しました'
+    else
+      redirect_to @post, alert: '編集できませんでした'
+    end
+  end
+
+  def destroy
+    @post.destroy!
+    redirect_to posts_path, alert: '削除しました'
+  end
 
   private
+
+  def set_post
+    @post = current_user.posts.find(params[:id])
+  end
 
   def post_params
     params.require(:post_form).permit(:content, :image)
