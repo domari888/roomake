@@ -21,7 +21,9 @@ class PostForm
         # 投稿を作成して、画像を保存
         @post = Post.new(content: content, user_id: current_user_id)
       end
-      @post.photos.build(image: image).save!
+      image.each do |image|
+        @post.photos.build(image: image).save!
+      end
     end
   end
 end
