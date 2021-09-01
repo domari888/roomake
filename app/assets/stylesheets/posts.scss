@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.carousel-indicators {
+  .indicators-icon {
+    border-radius: 50%;
+    margin: 1px 3px;
+    height: 5px;
+    width: 5px;
+  }
+}
+
 .carousel-item {
   text-align: center;
 }

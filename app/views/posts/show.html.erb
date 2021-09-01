@@ -5,7 +5,7 @@
       <ol class="carousel-indicators">
         <% i = 0 %>
         <% while i < @post.photos.length %>
-          <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= "active" if i == 0 %>"></li>
+          <li data-target="#carouselExampleIndicators" class="indicators-icon" data-slide-to="<%= i %>" class="<%= "active" if i == 0 %>"></li>
           <% i += 1 %>
         <% end %>
       </ol>
