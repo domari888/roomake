@@ -2,8 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.carousel-item {
+  text-align: center;
+}
+
 .details-image {
-  object-fit: contain;
   max-height: 600px;
 }
 
