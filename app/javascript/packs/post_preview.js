@@ -6,19 +6,21 @@ $(document).on('turbolinks:load', function () {
     let file_field = document.querySelector('input[type=file]')
     //file_field の値が変更されたときに発火するイベント
     $('#post-preview-image').on("change", function(){
-
+      
       // 選択をキャンセルした場合の処理
       if ($(this).val() === "") {
         $('#preview-box').children().remove();
         file_field.files = dataBox.files
         dataBox.clearData();
       }
-
+      
       // 選択したfileのオブジェクトをpropで取得
       let files = $('input[type="file"]').prop('files')[0];
       $.each(this.files, function(i, file){
         let fileReader = new FileReader();
-        
+        // 選択したfileのオブジェクトにidを付与
+        dataBox.files.length === 0 ? (preview_item_number = 0) : (preview_item_number = dataBox.files[dataBox.files.length - 1].id);
+        file.id = preview_item_number + 1;
         // DataTransferオブジェクトに対して、fileを追加
         dataBox.items.add(file)
         // DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に代入
@@ -38,12 +40,34 @@ $(document).on('turbolinks:load', function () {
 
         // 読み込んだ URL を src に格納して プレビューの HTML を作成
         fileReader.onloadend = function() {
-          let html = `<div class="preview-item" data-image="${file.name}">
+          let html = `<div class="preview-item" data-id="${file.id}">
                         <img src="${fileReader.result}" class="preview-image">
-                      </div>`
+                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>
+                      </div>`;
           $('#preview-box').append($(html));
         };
       });
+    });
+
+    // プレビューの削除ボタンをクリックしたとき、発火するイベント
+    $(document).on("click", '.delete-preview', function(){
+      let target_image = $(this).parents('.preview-item');
+      let target_id = $(target_image).data('id');
+      $.each(file_field.files, function(i, file){
+        if( file.id === target_id ){
+          dataBox.items.remove(i);
+          return false;
+        }
+      })
+      file_field.files = dataBox.files;
+      target_image.remove();
+      // 削除後の画像の枚数によって form の表示を変更
+      if ( file_field.files.length <= 6 ){
+        $('#new-button').prop('disabled', false);
+        if ( file_field.files.length <= 5 ){
+          $('#post-preview-image').show();
+        }
+      }
     });
   });
 });
