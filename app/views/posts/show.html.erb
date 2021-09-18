@@ -2,13 +2,15 @@
   <div class="row no-gutters">
     <%# 投稿画像を表示 %>
     <div class="col-md-6 carousel slide" id="carouselExampleIndicators" date-interval="false">
-      <ol class="carousel-indicators">
-        <% i = 0 %>
-        <% while i < @post.photos.length %>
-          <li data-target="#carouselExampleIndicators" class="indicators-icon" data-slide-to="<%= i %>" class="<%= "active" if i == 0 %>"></li>
-          <% i += 1 %>
-        <% end %>
-      </ol>
+      <% i = 0 %>
+      <% if @post.photos.length > 1 %>
+        <ol class="carousel-indicators">
+          <% while i < @post.photos.length %>
+            <li data-target="#carouselExampleIndicators" class="indicators-icon" data-slide-to="<%= i %>" class="<%= "active" if i == 0 %>"></li>
+            <% i += 1 %>
+          <% end %>
+        </ol>
+      <% end %>
       <div class="carousel-inner">
         <% @post.photos.each_with_index do |photo, i| %>
           <% if i == 0 %>
@@ -20,14 +22,16 @@
             </div>
         <% end %>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <% if @post.photos.length > 1 %>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      <% end %>
     </div>
     <%# 投稿詳細を表示 %>
     <div class="col-md-6">
