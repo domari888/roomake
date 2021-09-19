@@ -29,10 +29,10 @@ $(document).on('turbolinks:load', function () {
         fileReader.readAsDataURL(file);
 
         // 画像が6枚以上になった場合、input を非表示
-        let preview_item_length = $('.preview-item').length + i +1;
-        if ( preview_item_length >= 6 ){
+        let previewItemLength = $('.preview-item').length + i +1;
+        if ( previewItemLength >= 6 ){
           $('#post-preview-image').hide();
-          if ( preview_item_length == 7 ){
+          if ( previewItemLength == 7 ){
             $('#new-button').prop('disabled', true);
             alert('画像は最大 6枚 にしてください');
           } 
@@ -51,16 +51,16 @@ $(document).on('turbolinks:load', function () {
 
     // プレビューの削除ボタンをクリックしたとき、発火するイベント
     $(document).on("click", '.delete-preview', function(){
-      let target_image = $(this).parents('.preview-item');
-      let target_id = $(target_image).data('id');
+      let targetImage = $(this).parents('.preview-item');
+      let targetId = $(targetImage).data('id');
       $.each(file_field.files, function(i, file){
-        if( file.id === target_id ){
+        if( file.id === targetId ){
           dataBox.items.remove(i);
           return false;
         }
       })
       file_field.files = dataBox.files;
-      target_image.remove();
+      targetImage.remove();
       // 削除後の画像の枚数によって form の表示を変更
       if ( file_field.files.length <= 6 ){
         $('#new-button').prop('disabled', false);
