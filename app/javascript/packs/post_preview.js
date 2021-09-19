@@ -19,8 +19,8 @@ $(document).on('turbolinks:load', function () {
       $.each(this.files, function(i, file){
         let fileReader = new FileReader();
         // 選択したfileのオブジェクトにidを付与
-        dataBox.files.length === 0 ? (preview_item_number = 0) : (preview_item_number = dataBox.files[dataBox.files.length - 1].id);
-        file.id = preview_item_number + 1;
+        let lastFileId = dataBox.files.length === 0 ? 0 : $(dataBox.files).last()[0].id;
+        file.id = lastFileId + 1;
         // DataTransferオブジェクトに対して、fileを追加
         dataBox.items.add(file)
         // DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に代入
