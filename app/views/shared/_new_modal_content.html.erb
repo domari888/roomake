@@ -2,10 +2,17 @@
   <div class="form-group mt-3">
     <%= form.text_area :content, class: 'form-control', rows: '10', maxlength: 2000, required: true %>
   </div>
-  <small>2000文字以内で入力してください</small>
+  <small>* 2000文字以内で入力してください *</small>
+  <hr>
   <div class="form-group mt-3">
-    <%= form.file_field :image, class: 'form-control-file', accept: 'image/png, image/jpeg, image/jpg', required: true %>
+    <div id="preview-box" class="d-flex flex-wrap">
+      <label id="drop-container">
+        <%= form.file_field :image, multiple: true, class: 'form-control-file', accept: 'image/png, image/jpeg, image/jpg', required: true, id: "post-preview-image", type: "file", style: 'display: none;' %>
+        <i class="far fa-image" id="drop-container-icon" ></i>
+      </label>
+    </div>
   </div>
+  <small>* 最大6枚まで投稿できます *</small>
   <div class="form-group mt-3">
     <%= form.submit '投稿する', class: 'btn btn-info btn-block', id: 'new-button' %>
   </div>
