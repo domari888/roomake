@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function () {
       
       // 選択をキャンセルした場合の処理
       if ($(this).val() === "") {
-        $('#preview-box').children().remove();
+        $('.preview-item').remove();
         file_field.files = dataBox.files
         dataBox.clearData();
       }
@@ -31,11 +31,11 @@ $(document).on('turbolinks:load', function () {
         // 画像が6枚以上になった場合、input を非表示
         let previewItemLength = $('.preview-item').length + i +1;
         if ( previewItemLength >= 6 ){
-          $('#post-preview-image').hide();
+          $('#drop-container').hide();
           if ( previewItemLength == 7 ){
             $('#new-button').prop('disabled', true);
             alert('画像は最大 6枚 にしてください');
-          } 
+          }
         }
 
         // 読み込んだ URL を src に格納して プレビューの HTML を作成
@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', function () {
                         <img src="${fileReader.result}" class="preview-image">
                         <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>
                       </div>`;
-          $('#preview-box').append($(html));
+          $('#drop-container').before($(html));
         };
       });
     });
@@ -65,9 +65,52 @@ $(document).on('turbolinks:load', function () {
       if ( file_field.files.length <= 6 ){
         $('#new-button').prop('disabled', false);
         if ( file_field.files.length <= 5 ){
-          $('#post-preview-image').show();
+          $('#drop-container').show();
         }
       }
+    });
+
+    let dropArea = document.getElementById('drop-container');
+    //ドロップエリアの上にある時に発火するイベント
+    dropArea.addEventListener("dragover", function(e){
+      e.preventDefault();
+      $(this).css({'border': '2px solid #9e9e9e', 'opacity': '0.5'});
+    },false);
+    //ドロップエリアから離れた時に発火するイベント
+    dropArea.addEventListener("dragleave", function(e){
+      e.preventDefault();
+      $(this).css({'border': '2px dashed #9c9c9c', 'background': '#f7f7f7'});
+    },false);
+    // ドロップしたときに発火するイベント
+    dropArea.addEventListener("drop", function(e) {
+      e.preventDefault();
+      $(this).css({'border': '2px dashed #9c9c9c', 'background': '#f7f7f7'});
+      var files = e.dataTransfer.files;
+      $.each(files, function(i, file){
+        let fileReader = new FileReader();
+        let lastFileId = dataBox.files.length === 0 ? 0 : $(dataBox.files).last()[0].id;
+        file.id = lastFileId + 1;
+        dataBox.items.add(file)
+        file_field.files = dataBox.files
+        fileReader.readAsDataURL(file);
+        // 画像が6枚以上になった場合、input を非表示
+        let previewItemLength = $('.preview-item').length + i +1;
+        if ( previewItemLength >= 6 ){
+          $('#drop-container').hide();
+          if ( previewItemLength == 7 ){
+            $('#new-button').prop('disabled', true);
+            alert('画像は最大 6枚 にしてください');
+          }
+        }
+        // 読み込んだ URL を src に格納して プレビューの HTML を作成
+        fileReader.onloadend = function() {
+          let html = `<div class="preview-item" data-id="${file.id}">
+                        <img src="${fileReader.result}" class="preview-image">
+                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>
+                      </div>`;
+          $('#drop-container').before($(html));
+        };
+      });
     });
   });
 });
