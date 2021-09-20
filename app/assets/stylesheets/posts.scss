@@ -37,6 +37,7 @@
   position:relative;
   width: calc(100% / 2);
   padding-top: calc(100% / 2);
+  height: 0;
 }
 
 .preview-image {
@@ -53,4 +54,24 @@
   top: 0.5rem;
   right: 0.5rem;
   opacity: 0.7;
+}
+
+#drop-container {
+  position:relative;
+  width: calc(100% / 2);
+  padding-top: calc((100% / 2) - 4px );
+  margin: 0;
+  background: #f7f7f7;
+  border: 2px dashed #9c9c9c;
+  cursor: pointer;
+}
+
+#drop-container-icon {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #9c9c9c;
 }
