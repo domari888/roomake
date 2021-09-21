@@ -14,6 +14,7 @@ age = 'twenties'
 address = 'kanagawa'
 household = 'two_person_household'
 image = File.open(Rails.root.join('public/images/fallback/test.png'))
+content = 'コメント内容を表示します'
 
 User.find_or_create_by!(email: email) do |user|
   user.name = name
@@ -36,3 +37,10 @@ post1.photos.create!(image: image)
 post2.photos.create!(image: image)
 post3.photos.create!(image: image)
 puts '投稿画像の初期データインポートに成功しました。'
+
+ActiveRecord::Base.connection.execute('TRUNCATE TABLE comments RESTART IDENTITY CASCADE')
+post1.comments.create!(content: content, user_id: 1)
+post2.comments.create!(content: content, user_id: 1)
+post3.comments.create!(content: content, user_id: 1)
+puts 'コメントの初期データインポートに成功しました。'
+
