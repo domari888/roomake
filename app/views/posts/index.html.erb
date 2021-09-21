@@ -2,12 +2,33 @@
   <h1>Time Line</h1>
   <p class="sub-title mb-0">タイムライン</p>
 </div>
-<hr class="devise-link mt-0 mb-4">
+<hr class="devise-link mt-0 mb-5">
 
-<% @posts.each do |post| %>
-  <%= link_to post do %>
-    <%= image_tag post.photos.first.image.url %>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-12 col-sm-6">
+      <div class="card mb-3">
+        <%= link_to post, class: 'text-reset' do %>
+          <div class="row no-gutters">
+            <div class="col-md-6">
+              <div class="posted-image">
+                <%= image_tag post.photos.first.image.url, class: "img-fluid" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card-body h-100">
+                <div class="card-name text-truncate">
+                  <%= image_tag post.user_avater.url, class: "rounded-circle", size: "32x32" %>
+                  <%= post.user_name %>
+                </div>
+                <p class="card-text text-truncate pt-3">
+                  <%= post.content %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-  <p><%= post.content %></p>
-  <hr class="devise-link mt-0 mb-4">
-<% end %>
+</div>
