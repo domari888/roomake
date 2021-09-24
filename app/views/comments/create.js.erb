@@ -1,0 +1,2 @@
+document.getElementById('post-<%= @post.id %>').innerHTML = '<%= j render("comments/list", comments: @comment.post.comments.order(created_at: :desc)) %>';
+document.getElementById('comment_content').value = '';

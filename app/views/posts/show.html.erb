@@ -35,12 +35,12 @@
     </div>
     <%# 投稿詳細を表示 %>
     <div class="col-md-6">
-      <div class="card-body h-100">
-        <div class="card-name">
+      <div class="card-body d-flex flex-column h-100">
+        <div class="card-name d-flex">
           <%= image_tag @post.user_avater.url, class: "rounded-circle", size: "32x32" %>
           <%= @post.user_name %>
           <% if current_user.id == @post.user_id %>
-            <div class="dropdown float-right">
+            <div class="dropdown ml-auto">
               <div class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-cog"></i>
               </div>
@@ -53,11 +53,14 @@
             </div>
           <% end %>
         </div>
-        <div class="card-text border-top">
+        <div class="card-text border-top py-3">
           <%= simple_format(h @post.content) %>
+          <div class="comment-container border-top" id="post-<%= @post.id %>">
+            <%= render partial: "comments/list", locals: {comments: @comments} %>
+          </div>
         </div>
-        <div class="card-comment border-top">
-          コメント欄を追加
+        <div class="card-form">
+          <%= render partial: "comments/form", locals: {post: @post, comment: @comment} %>
         </div>
       </div>
     </div>

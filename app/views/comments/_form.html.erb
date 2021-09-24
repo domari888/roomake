@@ -1,0 +1,6 @@
+<%= form_with model: [post, comment], local: false do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :post_id, value: post.id %>
+  <%= form.text_area :content, class: "form-control", placeholder: "コメント...", required: true, maxlength: 140 %>
+  <%= form.submit "投稿する", class: "btn btn-info" %>
+<% end %>
