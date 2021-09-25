@@ -8,6 +8,9 @@
         </div>
         <%= comment.content %>
       </div>
+      <% if comment.user == current_user %>
+        <%= link_to "×", post_comment_path(comment.post, comment), class: "text-reset mr-3 ml-auto", method: :delete, remote: true, data: {confirm: "コメントを削除しますか?"} %>
+      <% end %>
     </div>
   <% end %>
 </div>
