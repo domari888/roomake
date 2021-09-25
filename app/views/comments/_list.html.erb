@@ -1,9 +1,11 @@
-<div class="comment-box">
+<div class="comment-box border-top">
   <% comments.each do |comment|%>
-    <div class="comment-user py-2">
+    <div class="comment-user py-2 d-flex">
       <%= image_tag comment.user.avater.url, class: "rounded-circle", size: "24x24" %>
-      <%= comment.user.name %>
-      <div class="comment-content">
+      <div class="flex-column">
+        <div class="font-weight-bold">
+          <%= comment.user.name %>
+        </div>
         <%= comment.content %>
       </div>
     </div>
