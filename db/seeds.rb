@@ -43,4 +43,3 @@ post1.comments.create!(content: content, user_id: 1)
 post2.comments.create!(content: content, user_id: 1)
 post3.comments.create!(content: content, user_id: 1)
 puts 'コメントの初期データインポートに成功しました。'
-
