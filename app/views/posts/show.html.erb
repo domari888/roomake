@@ -61,7 +61,7 @@
           </div>
           <div class="comment-container" id="post-<%= @post.id %>">
             <% if @comments.present? %>
-              <%= render partial: "comments/list", locals: {comments: @comments} %>
+              <%= render partial: "comments/list", collection: @comments, as: "comment" %>
             <% end %>
           </div>
         </div>
