@@ -3,11 +3,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comment_params)
     @comment.save!
+    flash.now[:notice] = 'コメントを投稿しました'
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy!
+    flash.now[:alert] = 'コメントを削除しました'
   end
 
   private
