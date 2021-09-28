@@ -13,7 +13,9 @@
   <body>
     <%= render 'shared/header_top' %>
     <%= render 'shared/header_bottom' %>
-    <%= render 'layouts/flash_messages' %>
+    <div id="flash-messages">
+      <%= render 'layouts/flash_messages' %>
+    </div>
     <div class='base-container py-4 <%= max_width %>'>
       <%= yield %>
     </div>

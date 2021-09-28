@@ -24,13 +24,8 @@
     text-decoration: none;
   }
 }
-
 .card-body {
-  position:relative;
-  .card-comment {
-    position:absolute;
-		bottom: 0;
-  }
+  max-height: 600px;
 }
 
 .preview-item {
