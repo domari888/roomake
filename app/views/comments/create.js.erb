@@ -1,3 +1,4 @@
 document.getElementById('post-<%= @post.id %>').insertAdjacentHTML('afterbegin', '<%= j render("comments/list", comment: @comment) %>');
 document.getElementById('flash-messages').innerHTML = '<%= j render("layouts/flash_messages") %>';
+document.getElementById('comment-error-messages').textContent = '';
 document.getElementById('comment_content').value = '';

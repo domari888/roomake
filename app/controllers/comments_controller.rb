@@ -2,8 +2,11 @@ class CommentsController < ApplicationController
   before_action :set_post
   def create
     @comment = @post.comments.build(comment_params)
-    @comment.save!
-    flash.now[:notice] = 'コメントを投稿しました'
+    if @comment.save
+      flash.now[:notice] = 'コメントを投稿しました'
+    else
+      render :error_messages
+    end
   end
 
   def destroy

@@ -1,4 +1,7 @@
 <%= form_with model: [post, comment], class: "form-inline", local: false do |form| %>
+  <div id="comment-error-messages">
+    <%= render "layouts/error_messages", model: comment %>
+  </div>
   <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.hidden_field :post_id, value: post.id %>
   <%= form.text_area :content, class: "form-control comment-form flex-grow-1", placeholder: "コメント...", required: true, maxlength: 140, rows: "1" %>
