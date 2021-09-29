@@ -13,7 +13,22 @@
     </div>
   </div>
   <small>* 最大6枚まで投稿できます *</small>
-  <div class="form-group mt-3">
+  <hr>
+  <div class="form-row">
+    <div class="form-group mt-3">
+      <div class="form-check form-check-inline flex-wrap m-0">
+        <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name, include_hidden: false do |form| %>
+          <div class="col-6 col-md-4 col-lg-2">
+            <%= form.check_box %>
+            <%= form.text %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <small>* タグは3つまで選択可能です *</small>
+  <hr>
+  <div class="form-group mt-4">
     <%= form.submit '投稿する', class: 'btn btn-info btn-block', id: 'new-button' %>
   </div>
 <% end %>
