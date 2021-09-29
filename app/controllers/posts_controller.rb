@@ -42,6 +42,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post_form).permit(:content, image: [])
+    params.require(:post_form).permit(:content, image: [], tag_ids: [])
   end
 end

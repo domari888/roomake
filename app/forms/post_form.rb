@@ -1,7 +1,7 @@
 class PostForm
   include ActiveModel::Model
 
-  attr_accessor :content, :image, :current_user_id, :post
+  attr_accessor :content, :image, :current_user_id, :post, :tag_ids
 
   # Post モデルのバリデーション
   validates :content, presence: true, length: { maximum: 2000 }
@@ -23,6 +23,9 @@ class PostForm
       end
       image.each do |image|
         @post.photos.build(image: image).save!
+      end
+      tag_ids.each do |tag_id|
+        @post.post_tags.build(tag_id: tag_id).save!
       end
     end
   end
