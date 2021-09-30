@@ -64,7 +64,7 @@ post2.post_tags.create!(tag_id: 2)
 post3.post_tags.create!(tag_id: 3)
 puts '投稿タグの初期データインポートに成功しました。'
 
-ActiveRecord::Base.connection.execute('TRUNCATE TABLE post_tags RESTART IDENTITY CASCADE')
+ActiveRecord::Base.connection.execute('TRUNCATE TABLE post_categories RESTART IDENTITY CASCADE')
 post1.post_categories.create!(category_id: 1)
 post2.post_categories.create!(category_id: 2)
 post3.post_categories.create!(category_id: 3)
