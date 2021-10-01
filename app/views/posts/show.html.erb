@@ -55,11 +55,19 @@
             </div>
           <% end %>
         </div>
-        <div class="border-top py-3">
+        <div class="border-top pt-3">
           <i class="fas fa-tag"></i>
           <% @post.tags.each do |tag| %>
             <span class="pr-2">
               <%= tag.name %>
+            </span>
+          <% end %>
+        </div>
+        <div class="pt-3">
+          <i class="fas fa-folder"></i>
+          <% @post.categories.each do |category| %>
+            <span class="pr-2">
+              <%= category.name %>
             </span>
           <% end %>
         </div>

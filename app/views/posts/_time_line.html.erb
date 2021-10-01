@@ -13,14 +13,24 @@
               <%= image_tag post.user_avater.url, class: "rounded-circle", size: "32x32" %>
               <%= post.user_name %>
             </div>
-            <div class="border-top py-3">
-              <i class="fas fa-tag"></i>
-              <% post.tags.each do |tag| %>
-                <span class="pr-2">
-                  <%= tag.name %>
-                </span>
-              <% end %>
-            </div>
+            <small>
+              <div class="border-top pt-2">
+                <i class="fas fa-tag"></i>
+                <% post.tags.each do |tag| %>
+                  <span class="pr-2">
+                    <%= tag.name %>
+                  </span>
+                <% end %>
+              </div>
+              <div class="pt-2">
+                <i class="fas fa-folder"></i>
+                <% post.categories.each do |category| %>
+                  <span class="pr-2">
+                    <%= category.name %>
+                  </span>
+                <% end %>
+              </div>
+            </small>
             <p class="card-text text-truncate pt-3">
               <%= post.content %>
             </p>
