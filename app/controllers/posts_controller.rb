@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
+    gon.edit_content = @post.content
   end
 
   def create

@@ -1,7 +1,9 @@
 $(document).on('turbolinks:load', function() {
+  let content = gon.edit_content
   $(function() {
-    $('#post-edit').on("click", function(){
-      console.log('edit')
-    })
+    // 投稿内容を表示
+    $('#edit-modal').on('show.bs.modal', function () {
+      $('#edit-form').val(content)
+    });
   });
 });
