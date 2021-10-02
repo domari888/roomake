@@ -14,6 +14,7 @@ import "bootstrap/dist/js/bootstrap"
 import "@fortawesome/fontawesome-free/js/all"
 import "./preview"
 import "./post_preview"
+import "./post_edit"
 
 Rails.start()
 Turbolinks.start()
