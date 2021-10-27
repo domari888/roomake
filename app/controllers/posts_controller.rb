@@ -10,12 +10,13 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
     gon.edit_content = @post.content
+    gon.edit_photos = @post.photos
   end
 
   def create
     @post = Post.new
-    post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: @post))
-    if post_form.save
+    @post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: @post))
+    if @post_form.save
       redirect_to posts_path, notice: '投稿しました'
     else
       redirect_to posts_path, alert: 'エラーが発生しました'
@@ -23,8 +24,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: @post))
-    if post_form.save
+    @post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: @post))
+    if @post_form.save
       redirect_to @post, notice: '投稿を編集しました'
     else
       redirect_to @post, alert: '編集できませんでした'
@@ -43,6 +44,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post_form).permit(:content, image: [], tag_ids: [], category_ids: [])
+    params.require(:post_form).permit(:content, image: [], delete_ids: [])
   end
 end
