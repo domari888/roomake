@@ -4,6 +4,7 @@ $(document).on('turbolinks:load', function() {
       let content = gon.edit_content
       let photos = gon.edit_photos
       let tags = gon.edit_tags
+      let categories = gon.edit_categories
       // 投稿内容を表示
       $('#content-form').val(content)
       // 投稿画像を表示
@@ -46,6 +47,24 @@ $(document).on('turbolinks:load', function() {
           $(targetTag).prop('checked', true);
         });
       }      
+
+      // 投稿カテゴリーの表示
+      const checkedCategory = $('.categories-check-box:checked');
+      const checkedCategoryIds = $.map(checkedCategory, function(category){
+        const previewCategory = $(category).val();
+        return parseInt(previewCategory);
+      });
+      const categoryIds = $.map(categories, function(category){
+        return category.id;
+      });
+      if(checkedCategoryIds.toString() !== categoryIds.toString()){
+        $('.categories-check-box').prop('checked', false);
+        categories.forEach(function(category){
+          const categoriesIndex = category.id - 1
+          const targetCategory = $('.categories-check-box')[categoriesIndex];
+          $(targetCategory).prop('checked', true);
+        });
+      }
     });
   });
 });

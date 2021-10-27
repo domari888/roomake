@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     gon.edit_content = @post.content
     gon.edit_photos = @post.photos
     gon.edit_tags = @post.tags
+    gon.edit_categories = @post.categories
   end
 
   def create
@@ -45,6 +46,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post_form).permit(:content, image: [], tag_ids: [], delete_ids: [])
+    params.require(:post_form).permit(:content, image: [], tag_ids: [], category_ids: [], delete_ids: [])
   end
 end
