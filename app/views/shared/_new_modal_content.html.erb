@@ -5,9 +5,9 @@
   <small>* 2000文字以内で入力してください *</small>
   <hr>
   <div class="form-group mt-3">
-    <div id="preview-box" class="d-flex flex-wrap">
-      <label id="drop-container">
-        <%= form.file_field :image, multiple: true, class: 'form-control-file', accept: 'image/png, image/jpeg, image/jpg', required: true, id: "post-preview-image", type: "file", style: 'display: none;' %>
+    <div class="preview-box d-flex flex-wrap">
+      <label class="drop-container" id="new-drop">
+        <%= form.file_field :image, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", style: 'display: none;', data: {action: "new"} %>
         <i class="far fa-image" id="drop-container-icon" ></i>
       </label>
     </div>
