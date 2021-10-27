@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @comments = @post.comments.order(created_at: :desc)
     gon.edit_content = @post.content
     gon.edit_photos = @post.photos
+    gon.edit_tags = @post.tags
   end
 
   def create
@@ -44,6 +45,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post_form).permit(:content, image: [], delete_ids: [])
+    params.require(:post_form).permit(:content, image: [], tag_ids: [], delete_ids: [])
   end
 end
