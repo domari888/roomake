@@ -13,7 +13,7 @@ import "bootstrap/dist/js/bootstrap"
 // FontAwesome をインクルード
 import "@fortawesome/fontawesome-free/js/all"
 import "./preview"
-import "./post_preview"
+import "./photos_preview"
 import "./post_edit"
 
 Rails.start()
