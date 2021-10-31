@@ -15,6 +15,8 @@ import "@fortawesome/fontawesome-free/js/all"
 import "./preview"
 import "./photos_preview"
 import "./post_edit"
+import "./jquery.validate"
+import "./jquery.validate.min"
 
 Rails.start()
 Turbolinks.start()
