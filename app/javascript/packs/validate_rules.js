@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
     $('.modal').on('hidden.bs.modal', function(){
-      $('label.error').remove();
+      $('div.error').remove();
     });
     $(".post-form").each(function(){
       $(this).validate({
