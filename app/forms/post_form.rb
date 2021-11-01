@@ -8,8 +8,8 @@ class PostForm
   # Photo モデルのバリデーション
   validates :image, presence: true, on: :create
 
-  validates :tag_ids, presence: true
-  validates :category_ids, presence: true
+  validates :tag_ids, presence: true, length: { maximum: 2 }
+  validates :category_ids, presence: true, length: { maximum: 2 }
 
   def save
     return false if invalid?
