@@ -30,13 +30,12 @@ $(document).on('turbolinks:load', function () {
                       </div>`;
           $(`#${action}-drop`).before($(html));
           const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
-          if ( previewItemLength >= 1 ){
-            $(`#${action}-button`).prop('disabled', false);
-            if ( previewItemLength >= 6 ){
-              $(`#${action}-drop`).hide();
-              if ( previewItemLength == 7 ){
-                alert('画像は最大 6枚 にしてください');
-              }
+          if ( previewItemLength >= 1 && previewItemLength <= 6 ) $(`#${action}-button`).prop('disabled', false);
+          if ( previewItemLength >= 6 ){
+            $(`#${action}-drop`).hide();
+            if ( previewItemLength === 7 ){
+              $(`#${action}-button`).prop('disabled', true);
+              alert('画像は最大 6枚 にしてください');
             }
           }
         };
@@ -126,11 +125,11 @@ $(document).on('turbolinks:load', function () {
                       </div>`;
             $(`#${action}-drop`).before($(html));
             const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
-            if ( previewItemLength >= 1 ){
+            if ( previewItemLength >= 1 && previewItemLength <= 6){
               $(`#${action}-button`).prop('disabled', false);
                 if ( previewItemLength >= 6 ){
                 $(`#${action}-drop`).hide();
-                if ( previewItemLength == 7 ){
+                if ( previewItemLength === 7 ){
                   $(`#${action}-button`).prop('disabled', true);
                   alert('画像は最大 6枚 にしてください');
                 }
