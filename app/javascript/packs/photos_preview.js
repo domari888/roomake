@@ -30,11 +30,13 @@ $(document).on('turbolinks:load', function () {
                       </div>`;
           $(`#${action}-drop`).before($(html));
           const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
-          if ( previewItemLength >= 6 ){
-            $(`#${action}-drop`).hide();
-            if ( previewItemLength == 7 ){
-              $(`#${action}-button`).prop('disabled', true);
-              alert('画像は最大 6枚 にしてください');
+          if ( previewItemLength >= 1 ){
+            $(`#${action}-button`).prop('disabled', false);
+            if ( previewItemLength >= 6 ){
+              $(`#${action}-drop`).hide();
+              if ( previewItemLength == 7 ){
+                alert('画像は最大 6枚 にしてください');
+              }
             }
           }
         };
@@ -71,6 +73,9 @@ $(document).on('turbolinks:load', function () {
         $(`#${action}-button`).prop('disabled', false);
         if ( previewItemLength <= 5 ){
           $(`#${action}-drop`).show();
+          if ( previewItemLength === 0 ){
+            $(`#${action}-button`).prop('disabled', true);
+          }
         }
       }
     });
@@ -121,11 +126,14 @@ $(document).on('turbolinks:load', function () {
                       </div>`;
             $(`#${action}-drop`).before($(html));
             const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
-            if ( previewItemLength >= 6 ){
-              $(`#${action}-drop`).hide();
-              if ( previewItemLength == 7 ){
-                $(`#${action}-button`).prop('disabled', true);
-                alert('画像は最大 6枚 にしてください');
+            if ( previewItemLength >= 1 ){
+              $(`#${action}-button`).prop('disabled', false);
+                if ( previewItemLength >= 6 ){
+                $(`#${action}-drop`).hide();
+                if ( previewItemLength == 7 ){
+                  $(`#${action}-button`).prop('disabled', true);
+                  alert('画像は最大 6枚 にしてください');
+                }
               }
             }
           };
