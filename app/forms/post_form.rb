@@ -1,41 +1,50 @@
 class PostForm
   include ActiveModel::Model
 
-  attr_accessor :content, :image, :current_user_id, :post, :tag_ids, :category_ids
+  attr_accessor :content, :image, :current_user_id, :post, :tag_ids, :category_ids, :delete_ids
 
   # Post モデルのバリデーション
   validates :content, presence: true, length: { maximum: 2000 }
   # Photo モデルのバリデーション
-  validates :image, presence: true
+  validates :image, presence: true, on: :create
+
+  validates :tag_ids, presence: true, length: { maximum: 2 }
+  validates :category_ids, presence: true, length: { maximum: 2 }
 
   def save
-    # バリデーションチェック
     return false if invalid?
 
-    # 投稿が存在する場合は、投稿内容を更新
     ActiveRecord::Base.transaction do
       if @post.persisted?
-        @post.photos.delete_all
-        @post.update!(content: content, user_id: current_user_id)
+        post_update
       else
-        # 投稿を作成して、画像を保存
-        @post = Post.new(content: content, user_id: current_user_id)
+        post_create
       end
-      build_attrbutes
     end
   end
 
   private
 
-  def build_attrbutes
-    image.each do |image|
-      @post.photos.build(image: image).save!
+  def post_update
+    if delete_ids.present?
+      delete_ids.each do |id|
+        Photo.find(id.to_i).destroy!
+      end
     end
-    tag_ids.each do |tag_id|
-      @post.post_tags.build(tag_id: tag_id).save!
+    if image.present?
+      image.each do |img|
+        post.photos.build(image: img).save!
+      end
     end
-    category_ids.each do |category_id|
-      @post.post_categories.build(category_id: category_id).save!
+    raise ActiveRecord::Rollback unless @post.photos.any?
+
+    @post.update!(content: content, tag_ids: tag_ids, category_ids: category_ids)
+  end
+
+  def post_create
+    post = Post.new(content: content, user_id: current_user_id, tag_ids: tag_ids, category_ids: category_ids)
+    image.each do |img|
+      post.photos.build(image: img).save!
     end
   end
 end

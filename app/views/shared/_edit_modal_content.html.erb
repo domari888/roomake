@@ -1,12 +1,40 @@
-<%= form_with model: PostForm.new, url: post_path, method: :patch, local: true do |form| %>
+<%= form_with model: PostForm.new, url: post_path, class: 'post-form', method: :patch, local: true do |form| %>
   <div class="form-group mt-3">
-    <%= form.text_area :content, class: 'form-control', rows: '10', maxlength: 2000, required: true %>
+    <%= form.text_area :content, class: 'form-control', id: 'content-form', rows: '10', maxlength: 2000 %>
   </div>
   <small>2000文字以内で入力してください</small>
+  <hr>
   <div class="form-group mt-3">
-    <%= form.file_field :image, multiple: true, class: 'form-control-file', accept: 'image/png, image/jpeg, image/jpg', required: true %>
+    <div class="preview-box d-flex flex-wrap">
+      <label class="drop-container" id="edit-drop">
+        <%= form.file_field :image, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', type: "file", style: 'display: none;', data: { action: "edit" } %>
+        <i class="far fa-image" id="drop-container-icon" ></i>
+      </label>
+    </div>
   </div>
+  <small>* 最大6枚まで投稿できます *</small>
+  <hr>
+  <div class="form-group row mt-3 tag-group">
+    <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name, include_hidden: false do |form| %>
+      <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap m-0">
+        <%= form.check_box class: "tags-check-box"%>
+        <%= form.text %>
+      </label>
+    <% end %>
+  </div>
+  <small>* 最大2つまで選択可能です *</small>
+  <hr>
+  <div class="form-group row mt-3 category-group">
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |form| %>
+      <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap">
+        <%= form.check_box class: "categories-check-box"%>
+        <%= form.text %>
+      </label>
+    <% end %>
+  </div>
+  <small>* 最大2つまで選択可能です *</small>
+  <hr>
   <div class="form-group mt-3">
-    <%= form.submit '投稿する', class: 'btn btn-info btn-block', id: 'new-button' %>
+    <%= form.submit '投稿する', class: 'btn btn-info btn-block', id: 'edit-button' %>
   </div>
 <% end %>

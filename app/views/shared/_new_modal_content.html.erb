@@ -1,36 +1,38 @@
-<%= form_with model: PostForm.new, url: posts_path, local: true do |form| %>
+<%= form_with model: PostForm.new, url: posts_path, class: 'post-form', local: true do |form| %>
   <div class="form-group mt-3">
-    <%= form.text_area :content, class: 'form-control', rows: '10', maxlength: 2000, required: true %>
+    <%= form.text_area :content, class: 'form-control', rows: '10', maxlength: 2000 %>
   </div>
   <small>* 2000文字以内で入力してください *</small>
   <hr>
   <div class="form-group mt-3">
-    <div id="preview-box" class="d-flex flex-wrap">
-      <label id="drop-container">
-        <%= form.file_field :image, multiple: true, class: 'form-control-file', accept: 'image/png, image/jpeg, image/jpg', required: true, id: "post-preview-image", type: "file", style: 'display: none;' %>
+    <div class="preview-box d-flex flex-wrap">
+      <label class="drop-container" id="new-drop">
+        <%= form.file_field :image, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", style: 'display: none;', data: {action: "new"} %>
         <i class="far fa-image" id="drop-container-icon" ></i>
       </label>
     </div>
   </div>
   <small>* 最大6枚まで投稿できます *</small>
   <hr>
-  <div class="form-group row mt-3">
+  <div class="form-group row mt-3 tag-group">
     <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name, include_hidden: false do |form| %>
-      <div class="form-check col-6 col-md-4 col-lg-2 flex-wrap m-0">
+      <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap m-0">
         <%= form.check_box %>
         <%= form.text %>
-      </div>
+      </label>
     <% end %>
   </div>
+  <small>* 最大2つまで選択可能です *</small>
   <hr>
-  <div class="form-group row mt-3">
+  <div class="form-group row mt-3 category-group">
     <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |form| %>
-      <div class="form-check col-6 col-md-4 col-lg-2 flex-wrap">
+      <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap">
         <%= form.check_box %>
         <%= form.text %>
-      </div>
+      </label>
     <% end %>
   </div>
+  <small>* 最大2つまで選択可能です *</small>
   <hr>
   <div class="form-group mt-4">
     <%= form.submit '投稿する', class: 'btn btn-info btn-block', id: 'new-button' %>
