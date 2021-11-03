@@ -13,7 +13,7 @@
     <%= link_to posts_path, class: "nav-item nav-link fa-lg" do %>
       <i class="fas fa-home"></i>
     <% end %>
-    <%= link_to "#", class: "nav-item nav-link fa-lg" do %>
+    <%= link_to user_path(current_user.id), class: "nav-item nav-link fa-lg" do %>
       <i class="fas fa-user"></i>
     <% end %>
   </div>
