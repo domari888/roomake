@@ -34,6 +34,7 @@ gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'enum_help'
 gem 'gon'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'rails-i18n', '~> 6.0'
 
