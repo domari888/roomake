@@ -36,16 +36,7 @@
       </a>
     </div>
     <div class="tab-content pt-3 bg-light" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="list-posts" role="tabpanel" area-labelledby="list-posts-list">
-        <div class="d-flex flex-wrap">
-          <% @posts.each do |post| %>
-            <div class="col-4 p-1 bg-light">
-              <%= image_tag post.photos.first.image.url, class: "img-fluid" %>
-            </div>
-          <% end %>
-        </div>
-        <%= paginate @posts %>
-      </div>
+      <%= render "posts_paginate", posts: @posts %>
       <div class="tab-pane fade" id="list-liked" role="tabpanel" area-labelledby="list-liked-list">
         <div class="col-md-4 p-1">
           <p>いいね済み</p>
