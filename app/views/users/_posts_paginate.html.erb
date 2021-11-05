@@ -2,7 +2,9 @@
   <div class="d-flex flex-wrap">
     <% posts.each do |post| %>
       <div class="col-4 p-1 bg-light">
+      <%= link_to post_path(post) do %>
         <%= image_tag post.photos.first.image.url, class: "img-fluid fadein-image", width: "1080px", height: "1080px" %>
+      <% end %>
       </div>
     <% end %>
   </div>
