@@ -10,3 +10,25 @@
   background-color: #f8f9fa;
   border: transparent;
 }
+
+#custom-pagination {
+  justify-content: center;
+  .page-link {
+    background-color: #f8f9fa;
+    border: transparent;
+    color: #212529;
+    &:hover {
+      border-radius: 50%;
+      background-color: #EEEDEC;
+      color: #212529;
+    }
+  }
+  .active .page-link {
+    border-radius: 50%;
+    background-color: #6c757d;
+    color: #f8f9fa;
+  }
+  .disabled .page-link {
+    background-color: #f8f9fa;
+  }
+}
