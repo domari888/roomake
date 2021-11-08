@@ -1,17 +1,20 @@
 <div class="col-12 col-sm-6">
   <div class="card mb-3">
-    <%= link_to post, class: 'text-reset' do %>
       <div class="row no-gutters">
         <div class="col-md-6">
-          <div class="posted-image">
-            <%= image_tag post.photos.first.image.url, class: "img-fluid" %>
-          </div>
+          <%= link_to post do %>
+            <div class="posted-image">
+              <%= image_tag post.photos.first.image.url, class: "img-fluid" %>
+            </div>
+          <% end %>
         </div>
         <div class="col-md-6">
           <div class="card-body h-100">
             <div class="card-name text-truncate">
-              <%= image_tag post.user_avater.url, class: "rounded-circle", size: "32x32" %>
-              <%= post.user_name %>
+              <%= link_to user_path(post.user_id), class: 'text-reset' do %>
+                <%= image_tag post.user_avater.url, class: "rounded-circle", size: "32x32" %>
+                <%= post.user_name %>
+              <% end %>
             </div>
             <small>
               <div class="border-top pt-2">
@@ -34,9 +37,11 @@
             <p class="card-text text-truncate pt-3">
               <%= post.content %>
             </p>
+            <%= link_to post do %>
+              <small class="text-muted">詳細を見る</small>
+            <% end %>
           </div>
         </div>
       </div>
-    <% end %>
   </div>
 </div>

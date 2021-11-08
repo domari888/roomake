@@ -8,5 +8,5 @@ class Post < ApplicationRecord
   has_many :categories, through: :post_categories
 
   # user モデルの name を委譲する
-  delegate :name, :avater, to: :user, prefix: true
+  delegate :name, :avater, :id, to: :user, prefix: true
 end

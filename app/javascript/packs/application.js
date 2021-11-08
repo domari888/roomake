@@ -12,12 +12,15 @@ import "channels"
 import "bootstrap/dist/js/bootstrap"
 // FontAwesome をインクルード
 import "@fortawesome/fontawesome-free/js/all"
+// jscroll をインクルード
+import "jscroll/dist/jquery.jscroll.min"
 import "./preview"
 import "./photos_preview"
 import "./post_edit"
 import "./jquery.validate"
 import "./jquery.validate.min"
 import "./validate_rules"
+import "./user_show"
 
 Rails.start()
 Turbolinks.start()

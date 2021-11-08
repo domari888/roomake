@@ -1,0 +1,47 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user-name {
+  font-size: 24px;
+}
+
+.user-info {
+  font-size: 18px;
+}
+
+#list-tab a.active {
+  background-color: #f8f9fa;
+  border: transparent;
+}
+
+#custom-pagination {
+  justify-content: center;
+  .page-link {
+    background-color: #f8f9fa;
+    border: transparent;
+    color: #212529;
+    &:hover {
+      border-radius: 50%;
+      background-color: #EEEDEC;
+      color: #212529;
+    }
+  }
+  .active .page-link {
+    border-radius: 50%;
+    background-color: #6c757d;
+    color: #f8f9fa;
+  }
+  .disabled .page-link {
+    background-color: #f8f9fa;
+  }
+}
+
+.fadein-image {
+  animation: fadein 2s forwards;
+}
+
+@keyframes fadein {
+	0% {opacity: 0}
+	100% {opacity: 1}
+}
