@@ -12,12 +12,12 @@
     <div class="border-bottom user-info mb-3">
       <%= @user.address %>
     </div>
-    <% if @user.favorite_items.present? %>
+    <% if @user.favorite_items? %>
       <div class="border-bottom user-info mb-3">
         <%= @user.favorite_items %>
       </div>
     <% end %>
-    <% if @user.profile.present? %>
+    <% if @user.profile? %>
       <div class="border-bottom user-info mb-3">
         <%= @user.profile %>
       </div>
