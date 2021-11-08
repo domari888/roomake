@@ -10,7 +10,6 @@ $(document).on('turbolinks:load', function(){
         contentSelector: '.jscroll',
         pagingSelector: '.pagination',
         callback: function(){
-          console.log('ok')
           $('.pagination').hide();
         }
       };
