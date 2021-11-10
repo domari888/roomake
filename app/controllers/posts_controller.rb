@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[update destroy]
 
   def index
-    @posts = Post.includes(:photos).order(created_at: :desc)
   end
 
   def show
