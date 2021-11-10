@@ -1,0 +1,35 @@
+<%= search_form_for @q do |form| %>
+  <div class="form-group pb-3">
+    <i class="fas fa-search"></i>
+    <%= form.label :user_name_or_content_cont, "キーワード", class: "font-weight-bold" %>
+    <%= form.search_field :user_name_or_content_cont, class: 'form-control', placeholder: "キーワードを入力" %>
+  </div>
+  <hr>
+  <div class="form-group mt-3">
+    <i class="fas fa-tag"></i>
+    <%= form.label :tags_id_in, "タグ", class: "font-weight-bold" %>
+    <div class="row">
+      <%= form.collection_check_boxes :tags_id_in, Tag.all, :id, :name, include_hidden: false do |form| %>
+        <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap m-0">
+          <%= form.check_box %>
+          <%= form.text %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+  <div class="form-group mt-3">
+    <i class="fas fa-folder"></i>
+    <%= form.label :categories_id_in, "カテゴリー", class: "font-weight-bold" %>
+    <div class="row">
+      <%= form.collection_check_boxes :categories_id_in, Category.all, :id, :name, include_hidden: false do |form| %>
+        <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap m-0">
+          <%= form.check_box %>
+          <%= form.text %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+  <%= form.submit "検索する", class: 'btn btn-info btn-block' %>
+<% end %>
