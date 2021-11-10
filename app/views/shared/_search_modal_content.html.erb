@@ -6,30 +6,38 @@
   </div>
   <hr>
   <div class="form-group mt-3">
-    <i class="fas fa-tag"></i>
+    <i class="fas fa-tag tag-color"></i>
     <%= form.label :tags_id_in, "タグ", class: "font-weight-bold" %>
-    <div class="row">
+    <ul class="row px-3">
       <%= form.collection_check_boxes :tags_id_in, Tag.all, :id, :name, include_hidden: false do |form| %>
-        <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap m-0">
-          <%= form.check_box %>
-          <%= form.text %>
-        </label>
+        <li class="form-check col-6 col-md-4 col-lg-2 flex-wrap px-2">
+          <label class="border rounded-pill w-100">
+            <%= form.check_box class: "d-none" %>
+            <span class="d-flex justify-content-center rounded-pill">
+              <%= form.text %>
+            </span>
+          </label>
+        </li>
       <% end %>
-    </div>
+    </ul>
   </div>
   <hr>
   <div class="form-group mt-3">
-    <i class="fas fa-folder"></i>
+    <i class="fas fa-folder category-color"></i>
     <%= form.label :categories_id_in, "カテゴリー", class: "font-weight-bold" %>
-    <div class="row">
+    <ul class="row px-3">
       <%= form.collection_check_boxes :categories_id_in, Category.all, :id, :name, include_hidden: false do |form| %>
-        <label class="form-check col-6 col-md-4 col-lg-2 flex-wrap m-0">
-          <%= form.check_box %>
-          <%= form.text %>
-        </label>
+        <li class="form-check col-6 col-md-4 col-lg-2 flex-wrap px-2">
+          <label class="rounded-pill w-100">
+            <%= form.check_box class: "d-none" %>
+            <span class="d-flex justify-content-center border rounded-pill">
+              <%= form.text %>
+            </span>
+          </label>
+        </li>
       <% end %>
-    </div>
+    </ul>
   </div>
-  <hr>
-  <%= form.submit "検索する", class: 'btn btn-info btn-block' %>
+  <hr class="py-2 m-0">
+  <%= form.submit "検索する", class: 'btn btn-info btn-block my-3' %>
 <% end %>

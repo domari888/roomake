@@ -68,3 +68,20 @@ button.close, button.navbar-toggler {
 a:hover {
   text-decoration: none;
 }
+
+.tag-color {
+  color: #baa877;
+}
+
+.category-color {
+  color: #a8a9a8;
+}
+
+.form-check label {
+  cursor: pointer;
+}
+
+input:checked + span {
+  color: #EEEDEC;
+  background-color: #6c757d;
+}
