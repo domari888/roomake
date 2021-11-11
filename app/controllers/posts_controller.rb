@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[update destroy]
 
-  def index
-  end
+  def index; end
 
   def show
     @post = Post.find(params[:id])
