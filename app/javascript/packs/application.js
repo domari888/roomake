@@ -21,6 +21,7 @@ import "./jquery.validate"
 import "./jquery.validate.min"
 import "./validate_rules"
 import "./user_show"
+import "./search"
 
 Rails.start()
 Turbolinks.start()
