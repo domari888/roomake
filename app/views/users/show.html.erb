@@ -24,18 +24,18 @@
     <% end %>
   </div>
   <div class="col-12 col-md-6 d-flex flex-column h-100">
-    <div class="list-group list-group-horizontal w-100 p-0" id="list-tab" role="tablist">
-      <a class="list-group-item flex-fill list-group-item-dark list-group-item-action active text-reset border-bottom-0 rounded-0" id="list-posts-list" data-toggle="list" href="#list-posts" role="tab" aria-controls="posts">
+    <div class="list-group list-group-horizontal w-100" id="list-tab" role="tablist">
+      <a class="list-group-item flex-fill list-group-item-action active text-reset rounded-0" id="list-posts-list" data-toggle="list" href="#list-posts" role="tab" aria-controls="posts">
         <small class="d-flex justify-content-around">投稿</small>
       </a>
-      <a class="list-group-item flex-fill list-group-item-dark list-group-item-action text-reset border-bottom-0 rounded-0" id="list-liked-list" data-toggle="list" href="#list-liked" role="tab" aria-controls="liked">
+      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0" id="list-liked-list" data-toggle="list" href="#list-liked" role="tab" aria-controls="liked">
         <small class="d-flex justify-content-around">いいね一覧</small>
       </a>
-      <a class="list-group-item flex-fill list-group-item-dark list-group-item-action text-reset border-bottom-0 rounded-0" id="list-marked-list" data-toggle="list" href="#list-marked" role="tab" aria-controls="marked">
+      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0" id="list-marked-list" data-toggle="list" href="#list-marked" role="tab" aria-controls="marked">
         <small class="d-flex justify-content-around">マーク一覧</small>
       </a>
     </div>
-    <div class="tab-content pt-3 bg-light" id="nav-tabContent">
+    <div class="tab-content pt-3" id="nav-tabContent">
       <%= render "posts_paginate", posts: @posts %>
       <div class="tab-pane fade" id="list-liked" role="tabpanel" area-labelledby="list-liked-list">
         <div class="col-md-4 p-1">
