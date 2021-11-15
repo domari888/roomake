@@ -10,21 +10,32 @@
   font-size: 18px;
 }
 
-#list-tab a.active {
-  background-color: #f8f9fa;
-  border: transparent;
+#list-tab {
+  a {
+    border: 0;
+    background-color: transparent;
+    opacity: 0.5;
+    &:hover {
+      background-color: #dedcda;
+      opacity: 1.0;
+    }
+  }
+  a.active {
+  border-bottom: 2px solid;
+  background-color: transparent;
+  opacity: 1.0;
+  }
 }
 
 #custom-pagination {
   justify-content: center;
   .page-link {
-    background-color: #f8f9fa;
-    border: transparent;
-    color: #212529;
+    background-color: transparent;
+    border: 0;
+    color: unset;
     &:hover {
       border-radius: 50%;
-      background-color: #EEEDEC;
-      color: #212529;
+      background-color: #dedcda;
     }
   }
   .active .page-link {
@@ -33,7 +44,7 @@
     color: #f8f9fa;
   }
   .disabled .page-link {
-    background-color: #f8f9fa;
+    background-color: transparent;
   }
 }
 
