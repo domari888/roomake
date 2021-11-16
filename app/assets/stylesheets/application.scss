@@ -78,7 +78,17 @@ a:hover {
 }
 
 .form-check label {
+  position: relative;
   cursor: pointer;
+  .checkbox-visibility {
+    visibility: hidden;
+  }
+  .checkbox-position {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 input:checked + span {
