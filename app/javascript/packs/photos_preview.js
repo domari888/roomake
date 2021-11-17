@@ -4,6 +4,7 @@ $(document).on('turbolinks:load', function () {
     let edit_file_field = document.querySelector('input[data-action=edit]');
     let newDataBox = new DataTransfer();
     let new_file_field = document.querySelector('input[data-action=new]');
+    $('#new-button').prop('disabled', true);
     // 画像選択時にプレビューを表示
     $('.post-preview-image').on("change", function(){
       let dataBox, fileField

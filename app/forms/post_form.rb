@@ -43,6 +43,8 @@ class PostForm
 
   def post_create
     post = Post.new(content: content, user_id: current_user_id, tag_ids: tag_ids, category_ids: category_ids)
+    return if image.blank?
+
     image.each do |img|
       post.photos.build(image: img).save!
     end
