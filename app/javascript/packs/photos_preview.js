@@ -16,6 +16,12 @@ $(document).on('turbolinks:load', function () {
         dataBox = newDataBox
         fileField = new_file_field
       }
+        // 選択をキャンセルした場合の処理
+      if ($(this).val() === "") {
+        $('.preview-item').remove();
+        fileField.files = dataBox.files
+        dataBox.clearData();
+      }
       const files = $('input[type="file"]').prop('files')[0];
       $.each(this.files, function(i, file){
         const fileReader = new FileReader();
