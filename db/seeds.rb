@@ -69,3 +69,9 @@ post1.post_categories.create!(category_id: 1)
 post2.post_categories.create!(category_id: 2)
 post3.post_categories.create!(category_id: 3)
 puts '投稿カテゴリーの初期データインポートに成功しました。'
+
+ActiveRecord::Base.connection.execute('TRUNCATE TABLE likes RESTART IDENTITY CASCADE')
+post1.likes.create!(user_id: 1)
+post2.likes.create!(user_id: 1)
+post3.likes.create!(user_id: 1)
+puts 'いいねの初期データインポートに成功しました。'
