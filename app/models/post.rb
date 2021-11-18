@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
 
   # user モデルの name を委譲する
   delegate :name, :avater, :id, to: :user, prefix: true
