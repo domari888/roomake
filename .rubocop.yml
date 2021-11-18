@@ -37,7 +37,7 @@ Rails/NotNullColumn:
 Metrics/AbcSize:
   Max: 25
 
-# ブロック長さが最大値を超えているかどうかをチェックから spec ファイルを解除
+# ブロック長さが最大値を超えているかどうかのチェックからファイル除外
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
