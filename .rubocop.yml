@@ -36,10 +36,13 @@ Rails/NotNullColumn:
 # メソッドの ABC サイズが構成された最大値を 25 に変更
 Metrics/AbcSize:
   Max: 25
-# ブロック長さが最大値を超えているかどうかをチェックから spec ファイルを解除
+
+# ブロック長さが最大値を超えているかどうかのチェックからファイル除外
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
+    - "config/environments/*.rb"
+
 # メソッドの最大行数を 20 に変更
 Metrics/MethodLength:
   Max: 20
