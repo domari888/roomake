@@ -1,8 +1,9 @@
 ja:
   activerecord:
-    model:
+    models:
       post: 投稿
       comment: コメント
+      like: いいね
     attributes:
       post:
         content: 投稿内容
@@ -12,6 +13,9 @@ ja:
       comment:
         content: コメント内容
         user: ユーザー
+      like:
+        user: ユーザー
+        post: 投稿
   views:
     pagination:
       first: "&laquo;"
