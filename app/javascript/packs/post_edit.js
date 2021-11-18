@@ -24,8 +24,11 @@ $(document).on('turbolinks:load', function() {
                       </div>`;
           $('#edit-drop').before($(html));
           const previewItemLength = $('#edit-drop').prevAll('.preview-item').length;
-          if ( previewItemLength >= 6 ){
-            $('#edit-drop').hide();
+          if ( previewItemLength >= 1 && previewItemLength <= 6 ) {
+            $('#edit-button').prop('disabled', false);
+            if ( previewItemLength === 6 ) {
+              $('#edit-drop').hide();
+            }
           }
         });
       }

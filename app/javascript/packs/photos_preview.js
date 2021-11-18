@@ -4,6 +4,7 @@ $(document).on('turbolinks:load', function () {
     let edit_file_field = document.querySelector('input[data-action=edit]');
     let newDataBox = new DataTransfer();
     let new_file_field = document.querySelector('input[data-action=new]');
+    $('#new-button').prop('disabled', true);
     // 画像選択時にプレビューを表示
     $('.post-preview-image').on("change", function(){
       let dataBox, fileField
@@ -14,6 +15,12 @@ $(document).on('turbolinks:load', function () {
       } else {
         dataBox = newDataBox
         fileField = new_file_field
+      }
+        // 選択をキャンセルした場合の処理
+      if ($(this).val() === "") {
+        $('.preview-item').remove();
+        fileField.files = dataBox.files
+        dataBox.clearData();
       }
       const files = $('input[type="file"]').prop('files')[0];
       $.each(this.files, function(i, file){
