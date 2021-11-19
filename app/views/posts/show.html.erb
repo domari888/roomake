@@ -83,6 +83,9 @@
             <%= render "dislike", post: @post %>
           <% end %>
         </div>
+        <div class="d-flex" id="post-<%= @post.id %>-likes-count">
+          <%= render "likes_count", post: @post %>
+        </div>
         <div class="card-content overflow-auto h-100 px-3">
           <div class="card-text">
             <%= simple_format(h @post.content) %>

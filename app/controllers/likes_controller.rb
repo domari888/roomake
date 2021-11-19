@@ -1,12 +1,13 @@
 class LikesController < ApplicationController
-  before_action :set_post
 
   def create
-    current_user.likes.create!(post_id: @post.id)
+    current_user.likes.create!(post_id: params[:post_id])
+    set_post
   end
 
   def destroy
-    current_user.likes.find_by(post_id: @post.id).destroy!
+    current_user.likes.find_by(post_id: params[:post_id]).destroy!
+    set_post
   end
 
   private
