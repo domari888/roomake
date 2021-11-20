@@ -1,5 +1,5 @@
-<% if @post.likes_count >= 1 %>
-  <small class="d-flex align-items-end px-3">
-    <%= @post.likes_count %>件の「いいね！」
-  </small>
+<% if post.likes_count >= 1 %>
+  <div class="d-flex align-items-end">
+    <%= post.likes_count %>
+  </div>
 <% end %>
