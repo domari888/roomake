@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
     gon.edit_content = @post.content
     gon.edit_photos = @post.photos
     gon.edit_tags = @post.tags
