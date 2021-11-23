@@ -13,6 +13,6 @@ class Post < ApplicationRecord
   delegate :name, :avater, :id, to: :user, prefix: true
 
   def liked_by?(current_user)
-    likes.exists?(user_id: current_user.id)
+    likes.any? { |like| like.user_id == current_user.id }
   end
 end
