@@ -20,7 +20,7 @@ import "./post_edit"
 import "./jquery.validate"
 import "./jquery.validate.min"
 import "./validate_rules"
-import "./user_show"
+import "./jscroll"
 import "./search"
 
 Rails.start()
