@@ -4,8 +4,13 @@
     <p class="sub-title mb-0">タイムライン</p>
   </div>
   <hr class="devise-link mt-0 mb-5">
-  <div class="row">
-    <%= render partial: "time_line", collection: @posts, as: "post" %>
+  <div class="jscroll">
+    <div class="row" id="timeline">
+      <%= render partial: "time_line", collection: @posts, as: "post" %>
+    </div>
+    <div class="d-flex justify-content-center" id="timeline-paginate">
+      <%= paginate @posts, remote: true %>
+    </div>
   </div>
 <% elsif @posts.blank? && Post.exists? %>
   <h3 class="d-flex justify-content-center pt-5">検索結果が見つかりませんでした</h3>

@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[update destroy]
+  PER_PAGE = 20
 
-  def index; end
+  def index
+    @posts = @q.result.includes(:user, :photos, :tags, :categories, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @page = params[:page]
+  end
 
   def show
     @post = Post.find(params[:id])
