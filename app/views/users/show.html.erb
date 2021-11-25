@@ -36,10 +36,20 @@
       </a>
     </div>
     <div class="tab-content pt-3" id="nav-tabContent">
-      <%= render "posts_paginate", posts: @posts %>
+      <div class="tab-pane fade show active jscroll" id="list-posts" role="tabpanel" area-labelledby="list-posts-list">
+        <div class="d-flex flex-wrap" id="user-posts">
+          <%= render partial: "posts_paginate", collection: @posts, as: "post" %>
+        </div>
+        <div id="user-posts-paginate">
+          <%= paginate @posts, param_name: "post_page", remote: true, params: { data: "user" } %>
+        </div>
+      </div>
       <div class="tab-pane fade" id="list-liked" role="tabpanel" area-labelledby="list-liked-list">
-        <div class="col-md-4 p-1">
-          <p>いいね済み</p>
+        <div class="d-flex flex-wrap" id="posts-liked">
+          <%= render partial: "posts_paginate", collection: @likes, as: "post" %>
+        </div>
+        <div id="posts-liked-paginate">
+          <%= paginate @likes, param_name: "like_page", remote: true, params: { data: "like" } %>
         </div>
       </div>
       <div class="tab-pane fade" id="list-marked" role="tabpanel" area-labelledby="list-marked-list">
