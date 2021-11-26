@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   def create
     current_user.likes.create!(post_id: params[:post_id])
     set_post
