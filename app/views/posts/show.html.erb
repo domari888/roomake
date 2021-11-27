@@ -40,7 +40,7 @@
         <div class="card-name d-flex p-3">
         <%= link_to user_path(@post.user_id), class: "d-flex text-reset" do %>
           <%= image_tag @post.user_avater.url, class: "rounded-circle", size: "32x32" %>
-          <div class="font-weight-bold">
+          <div class="font-weight-bold pl-2">
             <%= @post.user_name %>
           </div>
         <% end %>
@@ -94,7 +94,7 @@
               <%= render "dislike", post: @post %>
             <% end %>
           </div>
-          <div class="d-flex" id="post-<%= @post.id %>-likes-count">
+          <div id="post-<%= @post.id %>-likes-count">
             <%= render "likes_count", post: @post %>
           </div>
         </div>
