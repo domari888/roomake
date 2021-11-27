@@ -1,12 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[update destroy]
+  PER_PAGE = 20
 
-  def index; end
+  def index
+    @posts = @q.result.includes(:user, :photos, :tags, :categories, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @page = params[:page]
+  end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
     gon.edit_content = @post.content
     gon.edit_photos = @post.photos
     gon.edit_tags = @post.tags

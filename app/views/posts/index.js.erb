@@ -1,0 +1,5 @@
+document.getElementById('timeline').textContent = '';
+document.getElementById('timeline').insertAdjacentHTML('afterbegin', '<%= j render(partial: "time_line", collection: @posts, as: "post") %>');
+document.getElementById('timeline-paginate').textContent = '';
+document.getElementById('timeline-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @posts, remote: true) %>');
+history.replaceState( "", "" ,"?page=<%= @page %>");

@@ -14,6 +14,5 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = Post.ransack(params[:q])
-    @posts = @q.result.includes(:user, :photos, :tags, :categories).order(created_at: :desc)
   end
 end

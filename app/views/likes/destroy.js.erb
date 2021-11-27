@@ -1,0 +1,2 @@
+document.getElementById('post-<%= @post.id %>-like').innerHTML = '<%= j render("posts/dislike", post: @post) %>';
+document.getElementById('post-<%= @post.id %>-likes-count').innerHTML = '<%= j render("posts/likes_count", post: @post) %>';

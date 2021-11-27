@@ -11,4 +11,8 @@ class Post < ApplicationRecord
 
   # user モデルの name を委譲する
   delegate :name, :avater, :id, to: :user, prefix: true
+
+  def liked_by?(current_user)
+    likes.any? { |like| like.user_id == current_user.id }
+  end
 end
