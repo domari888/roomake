@@ -4,6 +4,7 @@ ja:
       post: 投稿
       comment: コメント
       like: いいね
+      mark: マーク
     attributes:
       post:
         content: 投稿内容
@@ -14,6 +15,9 @@ ja:
         content: コメント内容
         user: ユーザー
       like:
+        user: ユーザー
+        post: 投稿
+      mark:
         user: ユーザー
         post: 投稿
   views:
