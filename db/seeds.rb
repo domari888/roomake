@@ -75,3 +75,9 @@ post1.likes.create!(user_id: 1)
 post2.likes.create!(user_id: 1)
 post3.likes.create!(user_id: 1)
 puts 'いいねの初期データインポートに成功しました。'
+
+ActiveRecord::Base.connection.execute('TRUNCATE TABLE marks RESTART IDENTITY CASCADE')
+post1.marks.create!(user_id: 1)
+post2.marks.create!(user_id: 1)
+post3.marks.create!(user_id: 1)
+puts 'マークの初期データインポートに成功しました。'
