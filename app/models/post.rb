@@ -17,4 +17,8 @@ class Post < ApplicationRecord
   def liked_by?(current_user)
     likes.any? { |like| like.user_id == current_user.id }
   end
+
+  def marked_by?(current_user)
+    marks.any? { |mark| mark.user_id == current_user.id }
+  end
 end
