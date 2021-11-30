@@ -3,10 +3,15 @@ if('<%= params[:data] %>' === 'user'){
   document.getElementById('user-posts').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @posts, as: "post") %>');
   document.getElementById('user-posts-paginate').textContent = '';
   document.getElementById('user-posts-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @posts, param_name: "post_page", remote: true, params: { data: "user" }) %>');
-} else {
+} else if('<%= params[:data] %>' === 'like'){ 
   document.getElementById('posts-liked').textContent = '';
   document.getElementById('posts-liked').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @likes, as: "post") %>');
   document.getElementById('posts-liked-paginate').textContent = '';
   document.getElementById('posts-liked-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @likes, param_name: "like_page", remote: true, params: { data: "like" }) %>');
+} else {
+  document.getElementById('posts-marked').textContent = '';
+  document.getElementById('posts-marked').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @marks, as: "post") %>');
+  document.getElementById('posts-marked-paginate').textContent = '';
+  document.getElementById('posts-marked-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @marks, param_name: "mark_page", remote: true, params: { data: "mark" }) %>');
 }
 history.replaceState( "", "" ,"?page=<%= @page %>");

@@ -59,8 +59,11 @@
         </div>
       </div>
       <div class="tab-pane fade" id="list-marked" role="tabpanel" area-labelledby="list-marked-list">
-        <div class="col-md-4 p-1">
-          <p>マーク済み</p>
+        <div class="d-flex flex-wrap" id="posts-marked">
+          <%= render partial: "posts_paginate", collection: @marks, as: "post" %>
+        </div>
+        <div id="posts-marked-paginate">
+          <%= paginate @marks, param_name: "mark_page", remote: true, params: { data: "mark" } %>
         </div>
       </div>
     </div>
