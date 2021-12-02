@@ -1,12 +1,12 @@
 class MarksController < ApplicationController
-  before_action :set_post
-
   def create
     current_user.marks.create!(post_id: params[:post_id])
+    set_post
   end
 
   def destroy
     current_user.marks.find_by(post_id: params[:post_id]).destroy!
+    set_post
   end
 
   private
