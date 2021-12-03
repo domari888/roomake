@@ -3,7 +3,7 @@ if('<%= params[:data] %>' === 'user'){
   document.getElementById('user-posts').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @posts, as: "post") %>');
   document.getElementById('user-posts-paginate').textContent = '';
   document.getElementById('user-posts-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @posts, param_name: "post_page", remote: true, params: { data: "user" }) %>');
-} else if('<%= params[:data] %>' === 'like'){ 
+} else if('<%= params[:data] %>' === 'like'){
   document.getElementById('posts-liked').textContent = '';
   document.getElementById('posts-liked').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @likes, as: "post") %>');
   document.getElementById('posts-liked-paginate').textContent = '';
