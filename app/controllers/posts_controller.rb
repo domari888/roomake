@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   PER_PAGE = 20
 
   def index
-    @posts = @q.result.includes(:user, :photos, :tags, :categories, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @posts = @q.result.includes(:user, :photos, :tags, :categories, :likes, :marks).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
     @page = params[:page]
   end
 

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :posts, except: %i[new edit] do
     resources :comments, only: %i[create destroy]
     resource :likes, only: %i[create destroy]
+    resource :marks, only: %i[create destroy]
   end
 end

@@ -25,24 +25,24 @@
   </div>
   <div class="col-12 col-md-6 d-flex flex-column h-100">
     <div class="list-group list-group-horizontal w-100" id="list-tab" role="tablist">
-      <a class="list-group-item flex-fill list-group-item-action active text-reset rounded-0 px-0" id="list-posts-list" data-toggle="list" href="#list-posts" role="tab" aria-controls="posts">
+      <a class="list-group-item flex-fill list-group-item-action active text-reset rounded-0 px-0" id="list-posts-list" data-toggle="list" href="#list-posts" role="tab" aria-controls="posts" data-tab="list-posts">
         <small class="d-flex justify-content-center">
           <i class="far fa-folder-open align-self-center mr-1"></i>投稿
         </small>
       </a>
-      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0 px-0" id="list-liked-list" data-toggle="list" href="#list-liked" role="tab" aria-controls="liked">
+      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0 px-0" id="list-liked-list" data-toggle="list" href="#list-liked" role="tab" aria-controls="liked" data-tab="list-liked">
         <small class="d-flex justify-content-center">
           <i class="far fa-heart align-self-center mr-1"></i>いいね一覧
         </small>
       </a>
-      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0 px-0" id="list-marked-list" data-toggle="list" href="#list-marked" role="tab" aria-controls="marked">
+      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0 px-0" id="list-marked-list" data-toggle="list" href="#list-marked" role="tab" aria-controls="marked" data-tab="list-marked">
         <small class="d-flex justify-content-center">
           <i class="far fa-bookmark align-self-center mr-1"></i>マーク一覧
         </small>
       </a>
     </div>
     <div class="tab-content pt-3" id="nav-tabContent">
-      <div class="tab-pane fade show active jscroll" id="list-posts" role="tabpanel" area-labelledby="list-posts-list">
+      <div class="tab-pane fade show active" id="list-posts" role="tabpanel" area-labelledby="list-posts-list">
         <div class="d-flex flex-wrap" id="user-posts">
           <%= render partial: "posts_paginate", collection: @posts, as: "post" %>
         </div>
@@ -59,8 +59,11 @@
         </div>
       </div>
       <div class="tab-pane fade" id="list-marked" role="tabpanel" area-labelledby="list-marked-list">
-        <div class="col-md-4 p-1">
-          <p>マーク済み</p>
+        <div class="d-flex flex-wrap" id="posts-marked">
+          <%= render partial: "posts_paginate", collection: @marks, as: "post" %>
+        </div>
+        <div id="posts-marked-paginate">
+          <%= paginate @marks, param_name: "mark_page", remote: true, params: { data: "mark" } %>
         </div>
       </div>
     </div>
