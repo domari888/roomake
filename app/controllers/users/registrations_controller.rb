@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :ensure_nomal_user, only: %i[update destroy]
 
   # GET /resource/sign_up
   # def new
@@ -25,13 +26,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  def destroy
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの削除はできません'
-      return
-    end
-    super
-  end
+  # def destroy
+  #   super
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -43,6 +40,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # protected
+
+  def ensure_nomal_user
+    redirect_to user_path(current_user.id), alert: 'ゲストユーザーの削除・更新はできません' if resource.email == 'guest@example.com'
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
