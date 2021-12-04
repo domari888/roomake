@@ -87,4 +87,16 @@ class User < ApplicationRecord
     five_person_household: 5,
     others_household: 6
   }
+
+  def post_with_photos
+    posts.includes(:photos).order(created_at: :desc)
+  end
+
+  def like_with_photos
+    liked_posts.includes(:photos).order(created_at: :desc)
+  end
+
+  def mark_with_photos
+    marked_posts.includes(:photos).order(created_at: :desc)
+  end
 end
