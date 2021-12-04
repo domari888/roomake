@@ -99,4 +99,14 @@ class User < ApplicationRecord
   def mark_with_photos
     marked_posts.includes(:photos).order(created_at: :desc)
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = 'ゲストユーザー'
+      user.password = SecureRandom.urlsafe_base64
+      user.age = rand(1..7)
+      user.address = rand(1..47)
+      user.household = rand(1..6)
+    end
+  end
 end
