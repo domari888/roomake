@@ -10,6 +10,7 @@
     "bootstrap": "~4.5.1",
     "chart.js": "^3.6.1",
     "chartkick": "^4.1.1",
+    "highcharts": "^9.3.2",
     "jquery": "^3.6.0",
     "jscroll": "^2.4.1",
     "popper.js": "^1.16.1",
