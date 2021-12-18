@@ -1,0 +1,17 @@
+<div class="row px-3">
+  <div class="col-12 col-sm-6 col-md-3 p-0">
+    <%= pie_chart @tags_count_graph.to_a[0..2], title: "タグ別使用投稿数" %>
+  </div>
+  <div class="col-12 col-sm-6 col-md-3 p-0">
+    <%= pie_chart @categories_count_graph.to_a[0..2], title: "カテゴリー別使用投稿数" %>
+  </div>
+  <div class="col-12 col-sm-6 col-md-3 p-0">
+    <%= pie_chart @likes_count_graph.to_a[0..2], title: "いいね総合獲得数", suffix: "いいね !" %>
+  </div>
+  <div class="col-12 col-sm-6 col-md-3 p-0">
+    <%= pie_chart @likes_average_graph.to_a[0..2], title: "平均いいね獲得数", label: "平均", suffix: "いいね !" %>
+  </div>
+</div>
+<div class="d-flex justify-content-end text-muted">
+  <small>＊グラフは TOP3 まで表示しています＊</small>
+</div>

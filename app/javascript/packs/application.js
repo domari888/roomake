@@ -22,7 +22,7 @@ import "./jquery.validate.min"
 import "./validate_rules"
 import "./jscroll"
 import "./search"
-import "chartkick/chart.js"
+// import "chartkick/chart.js"
 import "chartkick/highcharts"
 
 Rails.start()
