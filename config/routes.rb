@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     resource :likes, only: %i[create destroy]
     resource :marks, only: %i[create destroy]
   end
+  resources :graphs, only: %i[index]
 end
