@@ -1,0 +1,26 @@
+<div class="col-12 col-sm-6 col-md-3 p-0">
+  <%= pie_chart datas.to_a[0..2], title: title, label: result_label(table), suffix: suffix_name(table) %>
+  <p class="d-flex justify-content-center m-0">
+    <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#<%= table %>" aria-expanded="false" aria-controls="<%= table %>"><i class="fas fa-list-ul fa-lg pr-2"></i>詳細</button>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="<%= table %>">
+        <div class="card">
+          <table class="table m-0">
+            <thead>
+              <tr>
+                <th scope="col" class="px-2 text-center text-nowrap">順位</th>
+                <th scope="col" class="px-2 text-center text-nowrap">名前</th>
+                <th scope="col" class="px-2 text-center text-nowrap"><%= result_label(table) %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: "ranking_table", collection: datas.to_a[0..11], as: "data" %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
