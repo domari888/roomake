@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-end text-muted">
-  <small>＊グラフは TOP3 まで表示しています＊</small>
+  <small class="mb-3">＊グラフは TOP3 まで表示しています＊</small>
 </div>
 <div class="row px-3">
   <%= render "collapse", datas: @tags_count_graph, table: "tags-count", title: "タグ別使用投稿数" %>
-  <%= render "collapse", datas: @categories_count_graph, table: "categories-count", title: "カテゴリー別使用投稿数" %>
+  <%= render "collapse", datas: @categories_count_graph, table: "categories-count", title: "カテゴリ別使用投稿数" %>
   <%= render "collapse", datas: @likes_count_graph, table: "likes-count", title: "いいね総合獲得数" %>
   <%= render "collapse", datas: @likes_average_graph, table: "likes-average", title: "平均いいね獲得数" %>
 </div>

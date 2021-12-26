@@ -16,8 +16,8 @@ $(document).on('turbolinks:load', function(){
       }
     }
     const windowSize = $(window).width();
-    // 画面サイズが md 以上の場合
-    if (windowSize >= 768 ) {
+    // 画面サイズが lg 以上の場合
+    if (windowSize >= 992 ) {
       $('.ranking-collapse').addClass('show');
       $('.collapse-btn').each(function(index, value){
         iconUpdate(value);
