@@ -2,17 +2,13 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     function iconUpdate(collapseButton){
       if ($(collapseButton).hasClass('btn-outline-secondary')) {
-        $(collapseButton).addClass('btn-secondary');
-        $(collapseButton).removeClass('btn-outline-secondary');
+        $(collapseButton).toggleClass('btn-secondary btn-outline-secondary');
         const icon = $(collapseButton).children();
-        $(icon).removeClass('fa-plus');
-        $(icon).addClass('fa-minus');
+        $(icon).toggleClass('fa-plus fa-minus');
       } else {
-        $(collapseButton).addClass('btn-outline-secondary');
-        $(collapseButton).removeClass('btn-secondary');
+        $(collapseButton).toggleClass('btn-secondary btn-outline-secondary');
         const icon = $(collapseButton).children();
-        $(icon).removeClass('fa-minus');
-        $(icon).addClass('fa-plus');
+        $(icon).toggleClass('fa-plus fa-minus');
       }
     }
     const windowSize = $(window).width();
