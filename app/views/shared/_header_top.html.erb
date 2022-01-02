@@ -14,7 +14,7 @@
       </button>
       <%# 要素を右寄せで配置 %>
       <div class="navbar-nav ml-auto">
-        <%= link_to "#", class: "nav-item nav-link" do %>
+        <%= link_to graphs_path, class: "nav-item nav-link" do %>
           <i class="fas fa-chart-pie"></i> データ
         <% end %>
         <%= link_to "#", class: "nav-item nav-link" do %>
@@ -41,7 +41,7 @@
         <%= link_to new_user_session_path, class: "nav-item nav-link" do %>
           <i class="fas fa-sign-in-alt"></i> ログイン
         <% end %>
-        <%= link_to "#", class: "nav-item nav-link" do %>
+        <%= link_to graphs_path, class: "nav-item nav-link" do %>
           <i class="fas fa-chart-pie"></i> データ
         <% end %>
         <%= link_to "#", class: "nav-item nav-link" do %>

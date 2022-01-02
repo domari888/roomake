@@ -1,0 +1,12 @@
+<% ranking = 0 %>
+<% before_data = nil %>
+<% datas.each do |data| %>
+  <% before_data != data[1].round(1) ? ranking += 1 : ranking %>
+  <% break if ranking > 12 %>
+  <tr class="rank-color-<%= ranking %>">
+    <td class="text-center"><%= ranking %></td>
+    <td class="text-center"><%= data[0] %></td>
+    <td class="text-center"><%= data[1].round(1) %></td>
+  </tr>  
+  <% before_data = data[1].round(1) %>
+<% end %> 

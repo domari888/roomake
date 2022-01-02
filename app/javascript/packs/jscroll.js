@@ -19,8 +19,7 @@ $(document).on('turbolinks:load', function(){
       }
 
       // ユーザーページアクセス時にアクティブ状態のタブに jscroll を設定
-      const activeId = $('.tab-pane.active')[0].id;
-      jscrollOption(activeId);
+        jscrollOption('list-posts');
 
       // タブ切り替え表示の際にアクティブ状態のタブに jscroll を設定
       $('a[data-toggle="list"]').on('shown.bs.tab', function (e) {
