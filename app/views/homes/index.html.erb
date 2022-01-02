@@ -1,60 +1,67 @@
-<h1>MOKNOW</h1>
-<% unless user_signed_in? %>
-  <%= link_to "会員登録", new_user_registration_path, class: 'btn btn-info' %>
-  <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info' %>
-  <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-success' %>
-<% end %>
-  <h2>Feature</h2>
-  <p>アプリについて</p>
-  <div>
-    <h3>”MOKNOW”ってどんなアプリ？</h3>
-    <p>あなたが引っ越しの際やマイホームを建てた際に感じた
-    ”成功・失敗エピソード” や ”おすすめの家具・家電” を
-    シェアするアプリです。<br>
-    みんなの投稿やノウハウをチェックして
-    引っ越しの際の”辞書”にしよう！</p>
+<div class="row">
+  <div class="col-12">
+    <h1>MOKNOW</h1>
+    <% unless user_signed_in? %>
+      <%= link_to "会員登録", new_user_registration_path, class: 'btn btn-info' %>
+      <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info' %>
+      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-success' %>
+    <% end %>
   </div>
-
-  <h2>Pick Up</h2>
-  <p>ピックアップ</p>
-
-  <h2>Function</h2>
-  <p>機能</p>
-
-  <span class="description">
-    <h3>Time Line</h3>
-    <p>タイムライン</p>
-    自分のエピソードを
-    シェアしてみよう！
-    みんなの投稿をチェックすると
-    理想の”おうち”が見つかります！
-  </span>
-
-  <span class="description">
-    <h3>My Item</h3>
-    <p>マイアイテム</p>
-    ”おうち”の家具・家電の
-    寸法を記録しておこう！
-    引っ越しの際の測り忘れの
-    対策になります！
-  </span>
-
-  <span class="description">
-    <h3>About</h3>
-    <p>ノウハウ</p>
-    引っ越しの際のノウハウを
-    ピックアップしているよ！
-    チェックして”快適”な
-    引っ越しをしましょう！
-  </span>
-
-  <span class="description">
-    <h3>Data</h3>
-    <p>データ</p>
-    アプリのデータの集計を誰でも
-    見ることができるよ！
-    ”いいね”獲得数ランキングも
-    チェックできます！
-  </span>
-
-<p>エピソードをシェアしてみよう！</p>
+  <div class="col-12">
+    <h2>Feature</h2>
+    <p>アプリについて</p>
+    <div>
+      <h3>”MOKNOW”ってどんなアプリ？</h3>
+      <p>あなたが引っ越しの際やマイホームを建てた際に感じた
+      ”成功・失敗エピソード” や ”おすすめの家具・家電” を
+      シェアするアプリです。<br>
+      みんなの投稿やノウハウをチェックして
+      引っ越しの際の”辞書”にしよう！</p>
+    </div>
+  </div>
+  <div class="col-12">
+    <h2>Pick Up</h2>
+    <p>ピックアップ</p>
+  </div>
+  <div class="col-12">
+    <h2>Function</h2>
+    <p>機能</p>
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <span class="col-12 col-sm-6 col-md-3 description">
+        <h3>Time Line</h3>
+        <p>タイムライン</p>
+        自分のエピソードを
+        シェアしてみよう！
+        みんなの投稿をチェックすると
+        理想の”おうち”が見つかります！
+      </span>
+      <span class="col-12 col-sm-6 col-md-3 description">
+        <h3>My Item</h3>
+        <p>マイアイテム</p>
+        ”おうち”の家具・家電の
+        寸法を記録しておこう！
+        引っ越しの際の測り忘れの
+        対策になります！
+      </span>
+      <span class="col-12 col-sm-6 col-md-3 description">
+        <h3>About</h3>
+        <p>ノウハウ</p>
+        引っ越しの際のノウハウを
+        ピックアップしているよ！
+        チェックして”快適”な
+        引っ越しをしましょう！
+      </span>
+      <span class="col-12 col-sm-6 col-md-3 description">
+        <h3>Data</h3>
+        <p>データ</p>
+        アプリのデータの集計を誰でも
+        見ることができるよ！
+        ”いいね”獲得数ランキングも
+        チェックできます！
+      </span>
+    </div>
+  </div>
+  <p>エピソードをシェアしてみよう！</p>
+</div>
