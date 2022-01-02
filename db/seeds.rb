@@ -57,8 +57,8 @@ puts 'ユーザーの初期データ 1000 件のインポートに成功しま�
   post.photos.create!(image: image)
   post.post_tags.create!(tag_id: rand(1..12))
   post.post_categories.create!(category_id: rand(1..6))
-  post.comments.create!(content: content, user_id: rand(1..100))
-  post.likes.create!(user_id: rand(1..100))
-  post.marks.create!(user_id: rand(1..100))
+  post.comments.create!(content: content, user_id: rand(1..1000))
+  post.likes.create!(user_id: rand(1..1000))
+  post.marks.create!(user_id: rand(1..1000))
 end
 puts '投稿の初期データ 1000 件のインポートに成功しました。'
