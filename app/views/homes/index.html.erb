@@ -1,11 +1,25 @@
 <div class="row">
-  <div class="col-12">
-    <h1>MOKNOW</h1>
-    <% unless user_signed_in? %>
-      <%= link_to "会員登録", new_user_registration_path, class: 'btn btn-info' %>
-      <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info' %>
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-success' %>
-    <% end %>
+  <div class="col-5 col-md-4 d-none d-sm-block p-0">
+    <div class="key-visual-left"></div>
+  </div>
+  <div class="col-12 col-sm-7 col-md-5 col-lg-4 text-right text-sm-left bg-light key-visual-center px-0">
+    <div class="d-flex flex-column key-visual-background h-100">
+      <h1 class="display-4 font-weight-bold pt-3 px-4 mb-sm-auto">MOKNOW</h1>
+      <h4 class="px-4 my-3 m-sm-0">理想の”おうち”で<br>素敵な”じかん”を<br>過ごそう</h4>
+      <div class="key-image d-none d-sm-block"></div>
+      <% unless user_signed_in? %>
+        <div class="ml-auto ml-sm-0 mt-sm-auto px-4">
+          <div class="d-inline-flex flex-column">
+            <%= link_to "会員登録", new_user_registration_path, class: "btn btn-info mb-3" %>
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-info mb-3" %>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-success mb-3" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3 col-lg-4 d-none d-md-block p-0">
+    <div class="key-visual-right"></div>
   </div>
   <div class="col-12">
     <h2>Feature</h2>
