@@ -38,3 +38,17 @@
     }
   }
 }
+
+.headline {
+  position: relative;
+  :before {
+    position: absolute;
+    bottom: 35px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    content: '';
+    border-radius: 3px;
+    background: #6c757d;
+  }
+}
