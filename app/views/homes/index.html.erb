@@ -46,44 +46,60 @@
       <%= render partial: "posts/time_line", collection: @posts, as: "post" %>
     </div>
   </div>
-  <div class="col-12">
-    <h2>Function</h2>
-    <p>機能</p>
-  </div>
-  <div class="col-12">
+  <div class="col-12 p-4">
+    <div class="d-inline-flex flex-column headline pb-4">
+      <h2 class="m-0">Function</h2>
+      <p class="text-center text-muted">機能</p>
+    </div>
     <div class="row">
-      <span class="col-12 col-sm-6 col-md-3 description">
-        <h3>Time Line</h3>
-        <p>タイムライン</p>
-        自分のエピソードを
-        シェアしてみよう！
-        みんなの投稿をチェックすると
-        理想の”おうち”が見つかります！
-      </span>
-      <span class="col-12 col-sm-6 col-md-3 description">
-        <h3>My Item</h3>
-        <p>マイアイテム</p>
-        ”おうち”の家具・家電の
-        寸法を記録しておこう！
-        引っ越しの際の測り忘れの
-        対策になります！
-      </span>
-      <span class="col-12 col-sm-6 col-md-3 description">
-        <h3>About</h3>
-        <p>ノウハウ</p>
-        引っ越しの際のノウハウを
-        ピックアップしているよ！
-        チェックして”快適”な
-        引っ越しをしましょう！
-      </span>
-      <span class="col-12 col-sm-6 col-md-3 description">
-        <h3>Data</h3>
-        <p>データ</p>
-        アプリのデータの集計を誰でも
-        見ることができるよ！
-        ”いいね”獲得数ランキングも
-        チェックできます！
-      </span>
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <div class="card-header p-3">
+            <h3 class="card-title">Time Line</h3>
+            <h6 class="card-subtitle">タイムライン</h6>
+          </div>
+          <div class="card-body p-3">
+            <%= image_tag "timeline.png", class: "img-fluid" %>
+            <p class="card-text">自分のエピソードをシェアしてみよう！みんなの投稿をチェックすると理想の”おうち”が見つかります！</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <div class="card-header p-3">
+            <h3 class="card-title">My Item</h3>
+            <h6 class="card-subtitle">マイアイテム</h6>
+          </div>
+          <div class="card-body p-3">
+            <%= image_tag "myitem.png", class: "img-fluid" %>
+            <p>”おうち”の家具・家電の寸法を記録しておこう！引っ越しの際の測り忘れの対策になります！</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <div class="card-header p-3">
+            <h3 class="card-title">About</h3>
+            <h6 class="card-subtitle">ノウハウ</h6>
+          </div>
+          <div class="card-body p-3">
+            <%= image_tag "about.png", class: "img-fluid" %>
+            <p>引っ越しの際のノウハウをピックアップしているよ！チェックして”快適”な引っ越しをしましょう！</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <div class="card-header p-3">
+            <h3 class="card-title">Data</h3>
+            <p class="card-subtitle">データ</p>
+          </div>
+          <div class="card-body p-3">
+            <%= image_tag "data.png", class: "img-fluid" %>
+            <p>アプリのデータの集計を誰でも見ることができるよ！”いいね”獲得数ランキングもチェックできます！</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <p>エピソードをシェアしてみよう！</p>
