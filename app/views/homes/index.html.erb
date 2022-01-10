@@ -37,9 +37,14 @@
       </div>
     </div>
   </div>
-  <div class="col-12">
-    <h2>Pick Up</h2>
-    <p>ピックアップ</p>
+  <div class="col-12 bg-light p-4">
+    <div class="d-inline-flex flex-column headline pb-4">
+      <h2 class="m-0">Pick Up</h2>
+      <p class="text-center text-muted">ピックアップ</p>
+    </div>
+    <div class="row w-100 m-0">
+      <%= render partial: "posts/time_line", collection: @posts, as: "post" %>
+    </div>
   </div>
   <div class="col-12">
     <h2>Function</h2>
