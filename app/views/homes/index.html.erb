@@ -42,8 +42,8 @@
       <h2 class="m-0">Pick Up</h2>
       <p class="text-center text-muted">ピックアップ</p>
     </div>
-    <div class="row w-100 m-0">
-      <%= render partial: "posts/time_line", collection: @posts, as: "post" %>
+    <div class="row w-100 m-0 flex-nowrap overflow-auto">
+      <%= render partial: "pick_up", collection: @posts, as: "post" %>
     </div>
   </div>
   <div class="col-12 p-4">
