@@ -4,11 +4,11 @@
   </div>
   <div class="col-12 col-sm-7 col-md-5 col-lg-4 text-right text-sm-left bg-light key-visual-center px-0">
     <div class="d-flex flex-column key-visual-background h-100">
-      <h1 class="display-4 font-weight-bold pt-3 px-4 mb-sm-auto">MOKNOW</h1>
+      <h1 class="display-4 font-weight-bold pt-5 px-4 mb-sm-auto">MOKNOW</h1>
       <h4 class="px-4 my-3 m-sm-0">理想の”おうち”で<br>素敵な”じかん”を<br>過ごそう</h4>
-      <div class="key-image d-none d-sm-block"></div>
+      <div class="key-image d-none d-sm-block mb-sm-auto"></div>
       <% unless user_signed_in? %>
-        <div class="ml-auto ml-sm-0 mt-sm-auto px-4">
+        <div class="ml-auto ml-sm-0 px-4">
           <div class="d-inline-flex flex-column">
             <%= link_to "会員登録", new_user_registration_path, class: "btn btn-info mb-3" %>
             <%= link_to "ログイン", new_user_session_path, class: "btn btn-info mb-3" %>
