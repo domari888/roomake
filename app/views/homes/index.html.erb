@@ -37,15 +37,17 @@
       </div>
     </div>
   </div>
-  <div class="col-12 bg-light p-4">
-    <div class="d-inline-flex flex-column headline pb-4">
-      <h2 class="m-0">Pick Up</h2>
-      <p class="text-center text-muted">ピックアップ</p>
+  <% if @posts.present? %>
+    <div class="col-12 bg-light p-4">
+      <div class="d-inline-flex flex-column headline pb-4">
+        <h2 class="m-0">Pick Up</h2>
+        <p class="text-center text-muted">ピックアップ</p>
+      </div>
+      <div class="row w-100 m-0 flex-nowrap overflow-auto">
+        <%= render partial: "pick_up", collection: @posts, as: "post" %>
+      </div>
     </div>
-    <div class="row w-100 m-0 flex-nowrap overflow-auto">
-      <%= render partial: "pick_up", collection: @posts, as: "post" %>
-    </div>
-  </div>
+  <% end %>
   <div class="col-12 p-4">
     <div class="d-inline-flex flex-column headline pb-4">
       <h2 class="m-0">Function</h2>
