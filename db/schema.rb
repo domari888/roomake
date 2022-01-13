@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_042449) do
+ActiveRecord::Schema.define(version: 2022_01_13_173201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_042449) do
     t.integer "age", default: 0, null: false
     t.integer "address", default: 0, null: false
     t.text "profile"
-    t.string "avater"
+    t.string "avatar"
     t.string "favorite_items"
     t.integer "household", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
