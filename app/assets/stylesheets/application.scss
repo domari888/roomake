@@ -30,7 +30,6 @@ body {
 
 .base-container {
   margin: 0 auto;
-  padding: 1rem;
 }
 
 .mw-sm {
@@ -39,13 +38,6 @@ body {
 
 .mw-xl {
   max-width: 1200px;
-}
-
-span.description {
-  display: inline-block;
-  margin: 0;
-  width: 256px;
-  height: 300px;
 }
 
 .alert-notice {

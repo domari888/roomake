@@ -1,0 +1,14 @@
+<div class="col-11 col-sm-7 col-md-5 col-lg-3 mb-3">
+  <%= link_to post, class: "text-reset" do %>
+    <div class="card text-black-50">
+      <%= image_tag post.photos.first.image.url, class: "img-fluid", width: "1080px", height: "1080px" %>
+      <div class="card-img-overlay d-flex flex-column p-2">
+        <h6 class="card-title"><%= post.user_name %></h6>
+        <p class="card-text ml-auto mt-auto">
+          <i class="far fa-heart fa-lg mx-2"></i><%= post.likes_count %>
+          <i class="far fa-bookmark fa-lg mx-2"></i></i><%= post.marks_count %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

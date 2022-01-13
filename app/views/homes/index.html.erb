@@ -1,60 +1,127 @@
-<h1>MOKNOW</h1>
-<% unless user_signed_in? %>
-  <%= link_to "会員登録", new_user_registration_path, class: 'btn btn-info' %>
-  <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info' %>
-  <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-success' %>
-<% end %>
-  <h2>Feature</h2>
-  <p>アプリについて</p>
-  <div>
-    <h3>”MOKNOW”ってどんなアプリ？</h3>
-    <p>あなたが引っ越しの際やマイホームを建てた際に感じた
-    ”成功・失敗エピソード” や ”おすすめの家具・家電” を
-    シェアするアプリです。<br>
-    みんなの投稿やノウハウをチェックして
-    引っ越しの際の”辞書”にしよう！</p>
+<div class="row">
+  <div class="col-5 col-md-4 d-none d-sm-block p-0">
+    <div class="key-visual-left"></div>
   </div>
-
-  <h2>Pick Up</h2>
-  <p>ピックアップ</p>
-
-  <h2>Function</h2>
-  <p>機能</p>
-
-  <span class="description">
-    <h3>Time Line</h3>
-    <p>タイムライン</p>
-    自分のエピソードを
-    シェアしてみよう！
-    みんなの投稿をチェックすると
-    理想の”おうち”が見つかります！
-  </span>
-
-  <span class="description">
-    <h3>My Item</h3>
-    <p>マイアイテム</p>
-    ”おうち”の家具・家電の
-    寸法を記録しておこう！
-    引っ越しの際の測り忘れの
-    対策になります！
-  </span>
-
-  <span class="description">
-    <h3>About</h3>
-    <p>ノウハウ</p>
-    引っ越しの際のノウハウを
-    ピックアップしているよ！
-    チェックして”快適”な
-    引っ越しをしましょう！
-  </span>
-
-  <span class="description">
-    <h3>Data</h3>
-    <p>データ</p>
-    アプリのデータの集計を誰でも
-    見ることができるよ！
-    ”いいね”獲得数ランキングも
-    チェックできます！
-  </span>
-
-<p>エピソードをシェアしてみよう！</p>
+  <div class="col-12 col-sm-7 col-md-5 col-lg-4 text-right text-sm-left bg-light key-visual-center px-0">
+    <div class="d-flex flex-column key-visual-background h-100">
+      <h1 class="display-4 font-weight-bold pt-5 pt-sm-0 px-4 my-sm-auto">MOKNOW</h1>
+      <h4 class="px-4 my-3 m-sm-0">理想の”おうち”で<br>素敵な”じかん”を<br>過ごそう</h4>
+      <div class="key-image d-none d-sm-block mb-sm-auto"></div>
+      <% unless user_signed_in? %>
+        <div class="ml-auto ml-sm-0 px-4">
+          <div class="d-inline-flex flex-column">
+            <%= link_to "会員登録", new_user_registration_path, class: "btn btn-info mb-3" %>
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-info mb-3" %>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-success mb-3" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3 col-lg-4 d-none d-md-block p-0">
+    <div class="key-visual-right"></div>
+  </div>
+  <div class="col-12 p-4">
+    <div class="d-inline-flex flex-column headline pb-4">
+      <h2 class="m-0">Feature</h2>
+      <p class="text-center text-muted">アプリについて</p>
+    </div>
+    <div class="row w-100 m-0">
+      <div class="col-12 col-sm-8 px-0">
+        <h4>”MOKNOW”ってどんなアプリ？</h4>
+        <p class="pt-3">あなたが引っ越しの際やマイホームを建てた際に感じた ”成功・失敗エピソード” やあなたのおすすめの ”家具・家電” などをシェアするアプリです。</p>
+        <p>みんなの投稿やノウハウをチェックして引っ越しの際の”辞書”にしよう！</p>
+      </div>
+      <div class="col-8 offset-2 col-sm-4 offset-sm-0 col-md-3 offset-md-1 px-0 mt-n4">
+        <%= image_tag "feature.png", class: "img-fluid" %>
+      </div>
+    </div>
+  </div>
+  <% if @posts.present? %>
+    <div class="col-12 bg-light p-4">
+      <div class="d-inline-flex flex-column headline pb-4">
+        <h2 class="m-0">Pick Up</h2>
+        <p class="text-center text-muted">ピックアップ</p>
+      </div>
+      <div class="row w-100 m-0 flex-nowrap overflow-auto">
+        <%= render partial: "pick_up", collection: @posts, as: "post" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-12 p-4">
+    <div class="d-inline-flex flex-column headline pb-4">
+      <h2 class="m-0">Function</h2>
+      <p class="text-center text-muted">機能</p>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <%= link_to posts_path, class: "text-reset" do %>
+            <div class="card-header p-3">
+              <h3 class="card-title">Time Line</h3>
+              <h6 class="card-subtitle">タイムライン</h6>
+            </div>
+            <div class="card-body p-3">
+              <%= image_tag "timeline.png", class: "img-fluid" %>
+              <p class="card-text">自分のエピソードをシェアしてみよう！みんなの投稿をチェックすると理想の”おうち”が見つかります！</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <%= link_to "#", class: "text-reset" do %>
+            <div class="card-header p-3">
+              <h3 class="card-title">My Item</h3>
+              <h6 class="card-subtitle">マイアイテム</h6>
+            </div>
+            <div class="card-body p-3">
+              <%= image_tag "myitem.png", class: "img-fluid" %>
+              <p class="card-text">”おうち”の家具・家電の寸法を記録しておこう！引っ越しの際の測り忘れの対策になります！</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <%= link_to "#", class: "text-reset" do %>
+            <div class="card-header p-3">
+              <h3 class="card-title">About</h3>
+              <h6 class="card-subtitle">ノウハウ</h6>
+            </div>
+            <div class="card-body p-3">
+              <%= image_tag "about.png", class: "img-fluid" %>
+              <p class="card-text">引っ越しの際のノウハウをピックアップしているよ！チェックして”快適”な引っ越しをしましょう！</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card text-center h-100">
+          <%= link_to graphs_path, class: "text-reset" do %>
+            <div class="card-header p-3">
+              <h3 class="card-title">Data</h3>
+              <p class="card-subtitle">データ</p>
+            </div>
+            <div class="card-body p-3">
+              <%= image_tag "data.png", class: "img-fluid" %>
+              <p class="card-text">アプリのデータの集計を誰でも見ることができるよ！”いいね”獲得数ランキングもチェックできます！</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 bg-light p-4">
+    <p class="text-center py-4">エピソードをシェアしてみよう！</p>
+    <div class="d-flex justify-content-center">
+      <div class="d-inline-flex flex-column">
+        <% unless user_signed_in? %>
+          <%= link_to "会員登録", new_user_registration_path, class: "btn btn-info mb-3" %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-info mb-3" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-success mb-3" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
