@@ -8,9 +8,9 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :avater do %>
-      <p><%= image_tag @user.avater.url, class: "rounded-circle", id: 'preview' %></p>
-      <%= f.file_field :avater, class: 'previewImage', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
+    <%= f.label :avatar do %>
+      <p><%= image_tag @user.avatar.url, class: "rounded-circle", id: 'preview' %></p>
+      <%= f.file_field :avatar, class: 'previewImage', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
     <% end %>
   </div>
 
