@@ -1,9 +1,9 @@
-<div class="title-group">
-  <h1>Edit</h1>
-  <p class="sub-title mb-0">編集</p>
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Edit</h2>
+    <p class="text-center text-muted">編集</p>
+  </div>
 </div>
-<hr class="devise-link mt-0 mb-4">
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 

@@ -1,10 +1,9 @@
-<div class="title-group">
-  <h1>Sign Up</h1>
-  <p class="sub-title mb-0">会員登録</p>
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Sign Up</h2>
+    <p class="text-center text-muted">会員登録</p>
+  </div>
 </div>
-<hr class="devise-link mt-0 mb-4">
-
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 
