@@ -25,6 +25,7 @@ import "./search"
 // import "chartkick/chart.js"
 import "chartkick/highcharts"
 import "./graph"
+import "./post-show"
 
 Rails.start()
 Turbolinks.start()
