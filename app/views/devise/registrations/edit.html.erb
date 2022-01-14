@@ -11,6 +11,7 @@
     <%= f.label :avatar do %>
       <p><%= image_tag @user.avatar.url, class: "rounded-circle", id: 'preview' %></p>
       <%= f.file_field :avatar, class: 'previewImage', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
+      <%= f.hidden_field :avatar_cache %>
     <% end %>
   </div>
 
