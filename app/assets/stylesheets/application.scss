@@ -52,9 +52,23 @@ button.close, button.navbar-toggler {
     outline: none;
   }
 
-#preview {
+.avatar-container {
+  position: relative;
   height: 200px;
   width: 200px;
+  .avatar-label {
+    height: 200px;
+    width: 200px;
+    background-image: url("/images/fallback/default.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    .avatar-preview {
+      height: 200px;
+      width: 200px;
+    }
+  }
 }
 
 a:hover {
