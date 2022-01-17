@@ -8,11 +8,16 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :avatar do %>
-      <p><%= image_tag @user.avatar.url, class: "rounded-circle", id: 'preview' %></p>
-      <%= f.file_field :avatar, class: 'previewImage', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
-      <%= f.hidden_field :avatar_cache %>
-    <% end %>
+    <div class="avatar-container">
+      <%= f.label :avatar, class: "avatar-label rounded-circle" do %>
+        <%= image_tag @user.avatar.url, class: "rounded-circle avatar-preview bg-light" %>
+        <%= f.file_field :avatar, class: 'avatar-image-field', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
+        <%= f.hidden_field :avatar_cache %>
+      <% end %>
+      <% if @user.avatar? %>
+        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>
+      <% end %>
+    </div>
   </div>
 
   <div class="form-group">

@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
             if ($(this).val() !== "") {
                 const avatar = $(this).prop('files')[0];
                 const fileReader = new FileReader();
-                if (dataBox.items.length !== 0) {
+                if ($('.avatar-preview').length ) {
                     dataBox.clearData();
                     $('.avatar-preview, .delete-preview').remove();
                 }
@@ -25,8 +25,12 @@ $(document).on('turbolinks:load', function(){
         });
         // 【プロフィール画像削除】
         $('.avatar-container').on('click', '.delete-preview', function(){
-            dataBox.clearData();
-            fileField.files = dataBox.files
+            if($('.avatar-image-field').val()){
+                dataBox.clearData();
+                fileField.files = dataBox.files
+            } else {
+                $('.avatar-label').prepend('<input type="hidden" name="user[avatar]" value="">');
+            }
             $('.avatar-preview, .delete-preview').remove();
         });
     });
