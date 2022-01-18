@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function(){
         }
         // 【プロフィール画像選択】
         $('.avatar-image-field').on('change', function(){
-            if ($(this).val() !== "") {
+            if ($(this).val()) {
                 const avatar = $(this).prop('files')[0];
                 avatarPreview(avatar);
             } else {
