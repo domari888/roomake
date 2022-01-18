@@ -11,7 +11,6 @@ $(document).on('turbolinks:load', function(){
                 $('.avatar-preview, .delete-preview').remove();
             }
             dataBox.items.add(avatar)
-            fileField.files = dataBox.files
             fileReader.onloadend = function(){
                 const avatarImage = `<img src="${fileReader.result}" class="rounded-circle avatar-preview bg-light">`;
                 const deleteButton = '<button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>';
