@@ -6,6 +6,7 @@ $(document).on('turbolinks:load', function(){
         function avatarPreview(avatar){
             const fileReader = new FileReader();
             if ($('.avatar-preview').length ) {
+                if ($('#current-avatar-image').length) $('.avatar-label').prepend('<input type="hidden" name="user[avatar]" value="">')
                 dataBox.clearData();
                 $('.avatar-preview, .delete-preview').remove();
             }
