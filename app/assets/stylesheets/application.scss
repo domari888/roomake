@@ -65,12 +65,8 @@ button.close, button.navbar-toggler {
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
-    .avatar-preview {
-      height: 200px;
-      width: 200px;
-    }
   }
-  .avatar-preview {
+  .user-avatar,.avatar-preview {
     position: absolute;
     top: 0;
     width: 100%;
