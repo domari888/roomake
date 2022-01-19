@@ -40,11 +40,21 @@ module Users
     #   super
     # end
 
-    # protected
+    private
 
     def ensure_nomal_user
       redirect_to user_path(current_user.id), alert: 'ゲストユーザーの削除・更新はできません' if resource.email == 'guest@example.com'
     end
+
+    def after_sign_up_path_for(_resource)
+      posts_path
+    end
+
+    def after_update_path_for(_resource)
+      user_path(current_user)
+    end
+
+    # protected
 
     # If you have extra params to permit, append them to the sanitizer.
     # def configure_sign_up_params

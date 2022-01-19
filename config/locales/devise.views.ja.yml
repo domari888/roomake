@@ -25,7 +25,7 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-        avater: プロフィール画像
+        avatar: プロフィール画像
         name: ユーザーネーム
         age: 年代
         address: お住まい

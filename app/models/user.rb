@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :household, presence: true
 
   # AvaterUploader と users テーブルの avater カラムを連携
-  mount_uploader :avater, AvaterUploader
+  mount_uploader :avatar, AvatarUploader
 
   enum age: {
     teens: 1,
