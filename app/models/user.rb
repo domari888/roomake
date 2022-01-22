@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
   has_many :marks, dependent: :destroy
   has_many :marked_posts, through: :marks, source: :post
+  has_many :items, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :age, presence: true

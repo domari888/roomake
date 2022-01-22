@@ -5,6 +5,7 @@ ja:
       comment: コメント
       like: いいね
       mark: マーク
+      item: アイテム
     attributes:
       post:
         content: 投稿内容
@@ -20,6 +21,11 @@ ja:
       mark:
         user: ユーザー
         post: 投稿
+      item:
+        name: アイテム名
+        genre: ジャンル
+        image: アイテム画像
+        user: ユーザー
   views:
     pagination:
       first: "&laquo;"
