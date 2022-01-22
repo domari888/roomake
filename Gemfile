@@ -38,6 +38,7 @@ gem 'gon'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'rails-i18n', '~> 6.0'
+gem 'rakuten_web_service'
 gem 'ransack'
 
 group :development, :test do
