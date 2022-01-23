@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root 'homes#index'
-  resources :users, only: %i[show]
+  resources :users, only: %i[show] do
+    resources :items, only: %i[index]
+  end
   resources :posts, except: %i[new edit] do
     resources :comments, only: %i[create destroy]
     resource :likes, only: %i[create destroy]
