@@ -1,2 +1,36 @@
-<h1>SearchItems#index</h1>
-<p>Find me in app/views/search_items/index.html.erb</p>
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Item_Search</h2>
+    <p class="text-center text-muted">アイテム検索</p>
+  </div>
+</div>
+<%= form_with url: search_items_path, method: :get, local: true do |form| %>
+  <div class="input-group mb-3">
+    <%= form.text_field :keyword, class: "form-control", placeholder: "アイテムを検索", value: params[:keyword], required: true %>
+    <div class="input-group-append">
+      <%= button_tag type: :submit, class: "btn btn-info" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<% if @search_items.present? %>
+  <% if @search_items.count > 0 %>
+    <ul class="row bg-white py-3 px-0 mb-0">
+      <% @search_items.each do |item| %>
+        <li class="col-6 col-sm-4 col-lg-2 d-flex flex-column px-lg-1 mb-3">
+          <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center align-items-center bg-white search-item-image">
+              <%= image_tag item["mediumImageUrl"] , class: "img-fluid" %>
+            </div>
+          </div>
+          <h6 class="px-2"><%= item["productName"] %></h6>
+          <p class="text-muted px-2"><%= item["genreName"] %></p>
+            <%= link_to "追加", user_items_path(current_user, name: item["productName"], genre: item["genreName"], image: item["mediumImageUrl"]), method: :post, type: "button", class: "btn btn-outline-info mt-auto mx-lg-2" %>
+        </li>
+      <% end %>
+    </ul>
+  <% elsif %>
+    <p class="d-flex justify-content-center pt-5">検索結果が見つかりませんでした</p>
+  <% end %>
+<% end %>
