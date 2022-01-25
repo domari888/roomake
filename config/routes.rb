@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     resource :marks, only: %i[create destroy]
   end
   resources :graphs, only: %i[index]
+  resources :search_items, only: %i[index]
 end
