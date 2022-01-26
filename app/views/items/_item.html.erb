@@ -1,0 +1,19 @@
+<li class="col-12 mb-3 border-bottom" id="my-item-<%= item.id %>" >
+  <div class="d-flex">
+    <div class="d-flex justify-content-center align-items-center bg-white search-item-image">
+      <%= image_tag item.image, class: "img-fluid" %>
+    </div>
+    <div class="d-flex flex-column flex-md-row w-100">
+      <h5 class="d-flex align-items-center pl-3 mb-0"><%= item.name %></h5>
+      <p class="d-flex align-items-center text-muted pl-3 my-auto ml-md-auto text-nowrap"><%= item.genre %></p>
+    </div>
+    <div class="dropdown pl-3">
+      <button class="btn btn-link btn-sm text-reset" type="button" id="my-item-menu-<%= item.id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right bg-light text-center" aria-labelledby="my-item-menu-<%= item.id %>">
+        <%= link_to "削除", user_item_path(current_user, item), class: "dropdown-item text-danger", method: :delete, data: { confirm: "削除しますか?"}, remote: true %>
+      </div>
+    </div>
+  </div>
+</li>

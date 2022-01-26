@@ -14,6 +14,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = current_user.items.find(params[:id])
+    @item.destroy!
+    flash.now[:alert] = "#{@item.name} を削除しました"
+  end
+
   private
 
   def registered_item?

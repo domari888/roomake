@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   root 'homes#index'
   resources :users, only: %i[show] do
-    resources :items, only: %i[index create]
+    resources :items, only: %i[index create destroy]
   end
   resources :posts, except: %i[new edit] do
     resources :comments, only: %i[create destroy]
