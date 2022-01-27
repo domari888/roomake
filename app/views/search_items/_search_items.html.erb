@@ -1,16 +1,18 @@
 <% if search_items.count > 0 %>
   <ul class="row bg-white py-3 px-0 mb-0">
     <% search_items.each do |item| %>
-      <li class="col-6 col-sm-4 col-lg-2 d-flex flex-column px-lg-1 mb-3">
-        <div class="d-flex justify-content-center">
-          <div class="d-flex justify-content-center align-items-center bg-white search-item-image">
-            <%= image_tag item["mediumImageUrl"] , class: "img-fluid" %>
+      <%= link_to item["affiliateUrl"], class: "text-reset", target: "_blank" do %>
+        <li class="col-6 col-sm-4 col-lg-2 d-flex flex-column px-lg-1 pt-2 mb-3">
+          <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center align-items-center bg-white search-item-image">
+              <%= image_tag item["mediumImageUrl"] , class: "img-fluid" %>
+            </div>
           </div>
-        </div>
-        <h6 class="px-2"><%= item["productName"] %></h6>
-        <p class="text-muted px-2"><%= item["genreName"] %></p>
+          <h6 class="px-2 py-2"><%= item["productName"] %></h6>
+          <p class="text-muted px-2"><%= item["genreName"] %></p>
           <%= link_to "追加", user_items_path(current_user, name: item["productName"], genre: item["genreName"], image: item["mediumImageUrl"]), method: :post, type: "button", class: "btn btn-outline-info mt-auto mx-lg-2" %>
-      </li>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% elsif %>
