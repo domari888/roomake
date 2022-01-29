@@ -19,12 +19,15 @@
       </div>
     </div>
   <% end %>
-  </div> 
+  </div>
 </div>
 <% if @items.present? %>
   <ul class="row bg-white py-3 px-0 mb-0 my-items">
     <%= render @items %>
   </ul>
+  <div id="my-item-paginate">
+    <%= paginate @items, remote: true %>
+  </div>
 <% elsif %>
   <h3 class="d-flex justify-content-center pt-5">アイテムがまだありません</h3>
 <% end %>
