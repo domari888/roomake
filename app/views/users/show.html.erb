@@ -55,9 +55,13 @@
           <i class="far fa-heart align-self-center mr-1"></i>いいね一覧
         </small>
       </a>
-      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0 px-0" id="list-marked-list" data-toggle="list" href="#list-marked" role="tab" aria-controls="marked" data-tab="list-marked">
+      <a class="list-group-item flex-fill list-group-item-action text-reset rounded-0 px-0" id="list-<%= tab_name(@user) %>-list" data-toggle="list" href="#list-<%= tab_name(@user) %>" role="tab" aria-controls="<%= tab_name(@user) %>" data-tab="list-<%= tab_name(@user) %>">
         <small class="d-flex justify-content-center">
-          <i class="far fa-bookmark align-self-center mr-1"></i>マーク一覧
+          <% if current_user.id == @user.id %>
+            <i class="far fa-bookmark align-self-center mr-1"></i>マーク一覧
+          <% elsif %>
+            <i class="fas fa-couch align-self-center mr-1"></i>アイテム
+          <% end %>
         </small>
       </a>
     </div>
@@ -78,14 +82,25 @@
           <%= paginate @likes, param_name: "like_page", remote: true, params: { data: "like" } %>
         </div>
       </div>
-      <div class="tab-pane fade" id="list-marked" role="tabpanel" area-labelledby="list-marked-list">
-        <div class="d-flex flex-wrap" id="posts-marked">
-          <%= render partial: "posts_paginate", collection: @marks, as: "post" %>
+      <% if current_user.id == @user.id %>
+        <div class="tab-pane fade" id="list-marked" role="tabpanel" area-labelledby="list-marked-list">
+          <div class="d-flex flex-wrap" id="posts-marked">
+            <%= render partial: "posts_paginate", collection: @marks, as: "post" %>
+          </div>
+          <div id="posts-marked-paginate">
+            <%= paginate @marks, param_name: "mark_page", remote: true, params: { data: "mark" } %>
+          </div>
         </div>
-        <div id="posts-marked-paginate">
-          <%= paginate @marks, param_name: "mark_page", remote: true, params: { data: "mark" } %>
+      <% elsif %>
+        <div class="tab-pane fade" id="list-item" role="tabpanel" area-labelledby="list-item-list">
+          <div class="d-flex flex-wrap my-items" id="posts-item">
+            <%= render @items %>
+          </div>
+          <div id="posts-item-paginate">
+            <%= paginate @items, param_name: "item_page", remote: true, params: { data: "item" } %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
