@@ -41,9 +41,9 @@ end
 50.times do
   items.each do |item|
     Item.create!(
-      name: item["productName"],
-      genre: item["genreName"],
-      image: item["mediumImageUrl"],
+      name: item['productName'],
+      genre: item['genreName'],
+      image: item['mediumImageUrl'],
       user_id: test_user.id
     )
   end
