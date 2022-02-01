@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center pt-3">
   <div class="d-inline-flex flex-column headline pb-4">
-    <h2 class="m-0">My Page</h2>
-    <p class="text-center text-muted">マイページ</p>
+    <h2 class="m-0"><%= page_title(@user)[:title] %></h2>
+    <p class="text-center text-muted"><%= page_title(@user)[:sub_title] %></p>      
   </div>
 </div>
 <div class="row">
@@ -19,9 +19,11 @@
           <i class="fas fa-cog"></i>
           <span class="pl-2">プロフィール編集</span>
         <% end %>
-        <%= link_to user_items_path(current_user), class: "dropdown-item text-left" do %>
-          <i class="fas fa-couch"></i>
-          <span class="pl-2">マイアイテム</span>
+        <% if current_user.id == @user.id %>
+          <%= link_to user_items_path(current_user), class: "dropdown-item text-left" do %>
+            <i class="fas fa-couch"></i>
+            <span class="pl-2">マイアイテム</span>
+          <% end %>
         <% end %>
       </div>
     </div>
