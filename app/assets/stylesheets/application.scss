@@ -111,3 +111,13 @@ input:checked + span {
   color: #EEEDEC;
   background-color: #6c757d;
 }
+
+.dropdown-item {
+  &:hover {
+    background-color: #e4e8ec;
+  }
+  &:active {
+    background-color: #e4e8ec;
+    color: #212529;
+  }
+}

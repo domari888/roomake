@@ -221,6 +221,8 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.6)
+    rakuten_web_service (1.13.1)
+      json (~> 2.3)
     ransack (2.4.2)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
@@ -354,6 +356,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   rails-i18n (~> 6.0)
   rails_best_practices
+  rakuten_web_service
   ransack
   rspec-rails
   rubocop-performance

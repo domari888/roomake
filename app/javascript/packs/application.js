@@ -24,7 +24,7 @@ import "./jscroll"
 import "./search"
 // import "chartkick/chart.js"
 import "chartkick/highcharts"
-import "./graph"
+import "./collapse"
 import "./post-show"
 
 Rails.start()
