@@ -6,6 +6,7 @@ ja:
       like: いいね
       mark: マーク
       item: アイテム
+      inquiry: お問い合わせ
     attributes:
       post:
         content: 投稿内容
@@ -26,6 +27,12 @@ ja:
         genre: ジャンル
         image: アイテム画像
         user: ユーザー
+      inquiry:
+        name: お客様のお名前
+        name_kana: お客様のお名前(カナ)
+        email: メールアドレス
+        content: お問い合わせ内容
+        remote_ip: IPアドレス
   views:
     pagination:
       first: "&laquo;"
