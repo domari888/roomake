@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <%= @inquiry.name %> 様より，「moknow」にお問い合わせがありました。
+    <p>
+      ~~~~~ お問い合わせ内容 ~~~~~
+      <p>【氏名】<%= @inquiry.name %></p>
+      <p>【メールアドレス】<%= @inquiry.email %></p>
+      <p><%= @inquiry.content %></p>   
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    </p>
+  </body>
+</html>
