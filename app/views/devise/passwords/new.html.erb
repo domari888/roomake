@@ -1,9 +1,9 @@
-<div class="title-group">
-  <h1>Password Reissue</h1>
-  <p class="sub-title mb-0">パスワード再発行</p>
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Password Reissue</h2>
+    <p class="text-center text-muted">パスワード再発行</p>
+  </div>
 </div>
-<hr class="devise-link mt-0 mb-4">
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 

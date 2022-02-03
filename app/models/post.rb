@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   has_many :marked_users, through: :marks, source: :user
 
   # user モデルの name を委譲する
-  delegate :name, :avater, :id, to: :user, prefix: true
+  delegate :name, :avatar, :id, to: :user, prefix: true
 
   def liked_by?(current_user)
     likes.any? { |like| like.user_id == current_user.id }

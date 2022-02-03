@@ -1,17 +1,23 @@
-<div class="title-group">
-  <h1>Edit</h1>
-  <p class="sub-title mb-0">編集</p>
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Edit</h2>
+    <p class="text-center text-muted">編集</p>
+  </div>
 </div>
-<hr class="devise-link mt-0 mb-4">
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :avater do %>
-      <p><%= image_tag @user.avater.url, class: "rounded-circle", id: 'preview' %></p>
-      <%= f.file_field :avater, class: 'previewImage', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
-    <% end %>
+    <div class="avatar-container">
+      <%= f.label :avatar, class: "avatar-label rounded-circle" do %>
+        <%= image_tag @user.avatar.url, class: "rounded-circle avatar-preview bg-light", id: "current-avatar-image" %>
+        <%= f.file_field :avatar, class: 'avatar-image-field', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;' %>
+        <%= f.hidden_field :avatar_cache %>
+      <% end %>
+      <% if @user.avatar? %>
+        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>
+      <% end %>
+    </div>
   </div>
 
   <div class="form-group">
