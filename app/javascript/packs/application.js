@@ -24,8 +24,7 @@ import "./jscroll"
 import "./search"
 // import "chartkick/chart.js"
 import "chartkick/highcharts"
-import "./collapse"
-import "./post-show"
+import "./graph"
 
 Rails.start()
 Turbolinks.start()

@@ -4,5 +4,5 @@ class Comment < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
 
   # user  モデルの name と avater を委譲する
-  delegate :name, :avatar, to: :user, prefix: true
+  delegate :name, :avater, to: :user, prefix: true
 end

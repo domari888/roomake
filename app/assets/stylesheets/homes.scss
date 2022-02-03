@@ -20,10 +20,10 @@
 
 .key-image {
   min-height: 25vh;
-  background-image: url("home.png");
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-image: url("family.png"), url("house.png");
+  background-position: right 75px top 0, right -25px top -20px;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
 }
 
 @media (max-width: 575.98px) {

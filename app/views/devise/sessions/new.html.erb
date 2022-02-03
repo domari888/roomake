@@ -1,9 +1,9 @@
-<div class="d-flex justify-content-center pt-3">
-  <div class="d-inline-flex flex-column headline pb-4">
-    <h2 class="m-0">Sign In</h2>
-    <p class="text-center text-muted">ログイン</p>
-  </div>
+<div class="title-group">
+  <h1>Sign In</h1>
+  <p class="sub-title mb-0">ログイン</p>
 </div>
+<hr class="devise-link mt-0 mb-4">
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
     <%= f.label :email %>

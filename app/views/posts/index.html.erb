@@ -1,10 +1,9 @@
 <% if @posts.present? %>
-  <div class="d-flex justify-content-center pt-3">
-    <div class="d-inline-flex flex-column headline pb-4">
-      <h2 class="m-0">Time Line</h2>
-      <p class="text-center text-muted">タイムライン</p>
-    </div>
+  <div class="title-group">
+    <h1>Time Line</h1>
+    <p class="sub-title mb-0">タイムライン</p>
   </div>
+  <hr class="devise-link mt-0 mb-5">
   <div class="jscroll">
     <div class="row" id="timeline">
       <%= render partial: "time_line", collection: @posts, as: "post" %>

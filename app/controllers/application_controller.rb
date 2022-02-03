@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar, :avatar_cache, :name, :age, :address, :household])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar, :avatar_cache, :name, :age, :address, :household, :favorite_items, :profile])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:avater, :name, :age, :address, :household])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:avater, :name, :age, :address, :household, :favorite_items, :profile])
   end
 
   def set_search

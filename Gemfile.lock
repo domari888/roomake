@@ -136,15 +136,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    launchy (2.5.0)
-      addressable (~> 2.7)
-    letter_opener (1.7.0)
-      launchy (~> 2.2)
-    letter_opener_web (2.0.0)
-      actionmailer (>= 5.2)
-      letter_opener (~> 1.7)
-      railties (>= 5.2)
-      rexml
     listen (3.6.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -230,8 +221,6 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.6)
-    rakuten_web_service (1.13.1)
-      json (~> 2.3)
     ransack (2.4.2)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
@@ -356,7 +345,6 @@ DEPENDENCIES
   gon
   jbuilder (~> 2.7)
   kaminari
-  letter_opener_web (~> 2.0)
   listen (~> 3.3)
   mini_magick
   pg (~> 1.1)
@@ -366,7 +354,6 @@ DEPENDENCIES
   rails (~> 6.1.4)
   rails-i18n (~> 6.0)
   rails_best_practices
-  rakuten_web_service
   ransack
   rspec-rails
   rubocop-performance
