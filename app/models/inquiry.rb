@@ -1,5 +1,5 @@
 class Inquiry < ApplicationRecord
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { maximum: 48 }
   validates :name_kana, presence: true, length: { maximum: 48 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, length: { maximum: 256 }
