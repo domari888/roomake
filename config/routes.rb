@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   end
   resources :graphs, only: %i[index]
   resources :search_items, only: %i[index]
+  resources :inquiries, only: %i[index create]
 end
