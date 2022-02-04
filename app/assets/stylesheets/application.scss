@@ -24,8 +24,11 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 body {
   margin: 0;
-  padding: 56px 0;
+  padding-top: 56px;
   background-color: #EEEDEC;
+  @media (max-width: 575.98px) {
+    padding-bottom: 56px;
+  }
 }
 
 .base-container {
