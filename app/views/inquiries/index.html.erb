@@ -1,2 +1,37 @@
-<h1>Inquiries#index</h1>
-<p>Find me in app/views/inquiries/index.html.erb</p>
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Inquiry</h2>
+    <p class="text-center text-muted">お問い合わせ</p>
+  </div>
+</div>
+<%= form_with model: @inquiry, local: true do |form| %>
+  <%= render "layouts/error_messages", model: @inquiry %>
+  <div class="form-group">
+    <span class="required">必須</span>
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", maxlength: 48, required: true %>
+    <small class="form-text text-muted">(48文字以下)</small>
+  </div>
+  <div class="form-group">
+    <span class="required">必須</span>
+    <%= form.label :name_kana %>
+    <%= form.text_field :name_kana, class: "form-control", maxlength: 48, pattern: "[ァ-ヶー－]+", required: true %>
+    <small class="form-text text-muted">(全角カタカナ)(48文字以下)</small>
+  </div>
+  <div class="form-group">
+    <span class="required">必須</span>
+    <%= form.label :email %>
+    <%= form.email_field :email, class: "form-control", maxlength: 256, pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]+$", required: true %>
+    <small class="form-text text-muted">(256文字以下)</small>
+  </div>
+  <div class="form-group">
+    <span class="required">必須</span>
+    <%= form.label :content %>
+    <%= form.text_area :content, class: "form-control", rows: 5, maxlength: 2000, required: true %>
+    <small class="form-text text-muted">(2000文字以下)</small>
+  </div>
+  <hr class="py-2 m-0">
+  <div class="form-group">
+    <%= form.submit "送信", class: 'btn btn-info btn-block' %>
+  </div>
+<% end %>
