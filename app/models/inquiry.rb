@@ -1,4 +1,6 @@
 class Inquiry < ApplicationRecord
+  include Confirmable
+
   VALID_NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { maximum: 48 }

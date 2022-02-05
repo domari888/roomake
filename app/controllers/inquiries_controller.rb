@@ -8,7 +8,7 @@ class InquiriesController < ApplicationController
     if @inquiry.save
       InquiryMailer.user_email(@inquiry).deliver_now
       InquiryMailer.admin_email(@inquiry).deliver_now
-      redirect_to posts_path, notice: 'お問い合わせが完了しました'
+      redirect_to posts_path, notice: 'お問い合わせ内容を送信しました'
     else
       render :index
     end
@@ -17,6 +17,6 @@ class InquiriesController < ApplicationController
   private
 
   def inquiry_params
-    params.require(:inquiry).permit(:name, :name_kana, :email, :content).merge(remote_ip: request.remote_ip)
+    params.require(:inquiry).permit(:name, :name_kana, :email, :content, :submitted, :confirmed).merge(remote_ip: request.remote_ip)
   end
 end
