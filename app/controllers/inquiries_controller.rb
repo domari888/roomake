@@ -8,7 +8,11 @@ class InquiriesController < ApplicationController
     if @inquiry.save
       InquiryMailer.user_email(@inquiry).deliver_now
       InquiryMailer.admin_email(@inquiry).deliver_now
-      redirect_to posts_path, notice: 'お問い合わせ内容を送信しました'
+      if user_signed_in?
+        redirect_to posts_path, notice: 'お問い合わせ内容を送信しました'
+      else
+        redirect_to root_path, notice: 'お問い合わせ内容を送信しました'
+      end
     else
       render :index
     end
