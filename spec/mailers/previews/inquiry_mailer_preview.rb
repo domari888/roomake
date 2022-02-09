@@ -1,6 +1,5 @@
 # Preview all emails at http://localhost:3000/rails/mailers/inquiry_mailer
 class InquiryMailerPreview < ActionMailer::Preview
-
   # Preview this email at http://localhost:3000/rails/mailers/inquiry_mailer/user_email
   def user_email
     InquiryMailer.user_email
@@ -10,5 +9,4 @@ class InquiryMailerPreview < ActionMailer::Preview
   def admin_email
     InquiryMailer.admin_email
   end
-
 end
