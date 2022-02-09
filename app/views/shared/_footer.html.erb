@@ -1,5 +1,7 @@
-<footer class="bg-dark w-100 p-3">
-  <div class="d-flex flex-column">
-    <%= link_to "お問い合わせ", inquiries_path, class: "text-light ml-auto py-2" %>
+<footer class="bg-dark w-100 <%= footer_display %>">
+  <div class="row mx-auto <%= max_width %>">
+    <div class="col-12 col-sm-4 p-2 text-center">
+      <%= link_to "お問い合わせ", inquiries_path, class: "text-light" %>
+    </div>
   </div>
 </footer>

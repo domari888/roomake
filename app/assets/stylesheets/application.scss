@@ -23,11 +23,29 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/brands';
 
 body {
+  position: relative;
   margin: 0;
   padding-top: 56px;
+  padding-bottom: 56px;
   background-color: #EEEDEC;
+  min-height: 100vh;
   @media (max-width: 575.98px) {
-    padding-bottom: 56px;
+    padding-bottom: 54px;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 8px 24px;
+  @media (max-width: 575.98px) {
+    position: static;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer-before-signing {
+    margin-bottom: -54px;
   }
 }
 

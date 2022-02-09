@@ -29,6 +29,9 @@
         <%= link_to user_path(current_user.id), class: "nav-item nav-link d-sm-block d-none" do %>
           <i class="fas fa-user"></i> マイページ
         <% end %>
+        <%= link_to inquiries_path, class: "nav-item nav-link d-block d-sm-none" do %>
+          <i class="fas fa-envelope"></i> お問い合わせ
+        <% end %>
       </div>
     <% else %>
       <div class="navbar-nav ml-auto">
@@ -46,6 +49,9 @@
         <% end %>
         <%= link_to "#", class: "nav-item nav-link" do %>
           <i class="fas fa-book"></i> ノウハウ
+        <% end %>
+        <%= link_to inquiries_path, class: "nav-item nav-link" do %>
+          <i class="fas fa-envelope"></i> お問い合わせ
         <% end %>
       </div>
     <% end %>
