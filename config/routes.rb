@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   end
   resources :graphs, only: %i[index]
   resources :search_items, only: %i[index]
+  resources :inquiries, only: %i[index create]
 end

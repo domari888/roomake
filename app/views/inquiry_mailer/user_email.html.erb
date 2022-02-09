@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <%= @inquiry.name %> 様
+    <p>
+      この度は，「moknow」にお問い合わせいただき，誠にありがとうございます。<br>
+      2営業日以内に，担当者よりご連絡いたします。<br>
+      今後とも「moknow」をよろしくお願いいたします。
+    </p>
+    <p>
+    ~~~~~ お問い合わせ内容 ~~~~~
+    <p><%= @inquiry.content %></p>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    </p>
+    <p>
+      当メールの送信アドレスは配信専用となっております。<br>
+      ご連絡は「お問い合わせフォーム」よりお願いいたします。
+    </p>
+  </body>
+</html>

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   def controller_name?
-    true unless controller_name == 'homes'
+    true unless controller_name == 'homes' || controller_name == 'inquiries'
   end
 
   def configure_permitted_parameters

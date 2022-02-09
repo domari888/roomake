@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Inquiry</h2>
+    <p class="text-center text-muted">お問い合わせ</p>
+  </div>
+</div>
+<%= form_with model: @inquiry, local: true do |form| %>
+  <%= render "layouts/error_messages", model: @inquiry %>
+  <%= form.hidden_field :submitted %>
+  <% if @inquiry.submitted == "1" %>
+    <h5 class="text-center w-100">【入力内容の確認】</h5>
+    <%= render "confirmed", form: form %>
+  <% else %>
+    <%= render "submitted", form: form %>
+  <% end %>
+<% end %>
