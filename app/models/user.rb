@@ -21,15 +21,7 @@ class User < ApplicationRecord
   # AvaterUploader と users テーブルの avater カラムを連携
   mount_uploader :avatar, AvatarUploader
 
-  enum age: {
-    teens: 1,
-    twenties: 2,
-    thirties: 3,
-    forties: 4,
-    fifties: 5,
-    sixties: 6,
-    others: 7
-  }
+  enum age: { teens: 1, twenties: 2, thirties: 3, forties: 4, fifties: 5, sixties: 6, others: 7 }
 
   enum address: {
     hokkaido: 1,
