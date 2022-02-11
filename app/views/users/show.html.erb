@@ -10,23 +10,33 @@
       <div class="col-3 col-md-4 avatar-container p-0 mb-4">
         <%= image_tag @user.avatar.url, class: "rounded-circle user-avatar bg-light" %>
       </div>
-    <div class="dropdown pl-3 ml-auto mt-auto">
-      <button class="btn btn-link text-reset" type="button" id="user-menu-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-list-ul fa-lg"></i>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right bg-light text-center" aria-labelledby="user-menu-list">
-        <%= link_to edit_user_registration_path, class: "dropdown-item text-left" do %>
-          <i class="fas fa-cog"></i>
-          <span class="pl-2">プロフィール編集</span>
-        <% end %>
-        <% if current_user.id == @user.id %>
-          <%= link_to user_items_path(current_user), class: "dropdown-item text-left" do %>
-            <i class="fas fa-couch"></i>
-            <span class="pl-2">マイアイテム</span>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+      <% if current_user.id == @user.id %>
+        <div class="dropdown pl-3 ml-auto mt-auto">
+          <button class="btn btn-link text-reset" type="button" id="user-menu-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-list-ul fa-lg"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right bg-light text-center" aria-labelledby="user-menu-list">
+            <%= link_to edit_user_registration_path, class: "dropdown-item text-left" do %>
+              <i class="fas fa-cog"></i>
+              <span class="pl-2">プロフィール編集</span>
+            <% end %>
+            <%= link_to user_items_path(current_user), class: "dropdown-item text-left" do %>
+              <i class="fas fa-couch"></i>
+              <span class="pl-2">マイアイテム</span>
+            <% end %>
+            <div class="d-sm-none">
+              <%= link_to page_path('terms_of_use'), class: "dropdown-item text-left" do %>
+                <i class="fas fa-book"></i>
+                <span class="pl-2">利用規約</span>
+              <% end %>
+              <%= link_to page_path('privacy_policy'), class: "dropdown-item text-left" do %>
+                <i class="fas fa-key"></i>
+                <span class="pl-2">プライバシーポリシー</span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="d-flex font-weight-bold border-bottom user-name mb-3">
       <%= @user.name %>

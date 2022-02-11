@@ -16,19 +16,12 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :profile, length: { maximum: 2000 }
   validates :household, presence: true
+  validates :terms_of_use, acceptance: { message: 'について同意してください' }, on: :create
 
   # AvaterUploader と users テーブルの avater カラムを連携
   mount_uploader :avatar, AvatarUploader
 
-  enum age: {
-    teens: 1,
-    twenties: 2,
-    thirties: 3,
-    forties: 4,
-    fifties: 5,
-    sixties: 6,
-    others: 7
-  }
+  enum age: { teens: 1, twenties: 2, thirties: 3, forties: 4, fifties: 5, sixties: 6, others: 7 }
 
   enum address: {
     hokkaido: 1,

@@ -69,9 +69,13 @@ footer {
   @extend .alert-danger;
 }
 
+div.field_with_errors {
+  display: contents;
+}
+
 button.close, button.navbar-toggler {
-    outline: none;
-  }
+  outline: none;
+}
 
 .avatar-container {
   position: relative;
