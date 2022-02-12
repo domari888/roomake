@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function(){
       // タイムラインの表示に jscroll を使用
       jscrollOption('jscroll-timeline');
       // マイアイテムの表示に jscroll を使用
-      jscrollOption('item-list');
+      jscrollOption('jscroll-item');
       // ユーザーページアクセス時にアクティブ状態のタブに jscroll を設定
       jscrollOption('list-posts');
 
