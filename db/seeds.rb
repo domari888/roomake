@@ -75,3 +75,6 @@ puts 'ユーザーの初期データ 1000 件のインポートに成功しま�
   post.marks.create!(user_id: rand(1..1000))
 end
 puts '投稿の初期データ 1000 件のインポートに成功しました。'
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+puts '管理者の初期データインポートに成功しました。'
