@@ -56,6 +56,9 @@ ActiveAdmin.setup do |config|
   # within the application controller.
   config.authentication_method = :authenticate_admin_user!
 
+  # 通常ログインをスキップする
+  config.skip_before_action :authenticate_user!
+
   # == User Authorization
   #
   # Active Admin will automatically call an authorization
