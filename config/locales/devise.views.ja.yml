@@ -1,7 +1,7 @@
 ja:
   activerecord:
     attributes:
-      user:
+      user: &user
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -33,8 +33,11 @@ ja:
         favorite_items: お気に入りの家具・家電
         profile: プロフィール
         terms_of_use: 利用規約
+      admin_user: *user
     models:
       user: ユーザー
+      admin_user: 管理者
+      comment: コメント
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
