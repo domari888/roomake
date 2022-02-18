@@ -14,6 +14,11 @@ ActiveAdmin.register Post do
     actions
   end
 
+  show do
+    render 'show', { post: post }
+    active_admin_comments
+  end
+
   controller do
     def create
       post_params = permitted_params[:post]
@@ -26,7 +31,7 @@ ActiveAdmin.register Post do
         render :new
       end
     end
-    
+
     def update
       post_params = permitted_params[:post]
       @delete_ids = post_params[:photo_ids]
