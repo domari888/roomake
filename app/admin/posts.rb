@@ -4,6 +4,16 @@ ActiveAdmin.register Post do
 
   form partial: 'form'
 
+  index do
+    selectable_column
+    id_column
+    column :content
+    column :user
+    column :likes_count
+    column :marks_count
+    actions
+  end
+
   controller do
     def create
       post_params = permitted_params[:post]
@@ -30,4 +40,13 @@ ActiveAdmin.register Post do
       end
     end
   end
+
+  filter :user
+  filter :content
+  filter :likes_count
+  filter :marks_count
+  filter :tags, as: :check_boxes, collection: proc { Tag.all }, label: 'タグ'
+  filter :categories, as: :check_boxes, collection: proc { Category.all }, label: 'カテゴリ'
+  filter :created_at
+  filter :updated_at
 end
