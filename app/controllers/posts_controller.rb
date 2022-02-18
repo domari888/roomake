@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new
-    @post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: @post))
+    @post_form = PostForm.new(post_params.merge(user_id: current_user.id, post: @post))
     if @post_form.save
       redirect_to posts_path, notice: '投稿しました'
     else
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post_form = PostForm.new(post_params.merge(current_user_id: current_user.id, post: @post))
+    @post_form = PostForm.new(post_params.merge(user_id: current_user.id, post: @post))
     if @post_form.save
       redirect_to @post, notice: '投稿を編集しました'
     else
