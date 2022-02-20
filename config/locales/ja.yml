@@ -39,6 +39,8 @@ ja:
         genre: ジャンル
         image: アイテム画像
         user: ユーザー
+        created_at: 作成日
+        updated_at: 更新日
       inquiry:
         name: お客様のお名前
         name_kana: お客様のお名前(カナ)
