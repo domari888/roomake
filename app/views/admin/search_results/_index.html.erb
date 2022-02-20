@@ -1,0 +1,28 @@
+<% if @search_items.count > 0 %>
+<p>検索キーワード : <%= keyword %></p>
+<table cellspacing="0" cellpadding="0" class="index_table">
+  <thead>
+    <tr>
+      <th class="col">画像</th>
+      <th class="col">アイテム名</th>
+      <th class="col">ジャンル</th>
+      <th class="col"></th>
+    <tr>
+  </thead>
+  <tbody>
+    <% @search_items.each do |item| %>
+      <tr>
+        <td class="col"><%= image_tag item["smallImageUrl"] , class: "img-fluid" %></td>
+        <td class="col"><%= item["productName"] %></td>
+        <td class="col"><%= item["genreName"] %></td>
+        <td class="col col_actions">
+            <p><%= link_to "追加", admin_items_path(name: item["productName"], genre: item["genreName"], image: item["mediumImageUrl"], user_id: params[:user_id]), method: :post %></p>
+            <p><%= link_to "詳細", item["affiliateUrl"], class: "text-reset", target: "_blank" %></p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>検索結果が見つかりませんでした</p>
+<% end %>

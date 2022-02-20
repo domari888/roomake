@@ -1,7 +1,24 @@
 ActiveAdmin.register Item do
-  permit_params :name, :genre, :image, :user_id, :keyword
   includes :user
   actions :all, except: %i[edit update]
+
+  form partial: 'form'
+
+  controller do
+    def create
+      user = User.find(params[:user_id])
+      if user.items.find_by(name: params[:name]).nil?
+        item = user.items.build(name: params[:name], genre: params[:genre], image: params[:image])
+        if item.save
+          redirect_to admin_item_path(item), notice: "#{params[:name]} をマイアイテムに追加しました"
+        else
+          redirect_back(fallback_location: collection_path, flash: { error: "#{params[:name]} を追加することができませんでした" })
+        end
+      else
+        redirect_back(fallback_location: collection_path, flash: { error: "#{params[:name]} は既に登録されています" })
+      end
+    end
+  end
 
   index do
     selectable_column
