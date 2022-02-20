@@ -29,4 +29,18 @@ ActiveAdmin.register Item do
     column :updated_at
     actions
   end
+
+  show do
+    attributes_table do
+      row :name
+      row :genre
+      row :image do
+        image_tag(item.image)
+      end
+      row :user
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
 end
