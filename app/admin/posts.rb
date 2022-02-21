@@ -66,6 +66,8 @@ ActiveAdmin.register Post do
   sidebar "投稿関連一覧", only: :show do
     ul do
       li link_to "コメント 一覧", admin_post_comments_path(post)
+      li link_to "いいね 一覧", admin_post_likes_path(post)
+      li link_to "マーク 一覧", admin_post_marks_path(post)
     end
   end
 end
