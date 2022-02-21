@@ -16,6 +16,14 @@ ActiveAdmin.register Post do
 
   show do
     render 'show', { post: post }
+    panel "コメント一覧" do
+      table_for post.comments do
+        column :user do |comment|
+          User.find(comment.user_id)
+        end
+        column :content
+      end
+    end
     active_admin_comments
   end
 
@@ -54,4 +62,10 @@ ActiveAdmin.register Post do
   filter :categories, as: :check_boxes, collection: proc { Category.all }, label: 'カテゴリ'
   filter :created_at
   filter :updated_at
+
+  sidebar "投稿関連一覧", only: :show do
+    ul do
+      li link_to "コメント 一覧", admin_post_comments_path(post)
+    end
+  end
 end
