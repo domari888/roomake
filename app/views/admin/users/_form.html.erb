@@ -1,0 +1,70 @@
+<%= form_with model: [:admin, @user], local: true do |form| %>
+  <fieldset class="inputs">
+    <ol>
+      <li>
+        <%= form.label :email %>
+        <%= form.email_field :email, required: true %>
+      </li>
+      <li>
+        <%= form.label :password %>
+        <%= form.password_field :password, required: true %>
+      </li>
+      <li>
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, required: true %>
+      </li>
+      <li>
+        <%= form.label :name %>
+        <%= form.text_field :name, maxlength: 30, required: true %>
+      </li>
+      <li>
+        <%= form.label :age %>
+        <%= form.select :age, User.ages_i18n.invert, include_blank: '選択してください', required: true %>
+      </li>
+      <li>
+        <%= form.label :address %>
+        <%= form.select :address, User.addresses_i18n.invert, include_blank: '選択してください', required: true %>
+      </li>
+      <li>
+        <%= form.label :household%>
+        <%= form.select :household, User.households_i18n.invert, include_blank: '選択してください', required: true %>
+      </li>
+      <li>
+        <%= form.label :favorite_items %>
+        <%= form.text_field :favorite_items %>
+      </li>
+      <li>
+        <%= form.label :profile %>
+        <%= form.text_area :profile, maxlength: 2000, rows: 5 %>
+      </li>
+      <li>
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar, class: 'avatar-image-field', accept: 'image/png,image/jpeg,image/gif' %>
+      </li>
+      <li>
+        <% unless form.object.new_record? %>
+          <%= form.label '現在のプロフィール画像' %>
+          <%= image_tag @user.avatar.url, class: "rounded-circle avatar-preview bg-light admin-image-preview", id: "current-avatar-image" %>
+          <% if form.object.avatar.present? %>
+            <p class="inline-hints">
+              <%= form.check_box :remove_avatar %>
+              現在のプロフィール画像を削除する
+            </p>
+          <% end %>
+        <% end %>
+      </li>
+      <%= form.hidden_field :avatar_cache %>
+      <%= form.hidden_field :terms_of_use, value: 1 %>
+    </ol>
+  </fieldset>
+  <fieldset class="actions">
+    <ol>
+      <li>
+        <%= form.submit '送信する' %>
+      </li>
+      <li class="cancel">
+        <%= link_to "取り消す", admin_users_path %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>
