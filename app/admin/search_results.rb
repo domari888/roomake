@@ -14,6 +14,6 @@ ActiveAdmin.register_page 'search_results' do
   end
 
   content title: '検索結果' do
-    render 'index', keyword: params[:keyword] if params[:keyword].present?
+    render partial: 'index', locals: { keyword: params[:keyword], search_items: search_items } if params[:keyword].present?
   end
 end

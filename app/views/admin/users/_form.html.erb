@@ -1,4 +1,4 @@
-<%= form_with model: [:admin, @user], local: true do |form| %>
+<%= form_with model: [:admin, resource], local: true do |form| %>
   <fieldset class="inputs">
     <ol>
       <li>
@@ -44,7 +44,7 @@
       <li>
         <% unless form.object.new_record? %>
           <%= form.label '現在のプロフィール画像' %>
-          <%= image_tag @user.avatar.url, class: "rounded-circle avatar-preview bg-light admin-image-preview", id: "current-avatar-image" %>
+          <%= image_tag resource.avatar.url, class: "rounded-circle avatar-preview bg-light admin-image-preview", id: "current-avatar-image" %>
           <% if form.object.avatar.present? %>
             <p class="inline-hints">
               <%= form.check_box :remove_avatar %>
