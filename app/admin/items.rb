@@ -6,17 +6,20 @@ ActiveAdmin.register Item do
 
   controller do
     def create
-      user = User.find(params[:user_id])
-      if user.items.find_by(name: params[:name]).nil?
-        item = user.items.build(name: params[:name], genre: params[:genre], image: params[:image])
-        if item.save
-          redirect_to admin_item_path(item), notice: "#{params[:name]} をマイアイテムに追加しました"
-        else
-          redirect_back(fallback_location: collection_path, flash: { error: "#{params[:name]} を追加することができませんでした" })
-        end
+      @user = User.find(params[:user_id])
+      registered_item? and return
+      item = @user.items.build(name: params[:name], genre: params[:genre], image: params[:image])
+      if item.save
+        redirect_to admin_item_path(item), notice: "#{params[:name]} をマイアイテムに追加しました"
       else
-        redirect_back(fallback_location: collection_path, flash: { error: "#{params[:name]} は既に登録されています" })
+        redirect_back(fallback_location: collection_path, flash: { error: "#{params[:name]} を追加することができませんでした" })
       end
+    end
+
+    def registered_item?
+      return unless @user.items.find_by(name: params[:name])
+
+      redirect_back(fallback_location: collection_path, flash: { error: "#{params[:name]} は既に登録されています" })
     end
   end
 
