@@ -17,11 +17,15 @@ ActiveAdmin.register Post do
   show do
     render 'show', { post: post }
     panel 'コメント一覧' do
-      table_for post.comments do
-        column :user do |comment|
-          User.find(comment.user_id)
+      if post.comments.any?
+        table_for post.comments do
+          column :user do |comment|
+            User.find(comment.user_id)
+          end
+          column :content
         end
-        column :content
+      else
+        span 'コメントはまだありません。'
       end
     end
     active_admin_comments
