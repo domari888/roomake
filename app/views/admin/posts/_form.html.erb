@@ -1,0 +1,56 @@
+<%= form_with model: [:admin, resource], local: true do |form| %>
+  <fieldset class="inputs">
+    <ol>
+      <li>
+        <%= form.label :content %>
+        <%= form.text_area :content, rows: '10', maxlength: 2000, required: true %>
+        <p class="inline-hints"> 2000 文字以下</p>
+      </li>
+      <li>
+        <%= form.label :user_id, 'ユーザー' %>
+        <%= form.collection_select :user_id, User.order(name: :asc), :id, :name, { include_blank: '選択してください' }, { required: true } %>
+      </li>
+      <li>
+        <%= form.label :tag_ids, 'タグ' %>
+        <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name, include_hidden: false do |f| %>
+          <%= f.check_box %>
+          <%= f.text %>
+        <% end %>
+        <p class="inline-hints"> 2 つまで選択可</p>
+      </li>
+      <li>
+        <%= form.label :category_ids, 'カテゴリ' %>
+        <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |f| %>
+          <%= f.check_box %>
+          <%= f.text %>
+        <% end %>
+        <p class="inline-hints"> 2 つまで選択可</p>
+      </li>
+      <li>
+        <%= form.label :image, '投稿画像' %>
+        <%= form.file_field :image, image_preview: true, multiple: true, accept: 'image/png, image/jpeg, image/jpg' %>
+        <p class="inline-hints"> 6 枚まで選択可</p>
+      </li>
+      <li>
+        <% unless form.object.new_record? %>
+          <%= form.label '現在の画像' %>
+          <%= form.collection_check_boxes :photo_ids, resource.photos, :id, :image, checked: false, include_hidden: false do |f| %>
+            <%= f.check_box %>
+            <%= image_tag(f.object.image.url, size: '100x100') %>
+          <% end %>
+          <p class="inline-hints">削除する場合はチェックを入れてください</p>
+        <% end %>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="actions">
+    <ol>
+      <li>
+        <%= form.submit '投稿する' %>
+      </li>
+      <li class="cancel">
+        <%= link_to "取り消す", admin_posts_path %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>

@@ -16,6 +16,6 @@
 <% end %>
 <div id="search_item_list">
   <% if @search_items.present? %>
-    <%= render partial: "search_item", locals: { search_items: @search_items } %>
+    <%= render "search_item", @search_items %>
   <% end %>
 </div>

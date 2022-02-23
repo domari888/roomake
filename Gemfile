@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'activeadmin'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'carrierwave-i18n'

@@ -1,0 +1,47 @@
+<div class="panel">
+  <h3>投稿詳細</h3>
+  <div class="panel_contents">
+    <div class="attributes_table contract_info">
+      <table cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="row">
+            <th>画像</th>
+            <td>
+              <% post.photos.each do |photo| %>
+                <%= image_tag(photo.image.url, size: '100x100', style: 'margin:0 10px;') %>
+              <% end %>
+            </td>
+          </tr>
+          <tr class="row">
+            <th>内容</th>
+            <td><%= post.content %></td>
+          </tr>
+          <tr class="row">
+            <th>ユーザー</th>
+            <td>
+              <%= link_to admin_user_path(post.user_id) do %>
+                <%= post.user_name %>
+              <% end %>
+            </td>
+          </tr>
+          <tr class="row">
+            <th>いいね</th>
+            <td><%= post.likes_count %> 件</td>
+          </tr>
+          <tr class="row">
+            <th>マーク</th>
+            <td><%= post.marks_count %> 件</td>
+          </tr>
+          <tr class="row">
+            <th>作成日</th>
+            <td><%= post.created_at %></td>
+          </tr>
+          <tr class="row">
+            <th>更新日</th>
+            <td><%= post.updated_at %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       post: 投稿
+      tag: タグ
+      category: カテゴリ
       comment: コメント
       like: いいね
       mark: マーク
@@ -13,20 +15,39 @@ ja:
         likes_count: いいね数
         marks_count: マーク数
         user: ユーザー
+        created_at: 作成日
+        updated_at: 更新日
+      tag:
+        name: タグ
+        created_at: 作成日
+        updated_at: 更新日
+      category:
+        name: カテゴリ
+        created_at: 作成日
+        updated_at: 更新日
       comment:
         content: コメント内容
         user: ユーザー
+        post: 投稿
+        created_at: 作成日
+        updated_at: 更新日
       like:
         user: ユーザー
         post: 投稿
+        created_at: 作成日
+        updated_at: 更新日
       mark:
         user: ユーザー
         post: 投稿
+        created_at: 作成日
+        updated_at: 更新日
       item:
         name: アイテム名
         genre: ジャンル
         image: アイテム画像
         user: ユーザー
+        created_at: 作成日
+        updated_at: 更新日
       inquiry:
         name: お客様のお名前
         name_kana: お客様のお名前(カナ)

@@ -1,7 +1,7 @@
 class PostForm
   include ActiveModel::Model
 
-  attr_accessor :content, :image, :current_user_id, :post, :tag_ids, :category_ids, :delete_ids
+  attr_accessor :content, :image, :post, :tag_ids, :category_ids, :delete_ids, :user_id
 
   # Post モデルのバリデーション
   validates :content, presence: true, length: { maximum: 2000 }
@@ -42,7 +42,7 @@ class PostForm
   end
 
   def post_create
-    post = Post.new(content: content, user_id: current_user_id, tag_ids: tag_ids, category_ids: category_ids)
+    post = Post.new(content: content, user_id: user_id, tag_ids: tag_ids, category_ids: category_ids)
     return if image.blank?
 
     image.each do |img|
