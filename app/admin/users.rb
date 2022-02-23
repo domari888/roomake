@@ -31,8 +31,8 @@ ActiveAdmin.register User do
   filter :name
   filter :email
   filter :age, as: :select, collection: User.ages_i18n.invert.transform_values { |v| User.ages[v] }
-  filter :address, as: :select
-  filter :household, as: :select
+  filter :address, as: :select, collection: User.addresses_i18n.invert.transform_values { |v| User.addresses[v] }
+  filter :household, as: :select, collection: User.households_i18n.invert.transform_values { |v| User.households[v] }
 
   form partial: 'form'
 end
