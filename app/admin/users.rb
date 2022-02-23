@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
-  permit_params :name, :password, :password_confirmation, :email, :age, :address, :profile, :household, :favorite_items, :avatar, :avatar_cache, :terms_of_use, :remove_avatar
+  permit_params :name, :password, :password_confirmation, :email, :age, :address, :profile, :household, :favorite_items, :avatar, :avatar_cache, :terms_of_use,
+                :remove_avatar
 
   index do
     selectable_column

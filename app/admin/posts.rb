@@ -16,7 +16,7 @@ ActiveAdmin.register Post do
 
   show do
     render 'show', { post: post }
-    panel "コメント一覧" do
+    panel 'コメント一覧' do
       table_for post.comments do
         column :user do |comment|
           User.find(comment.user_id)
@@ -43,7 +43,7 @@ ActiveAdmin.register Post do
     def update
       post_params = permitted_params[:post]
       @delete_ids = post_params[:photo_ids]
-      @post =  Post.find(params[:id])
+      @post = Post.find(params[:id])
       @post_form = PostForm.new(post_params.merge(delete_ids: @delete_ids, post: @post))
       if @post_form.save
         redirect_to collection_path, notice: '投稿を編集しました'
@@ -63,11 +63,11 @@ ActiveAdmin.register Post do
   filter :created_at
   filter :updated_at
 
-  sidebar "投稿関連一覧", only: :show do
+  sidebar '投稿関連一覧', only: :show do
     ul do
-      li link_to "コメント 一覧", admin_post_comments_path(post)
-      li link_to "いいね 一覧", admin_post_likes_path(post)
-      li link_to "マーク 一覧", admin_post_marks_path(post)
+      li link_to 'コメント 一覧', admin_post_comments_path(post)
+      li link_to 'いいね 一覧', admin_post_likes_path(post)
+      li link_to 'マーク 一覧', admin_post_marks_path(post)
     end
   end
 end
