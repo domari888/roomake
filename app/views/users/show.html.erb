@@ -80,7 +80,7 @@
     <div class="tab-content pt-3" id="nav-tabContent">
       <div class="tab-pane fade show active" id="list-posts" role="tabpanel" area-labelledby="list-posts-list">
         <div class="d-flex flex-wrap" id="user-posts">
-          <%= render partial: "posts_paginate", collection: @posts, as: "post" %>
+          <%= render partial: "posts_paginate", locals: { posts: @posts } %>
         </div>
         <div id="user-posts-paginate">
           <%= paginate @posts, param_name: "post_page", remote: true, params: { data: "user" } %>
@@ -88,7 +88,7 @@
       </div>
       <div class="tab-pane fade" id="list-liked" role="tabpanel" area-labelledby="list-liked-list">
         <div class="d-flex flex-wrap" id="posts-liked">
-          <%= render partial: "posts_paginate", collection: @likes, as: "post" %>
+          <%= render partial: "posts_paginate", locals: { posts: @likes } %>
         </div>
         <div id="posts-liked-paginate">
           <%= paginate @likes, param_name: "like_page", remote: true, params: { data: "like" } %>
@@ -97,7 +97,7 @@
       <% if current_user.id == @user.id %>
         <div class="tab-pane fade" id="list-marked" role="tabpanel" area-labelledby="list-marked-list">
           <div class="d-flex flex-wrap" id="posts-marked">
-            <%= render partial: "posts_paginate", collection: @marks, as: "post" %>
+            <%= render partial: "posts_paginate", locals: { posts: @marks } %>
           </div>
           <div id="posts-marked-paginate">
             <%= paginate @marks, param_name: "mark_page", remote: true, params: { data: "mark" } %>
@@ -106,7 +106,11 @@
       <% elsif %>
         <div class="tab-pane fade" id="list-item" role="tabpanel" area-labelledby="list-item-list">
           <div class="d-flex flex-wrap my-items" id="posts-item">
-            <%= render @items %>
+            <% if @items.any? %>
+              <%= render @items %>
+            <% else %>
+              <p class="my-5 mx-auto">アイテムがありません</p>
+            <% end %>
           </div>
           <div id="posts-item-paginate">
             <%= paginate @items, param_name: "item_page", remote: true, params: { data: "item" } %>

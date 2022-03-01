@@ -1,25 +1,25 @@
 switch('<%= params[:data] %>'){
   case 'user':
     document.getElementById('user-posts').textContent = '';
-    document.getElementById('user-posts').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @posts, as: "post") %>');
+    document.getElementById('user-posts').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", locals: { posts: @posts }) %>');
     document.getElementById('user-posts-paginate').textContent = '';
     document.getElementById('user-posts-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @posts, param_name: "post_page", remote: true, params: { data: "user" }) %>');
     break;
   case 'like':
     document.getElementById('posts-liked').textContent = '';
-    document.getElementById('posts-liked').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @likes, as: "post") %>');
+    document.getElementById('posts-liked').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", locals: { posts: @likes }) %>');
     document.getElementById('posts-liked-paginate').textContent = '';
     document.getElementById('posts-liked-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @likes, param_name: "like_page", remote: true, params: { data: "like" }) %>');
     break;
   case 'mark':
     document.getElementById('posts-marked').textContent = '';
-    document.getElementById('posts-marked').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", collection: @marks, as: "post") %>');
+    document.getElementById('posts-marked').insertAdjacentHTML('afterbegin', '<%= j render(partial: "posts_paginate", locals: { posts: @marks }) %>');
     document.getElementById('posts-marked-paginate').textContent = '';
     document.getElementById('posts-marked-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @marks, param_name: "mark_page", remote: true, params: { data: "mark" }) %>');
     break;
   case 'item':
     document.getElementById('posts-item').textContent = '';
-    document.getElementById('posts-item').insertAdjacentHTML('afterbegin', '<%= j render(partial: "item", collection: @items) %>');
+    document.getElementById('posts-item').insertAdjacentHTML('afterbegin', '<%= j render(@items) %>');
     document.getElementById('posts-item-paginate').textContent = '';
     document.getElementById('posts-item-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @items, param_name: "item_page", remote: true, params: { data: "item" }) %>');
     break;
