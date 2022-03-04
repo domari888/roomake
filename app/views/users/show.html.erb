@@ -107,7 +107,7 @@
         <div class="tab-pane fade" id="list-item" role="tabpanel" area-labelledby="list-item-list">
           <div class="d-flex flex-wrap my-items" id="posts-item">
             <% if @items.any? %>
-              <%= render @items %>
+              <%= render @items, user: @user %>
             <% else %>
               <p class="my-5 mx-auto">アイテムがありません</p>
             <% end %>
