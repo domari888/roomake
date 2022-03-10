@@ -14,8 +14,8 @@
     </div>
   </div>
 <% end %>
-<div id="search_item_list">
+<div id="search-item-list">
   <% if @search_items.present? %>
-    <%= render "search_item", @search_items %>
+    <%= render "search_item", search_items: @search_items %>
   <% end %>
 </div>

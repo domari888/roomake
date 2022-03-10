@@ -1,35 +1,37 @@
 <div class="d-flex justify-content-center pt-3">
   <div class="d-inline-flex flex-column headline pb-4">
-    <h2 class="m-0">My Item</h2>
-    <p class="text-center text-muted">マイアイテム</p>
+    <h2 class="m-0"><%= item_page_title(@user)[:title] %></h2>
+    <p class="text-center text-muted"><%= item_page_title(@user)[:sub_title] %></p>
   </div>
 </div>
-<div class="search-item-group mb-3">
-  <button class="btn btn-outline-secondary btn-block collapse-btn" type="button" data-toggle="collapse" data-target="#search-item" aria-expanded="false" aria-controls="search-item" id="collapse-search-item">
-    アイテムを追加する<i class="fas fa-plus ml-3"></i>
-  </button>
-  <div class="collapse item-collapse py-4 mb-4" id="search-item">
-    <%= form_with url: search_items_path, method: :get, local: true do |form| %>
-    <div class="input-group px-3">
-      <%= form.text_field :keyword, class: "form-control", placeholder: "追加したいアイテムを検索", value: params[:keyword], required: true %>
-      <div class="input-group-append">
-        <%= button_tag type: :submit, class: "btn btn-info" do %>
-          <i class="fas fa-search"></i>
-        <% end %>
+<% if current_user.id == @user.id %>
+  <div class="search-item-group mb-3">
+    <button class="btn btn-outline-secondary btn-block collapse-btn" type="button" data-toggle="collapse" data-target="#search-item" aria-expanded="false" aria-controls="search-item" id="collapse-search-item">
+      アイテムを追加する<i class="fas fa-plus ml-3"></i>
+    </button>
+    <div class="collapse item-collapse py-4 mb-4" id="search-item">
+      <%= form_with url: search_items_path, method: :get, local: true do |form| %>
+      <div class="input-group px-3">
+        <%= form.text_field :keyword, class: "form-control", placeholder: "追加したいアイテムを検索", value: params[:keyword], required: true %>
+        <div class="input-group-append">
+          <%= button_tag type: :submit, class: "btn btn-info" do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        </div>
       </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
-</div>
+<% end %>
 <% if @items.present? %>
   <div id="jscroll-item">
-    <ul class="row bg-white py-3 px-0 mb-0 my-items">
-      <%= render @items %>
+    <ul class="row bg-white px-0 my-items">
+      <%= render @items, user: @user %>
     </ul>
     <div id="my-item-paginate">
       <%= paginate @items, remote: true %>
     </div>
   </div>
-<% elsif %>
+<% else %>
   <h3 class="d-flex justify-content-center pt-5">アイテムがまだありません</h3>
 <% end %>

@@ -1,5 +1,5 @@
 document.getElementsByClassName('my-items')[0].textContent = '';
-document.getElementsByClassName('my-items')[0].insertAdjacentHTML('afterbegin', '<%= j render(@items) %>');
+document.getElementsByClassName('my-items')[0].insertAdjacentHTML('afterbegin', '<%= j render(@items, user: @user) %>');
 document.getElementById('my-item-paginate').textContent = '';
 document.getElementById('my-item-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @items, remote: true) %>');
 history.replaceState( "", "" ,"?page=<%= @page %>");

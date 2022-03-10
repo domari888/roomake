@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: :destroy
+
   PER_PAGE = 20
   def index
-    user = User.find(params[:user_id])
-    @items = user.items.order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @user = User.find(params[:user_id])
+    @items = @user.items.order(created_at: :desc).page(params[:page]).per(PER_PAGE)
     @page = params[:page]
   end
 
@@ -17,12 +19,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = current_user.items.find(params[:id])
     @item.destroy!
     flash.now[:alert] = "#{@item.name} を削除しました"
   end
 
   private
+
+  def set_item
+    @item = current_user.items.find(params[:id])
+  end
 
   def registered_item?
     return unless current_user.items.find_by(name: params[:name])
