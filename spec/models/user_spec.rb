@@ -137,20 +137,20 @@ RSpec.describe User, type: :model do
       end
     end
 
-    # avater のバリデーションテスト
-    context 'avater の画像サイズが 5MB 以上のとき' do
-      let(:user) { build(:user, avater: Rack::Test::UploadedFile.new(Rails.root.join('public/images/fallback/rspec_size_test.jpg'))) }
+    # avatar のバリデーションテスト
+    context 'avatar の画像サイズが 5MB 以上のとき' do
+      let(:user) { build(:user, avatar: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/rspec_size_test.jpg'))) }
       it 'エラーが発生する' do
         expect(subject).to eq false
-        expect(user.errors.messages[:avater]).to include 'ファイルを5MBバイト以下のサイズにしてください'
+        expect(user.errors.messages[:avatar]).to include 'ファイルを5MBバイト以下のサイズにしてください'
       end
     end
 
-    context 'avater の拡張子が .jpeg .jpg .png 以外のとき' do
-      let(:user) { build(:user, avater: Rack::Test::UploadedFile.new(Rails.root.join('public/images/fallback/rspec_extension_test.tiff'))) }
+    context 'avatar の拡張子が .jpeg .jpg .png 以外のとき' do
+      let(:user) { build(:user, avatar: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/rspec_extension_test.tiff'))) }
       it 'エラーが発生する' do
         expect(subject).to eq false
-        expect(user.errors.messages[:avater]).to include '"tiff"ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: jpg, jpeg, png'
+        expect(user.errors.messages[:avatar]).to include '"tiff"ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: jpg, jpeg, png'
       end
     end
   end
