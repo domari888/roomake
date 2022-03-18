@@ -153,5 +153,13 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:avatar]).to include '"tiff"ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: jpg, jpeg, png'
       end
     end
+
+    context '利用規約に同意していないとき' do
+      let(:user) { build(:user, terms_of_use: '0') }
+      it 'エラーが発生する' do
+        expect(subject).to eq false
+        expect(user.errors.messages[:terms_of_use]).to include 'について同意してください'
+      end
+    end
   end
 end
