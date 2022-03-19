@@ -162,4 +162,73 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'メソッド' do
+    let(:user) { create(:user) }
+    let(:post1) { create(:post, id: 1, user: user) }
+    let(:post2) { create(:post, id: 2, user: user) }
+    let(:post3) { create(:post, id: 3, user: user) }
+
+    describe '#post_with_photos' do
+      context '投稿が存在する場合' do
+        before do
+          post1
+          post2
+          post3
+        end
+
+        it '投稿一覧を降順で取得できること' do
+          expect(user.post_with_photos.map(&:id)).to eq [3, 2, 1]
+        end
+      end
+
+      context '投稿が存在しない場合' do
+        it '空の配列を返す' do
+          expect(user.post_with_photos).to be_empty
+        end
+      end
+    end
+
+    describe '#like_with_photos' do
+      context 'いいねした投稿が存在する場合' do
+        before do
+          create(:like, post: post1, user: user)
+          create(:like, post: post2, user: user)
+          create(:like, post: post3, user: user)
+          create(:like)
+        end
+
+        it 'いいねした投稿を降順で取得できること' do
+          expect(user.like_with_photos.map(&:id)).to eq [3, 2, 1]
+        end
+      end
+
+      context 'いいねした投稿が存在しない場合' do
+        it '空の配列を返す' do
+          expect(user.like_with_photos).to be_empty
+        end
+      end
+    end
+
+    describe '#mark_with_photos' do
+      context 'マークした投稿が存在する場合' do
+        before do
+          create(:mark, post: post1, user: user)
+          create(:mark, post: post2, user: user)
+          create(:mark, post: post3, user: user)
+          create(:mark)
+        end
+
+        it 'マークした投稿を降順で取得できること' do
+          expect(user.mark_with_photos.map(&:id)).to eq [3, 2, 1]
+        end
+      end
+
+      context 'マークした投稿が存在しない場合' do
+        it '空の配列を返す' do
+          expect(user.mark_with_photos).to be_empty
+        end
+      end
+    end
+  end
 end

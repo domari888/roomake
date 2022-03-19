@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :mark do
-    user { nil }
-    post { nil }
+    user
+    post
   end
 end
