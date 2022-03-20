@@ -163,6 +163,20 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context 'ユーザーが削除されたとき' do
+    subject { user.destroy }
+
+    let(:user) { create(:user) }
+    before do
+      create(:post)
+      create_list(:post, 2, user: user)
+    end
+
+    it 'そのユーザーの投稿も削除される' do
+      expect { subject }.to change { user.posts.count }.by(-2)
+    end
+  end
+
   describe 'メソッド' do
     let(:user) { create(:user) }
     let(:post1) { create(:post, id: 1, user: user) }
