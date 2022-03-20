@@ -230,5 +230,22 @@ RSpec.describe User, type: :model do
         end
       end
     end
+
+    describe '#self.guest' do
+      context 'ゲストユーザーのデータがまだ存在しない場合' do
+        let(:user) { build(:guest_user) }
+        it '保存できること' do
+          expect(user.valid?).to eq true
+        end
+      end
+
+      context 'ゲストユーザーの email がすでに存在するとき' do
+        let(:user) { build(:guest_user, email: 'guest@example.com') }
+        let(:guest) { User.find_by(email: 'guest@example.com') }
+        it '既存のレコードを取得' do
+          expect(User.guest).to eq guest
+        end
+      end
+    end
   end
 end

@@ -9,4 +9,13 @@ FactoryBot.define do
     profile { Faker::Lorem.sentence }
     avatar { Rack::Test::UploadedFile.new(Rails.root.join('public/images/fallback/default.png')) }
   end
+
+  factory :guest_user, class: 'User' do
+    name { 'ゲストユーザー' }
+    email { 'guest@example.com' }
+    password { Faker::Internet.password(min_length: 8) }
+    age { 2 }
+    address { 13 }
+    household { 2 }
+  end
 end
