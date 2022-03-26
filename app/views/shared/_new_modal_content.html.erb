@@ -18,7 +18,7 @@
     <i class="fas fa-tag tag-color"></i>
     <%= form.label :tag_ids, "タグ", class: "font-weight-bold" %>
     <ul class="row px-3">
-      <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name, include_hidden: false do |form| %>
+      <%= form.collection_check_boxes :tag_ids, Tag.all.order(id: :asc), :id, :name, include_hidden: false do |form| %>
         <li class="form-check col-6 col-md-4 col-lg-2 flex-wrap px-2">
           <label class="border rounded-pill w-100">
             <%= form.check_box class: "checkbox-visibility" %>
@@ -36,7 +36,7 @@
     <i class="fas fa-folder category-color"></i>
     <%= form.label :category_ids, "カテゴリー", class: "font-weight-bold" %>
     <ul class="row px-3">
-      <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |form| %>
+      <%= form.collection_check_boxes :category_ids, Category.all.order(id: :asc), :id, :name, include_hidden: false do |form| %>
         <li class="form-check col-6 col-md-4 col-lg-2 flex-wrap px-2">
           <label class="border rounded-pill w-100">
             <%= form.check_box class: "checkbox-visibility" %>
