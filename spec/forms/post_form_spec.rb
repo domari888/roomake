@@ -27,11 +27,35 @@ RSpec.describe PostForm, type: :model do
       end
     end
 
+    context 'tag_ids が空のとき' do
+      let(:post_form) { build(:post_form, tag_ids: '') }
+      it 'エラーが発生すること' do
+        expect(subject).to eq false
+        expect(post_form.errors.messages[:tag_ids]).to include 'を入力してください'
+      end
+    end
+
     context 'tag_ids が3つ以上のとき' do
       let(:post_form) { build(:post_form, tag_ids: [1, 2, 3]) }
       it 'エラーが発生すること' do
         expect(subject).to eq false
         expect(post_form.errors.messages[:tag_ids]).to include 'は2文字以内で入力してください'
+      end
+    end
+
+    context 'tag_ids の値が12以上のとき' do
+      let(:post_form) { build(:post_form, tag_ids: [13]) }
+      it 'エラーが発生すること' do
+        expect(subject).to eq false
+        expect(post_form.errors.messages[:tag_ids]).to include '入力された値は存在しません'
+      end
+    end
+
+    context 'categoryr_ids が空のとき' do
+      let(:post_form) { build(:post_form, category_ids: '') }
+      it 'エラーが発生すること' do
+        expect(subject).to eq false
+        expect(post_form.errors.messages[:category_ids]).to include 'を入力してください'
       end
     end
 
@@ -43,11 +67,32 @@ RSpec.describe PostForm, type: :model do
       end
     end
 
+    context 'categoryr_ids の値が6以上のとき' do
+      let(:post_form) { build(:post_form, category_ids: [7]) }
+      it 'エラーが発生すること' do
+        expect(subject).to eq false
+        expect(post_form.errors.messages[:category_ids]).to include '入力された値は存在しません'
+      end
+    end
+
     context 'image が空のとき' do
       let(:post_form) { build(:post_form, image: '') }
       it 'エラーが発生する' do
         expect(post_form.valid?(:create)).to eq false
         expect(post_form.errors.messages[:image]).to include 'を入力してください'
+      end
+    end
+
+    context 'image が6枚以上のとき' do
+      before do
+        @images = []
+        7.times { @images << Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test.jpg')) }
+      end
+
+      let(:post_form) { build(:post_form, image: @images) }
+      it 'エラーが発生する' do
+        expect(post_form.valid?(:create)).to eq false
+        expect(post_form.errors.messages[:image]).to include 'は最大6枚まで選択できます'
       end
     end
   end

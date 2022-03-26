@@ -7,9 +7,10 @@ class PostForm
   validates :content, presence: true, length: { maximum: 2000 }
   # Photo モデルのバリデーション
   validates :image, presence: true, on: :create
+  validates :image, image_length: true
 
-  validates :tag_ids, presence: true, length: { maximum: 2 }
-  validates :category_ids, presence: true, length: { maximum: 2 }
+  validates :tag_ids, presence: true, length: { maximum: 2 }, custom_numericality: { allow_blank: true }
+  validates :category_ids, presence: true, length: { maximum: 2 }, custom_numericality: { allow_blank: true }
 
   def save
     return false if invalid?
