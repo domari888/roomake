@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :photo do
-    image { 'MyString' }
-    post { nil }
+    sequence(:id) { |n| n }
+    image { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test.jpg')) }
+    post
   end
 end
