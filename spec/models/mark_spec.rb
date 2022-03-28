@@ -41,4 +41,24 @@ RSpec.describe Mark, type: :model do
       end
     end
   end
+
+  describe 'counter_cache' do
+    let(:post) { create(:post) }
+    let(:mark) { create(:mark, post: post) }
+    context 'マークが作成されたとき' do
+      it 'その投稿の marks_count が増加すること' do
+        expect { mark }.to change(post, :marks_count).by(1)
+      end
+    end
+
+    context 'マークが削除されたとき' do
+      before do
+        mark
+      end
+
+      it 'その投稿の marks_count が減少すること' do
+        expect { mark.destroy }.to change(post, :marks_count).by(-1)
+      end
+    end
+  end
 end

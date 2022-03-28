@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :post do
     content { Faker::Lorem.paragraph }
     likes_count { nil }
-    marks_count { nil }
+    marks_count { 0 }
     user
     after(:create) do |post|
       create(:photo, post: post)
