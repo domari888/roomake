@@ -168,12 +168,17 @@ RSpec.describe User, type: :model do
 
     let(:user) { create(:user) }
     before do
-      create(:post)
+      create(:mark)
       create_list(:post, 2, user: user)
+      create_list(:mark, 2, user: user)
     end
 
     it 'そのユーザーの投稿も削除される' do
       expect { subject }.to change { user.posts.count }.by(-2)
+    end
+
+    it 'そのユーザーのマークも削除される' do
+      expect { subject }.to change { user.marks.count }.by(-2)
     end
   end
 

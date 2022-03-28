@@ -43,4 +43,18 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  context '投稿を削除したとき' do
+    subject { post.destroy }
+
+    let(:post) { create(:post) }
+    before do
+      create(:mark)
+      create_list(:mark, 2, post: post)
+    end
+
+    it 'その投稿のマークも削除される' do
+      expect { subject }.to change { post.marks.count }.by(-2)
+    end
+  end
 end
