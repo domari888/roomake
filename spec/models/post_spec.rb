@@ -49,9 +49,15 @@ RSpec.describe Post, type: :model do
 
     let(:post) { create(:post) }
     before do
+      create(:like)
       create(:mark)
+      create_list(:like, 2, post: post)
       create_list(:mark, 2, post: post)
       create_list(:photo, 2, post: post)
+    end
+
+    it 'その投稿のいいねも削除される' do
+      expect { subject }.to change { post.likes.count }.by(-2)
     end
 
     it 'その投稿のマークも削除される' do
