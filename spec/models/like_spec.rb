@@ -41,4 +41,24 @@ RSpec.describe Like, type: :model do
       end
     end
   end
+
+  describe 'counter_cache' do
+    let(:post) { create(:post) }
+    let(:like) { create(:like, post: post) }
+    context 'いいねが作成されたとき' do
+      it 'その投稿の likes_count が増加すること' do
+        expect { like }.to change(post, :likes_count).by(1)
+      end
+    end
+
+    context 'いいねが削除されたとき' do
+      before do
+        like
+      end
+
+      it 'その投稿の likes_count が減少すること' do
+        expect { like.destroy }.to change(post, :likes_count).by(-1)
+      end
+    end
+  end
 end
