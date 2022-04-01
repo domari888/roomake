@@ -28,6 +28,9 @@ ja:
       post_tag:
         post: 投稿
         tag: タグ
+      post_category:
+        post: 投稿
+        category: カテゴリ
       comment:
         content: コメント内容
         user: ユーザー

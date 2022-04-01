@@ -55,6 +55,7 @@ RSpec.describe Post, type: :model do
       create_list(:mark, 2, post: post)
       create_list(:photo, 2, post: post)
       create(:post_tag, post: post)
+      create(:post_category, post: post)
     end
 
     it 'その投稿のいいねも削除される' do
@@ -71,6 +72,10 @@ RSpec.describe Post, type: :model do
 
     it 'その投稿のタグも削除される' do
       expect { subject }.to change { post.post_tags.count }.by(-2)
+    end
+
+    it 'その投稿のカテゴリも削除される' do
+      expect { subject }.to change { post.post_categories.count }.by(-2)
     end
   end
 end
