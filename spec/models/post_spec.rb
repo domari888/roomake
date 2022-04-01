@@ -76,12 +76,12 @@ RSpec.describe Post, type: :model do
       expect { subject }.to change { post.post_tags.count }.by(-2)
     end
 
-    it 'その投稿のコメントも削除される' do
-      expect { subject }.to change { post.comments.count }.by(-2)
-    end
-
     it 'その投稿のカテゴリも削除される' do
       expect { subject }.to change { post.post_categories.count }.by(-2)
+    end
+
+    it 'その投稿のコメントも削除される' do
+      expect { subject }.to change { post.comments.count }.by(-2)
     end
   end
 end

@@ -37,7 +37,7 @@ RSpec.describe Comment, type: :model do
 
     context 'post_id が空のとき' do
       let(:comment) { build(:comment, post_id: nil) }
-      it 'エラーが発生すること' do
+      it 'エラーが発生する' do
         expect(subject).to eq false
         expect(comment.errors.messages[:post]).to include 'を入力してください'
       end
