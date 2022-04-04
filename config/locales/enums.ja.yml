@@ -64,3 +64,12 @@ ja:
         four_person_household: '4人世帯'
         five_person_household: '5人世帯'
         others_household: 'それ以外の方'
+    know_how:
+      genre:
+        all_rooms: '部屋全体'
+        kitchen: 'キッチン'
+        toilet: 'トイレ'
+        bath: 'お風呂'
+        washbasin: '洗面台'
+        balcony: 'ベランダ'
+        entrance: '玄関'
