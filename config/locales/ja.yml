@@ -9,6 +9,7 @@ ja:
       mark: マーク
       item: アイテム
       inquiry: お問い合わせ
+      know_how: ノウハウ
     attributes:
       post:
         content: 投稿内容
@@ -60,6 +61,10 @@ ja:
         email: メールアドレス
         content: お問い合わせ内容
         remote_ip: IPアドレス
+      know_how:
+        genre: ジャンル
+        title: タイトル
+        content: 内容
   views:
     pagination:
       first: "&laquo;"
