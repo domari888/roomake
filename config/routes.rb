@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resources :graphs, only: %i[index]
   resources :search_items, only: %i[index]
   resources :inquiries, only: %i[index create]
+  resources :know_hows, only: %i[index show]
 end
