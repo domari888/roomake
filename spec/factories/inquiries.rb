@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :inquiry do
-    name { 'MyString' }
-    name_kana { 'MyString' }
-    email { 'MyString' }
-    content { 'MyText' }
-    remote_ip { '' }
+    name { Faker::Name.name }
+    name_kana { 'フリガナ' }
+    email { Faker::Internet.unique.email }
+    content { Faker::Lorem.paragraph }
+    remote_ip { Faker::Number.number }
   end
 end
