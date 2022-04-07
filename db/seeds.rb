@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'csv'
+
 # テストユーザーの初期データ
 email = 'test@example.com'
 password = 'password'
@@ -19,7 +21,7 @@ tags = ['キッチン', 'リビング', 'バス', 'トイレ', 'バルコニー'
 categories = ['成功', '失敗', 'おすすめ', 'DIY', '紹介', 'その他']
 items = RakutenWebService::Ichiba::Product.search(keyword: 'ダイソン v8', hits: 1)
 
-%w[users posts photos tags categories post_tags post_categories likes marks admin_users].each do |table_name|
+%w[users posts photos tags categories post_tags post_categories likes marks admin_users know_hows].each do |table_name|
   ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{table_name} RESTART IDENTITY CASCADE")
 end
 
@@ -80,3 +82,12 @@ AdminUser.find_by_create!(email: admin_email) do |admin_user|
   admin_user.password = password
   puts '管理者の初期データインポートに成功しました。'
 end
+
+CSV.foreach('db/csv_data/know_how_data.csv', headers: true) do |row|
+  KnowHow.create(
+    genre: row['genre'],
+    title: row['title'],
+    content: row['content']
+  )
+end
+puts 'ノウハウの初期データインポートに成功しました。'
