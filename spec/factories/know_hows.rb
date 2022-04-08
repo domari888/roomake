@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :know_how do
-    genre { 1 }
-    title { 'MyString' }
-    content { 'MyText' }
+    genre { rand(1..7) }
+    title { Faker::Lorem.sentence }
+    content { Faker::Lorem.paragraph }
   end
 end
