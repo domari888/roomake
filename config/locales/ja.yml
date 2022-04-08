@@ -10,6 +10,7 @@ ja:
       item: アイテム
       inquiry: お問い合わせ
       know_how: ノウハウ
+      progress: 進捗状況
     attributes:
       post:
         content: 投稿内容
@@ -65,6 +66,9 @@ ja:
         genre: ジャンル
         title: タイトル
         content: 内容
+      progress:
+        user: ユーザー
+        know_how: ノウハウ
   views:
     pagination:
       first: "&laquo;"
