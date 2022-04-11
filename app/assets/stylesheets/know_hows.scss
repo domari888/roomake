@@ -1,3 +1,19 @@
 // Place all the styles related to the know_hows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.know-how-genre {
+  position: relative;
+  padding: 0.5rem 1rem calc(0.5rem + 11px);
+  background: rgba(186, 168, 119, 0.7);
+}
+
+.know-how-genre:before {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  content: '';
+  border: 4px solid #212529;
+}

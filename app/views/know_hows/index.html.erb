@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center pt-3">
+  <div class="d-inline-flex flex-column headline pb-4">
+    <h2 class="m-0">Know How</h2>
+    <p class="text-center text-muted">ノウハウ</p>
+  </div>
+</div>
+<% 1.upto(KnowHow.genres.count) do |n| %>
+  <ul class="list-group mb-4">
+    <h3 class="know-how-genre"><%= KnowHow.find_by(genre: n).genre_i18n %></h3>
+    <%= render @know_hows, n: n %>
+  </ul>
+<% end %>
