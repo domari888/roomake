@@ -1,6 +1,6 @@
 class KnowHowsController < ApplicationController
   def index
-    @know_hows = KnowHow.order(id: :asc)
+    @know_hows = KnowHow.includes(:progresses).order(id: :asc)
   end
 
   def show; end
