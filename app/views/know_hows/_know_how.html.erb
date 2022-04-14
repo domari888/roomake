@@ -1,0 +1,18 @@
+<% if know_how.genre_before_type_cast == n %>
+  <li class="list-group-item p-2">
+    <div class="row">
+      <div class="d-flex align-items-center w-100">
+        <div class="col-auto" id="know-how-<%= know_how.id %>">
+          <% if know_how.progressed_by?(current_user) %>
+            <%= render "check", know_how: know_how %>
+          <% else %>
+            <%= render "uncheck", know_how: know_how %>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= know_how.title %>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>

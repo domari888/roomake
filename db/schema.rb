@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_04_111648) do
+ActiveRecord::Schema.define(version: 2022_04_08_094938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,16 @@ ActiveRecord::Schema.define(version: 2022_04_04_111648) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "progresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "know_how_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["know_how_id"], name: "index_progresses_on_know_how_id"
+    t.index ["user_id", "know_how_id"], name: "index_progresses_on_user_id_and_know_how_id", unique: true
+    t.index ["user_id"], name: "index_progresses_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -181,4 +191,6 @@ ActiveRecord::Schema.define(version: 2022_04_04_111648) do
   add_foreign_key "post_tags", "posts"
   add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "users"
+  add_foreign_key "progresses", "know_hows"
+  add_foreign_key "progresses", "users"
 end
