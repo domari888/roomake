@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :progress do
-    user { nil }
-    know_how { nil }
+    user
+    know_how
   end
 end
