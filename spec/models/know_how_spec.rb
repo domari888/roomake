@@ -35,4 +35,18 @@ RSpec.describe KnowHow, type: :model do
       end
     end
   end
+
+  context 'ノウハウを削除したとき' do
+    subject { know_how.destroy }
+
+    let(:know_how) { create(:know_how) }
+    before do
+      create(:progress)
+      create_list(:progress, 2, know_how: know_how)
+    end
+
+    it 'そのノウハウの進捗状況も削除される' do
+      expect { subject }.to change { know_how.progresses.count }.by(-2)
+    end
+  end
 end

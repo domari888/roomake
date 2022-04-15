@@ -171,10 +171,12 @@ RSpec.describe User, type: :model do
       create(:like)
       create(:mark)
       create(:comment)
+      create(:progress)
       create_list(:post, 2, user: user)
       create_list(:like, 2, user: user)
       create_list(:mark, 2, user: user)
       create_list(:comment, 2, user: user)
+      create_list(:progress, 2, user: user)
     end
 
     it 'そのユーザーの投稿も削除される' do
@@ -191,6 +193,10 @@ RSpec.describe User, type: :model do
 
     it 'そのユーザーのコメントも削除される' do
       expect { subject }.to change { user.comments.count }.by(-2)
+    end
+
+    it 'そのユーザーの進捗状況も削除される' do
+      expect { subject }.to change { user.progresses.count }.by(-2)
     end
   end
 
