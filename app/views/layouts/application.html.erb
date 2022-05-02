@@ -15,12 +15,12 @@
     <%= render 'shared/header_bottom' %>
     <%= render 'shared/modal', action: 'new', title: '新規登録' %>
     <%= render 'shared/modal', action: 'search', title: '検索' %>
+    <%= render 'shared/footer' %>
     <div id="flash-messages">
       <%= render 'layouts/flash_messages' %>
     </div>
     <div class='base-container px-3 <%= max_width %>'>
       <%= yield %>
     </div>
-    <%= render 'shared/footer' %>
   </body>
 </html>
