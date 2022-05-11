@@ -15,11 +15,15 @@ name = 'テストユーザー'
 age = 'twenties'
 address = 'kanagawa'
 household = 'two_person_household'
-image = File.open(Rails.root.join('public/images/fallback/test.png'))
+
+# 投稿の初期データ
+image = File.open(Rails.root.join('app/assets/images/test.jpg'))
 content = 'コメント内容を表示します'
 tags = ['キッチン', 'リビング', 'バス', 'トイレ', 'バルコニー', '洗面台', '寝室', '洋室', '和室', '子供部屋', '玄関', 'その他']
 categories = ['成功', '失敗', 'おすすめ', 'DIY', '紹介', 'その他']
-items = RakutenWebService::Ichiba::Product.search(keyword: 'ダイソン v8', hits: 1)
+
+# テストユーザーアイテムの初期データ
+items = RakutenWebService::Ichiba::Product.search(keyword: 'ダイソン', hits: 30)
 
 # 管理者ユーザー用メールアドレス
 admin_email = 'admin@example.com'
@@ -43,17 +47,15 @@ test_user = User.find_or_create_by!(email: email) do |user|
   puts 'テストユーザーの初期データインポートに成功しました。'
 end
 
-50.times do
-  items.each do |item|
-    Item.create!(
-      name: item['productName'],
-      genre: item['genreName'],
-      image: item['mediumImageUrl'],
-      user_id: test_user.id
-    )
-  end
+items.each do |item|
+  Item.create!(
+    name: item['productName'],
+    genre: item['genreName'],
+    image: item['mediumImageUrl'],
+    user_id: test_user.id
+  )
 end
-puts 'テストユーザーアイテムの初期データ 50 件のインポートに成功しました。'
+puts 'テストユーザーアイテムの初期データ 30 件のインポートに成功しました。'
 
 1000.times do
   User.create!(
