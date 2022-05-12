@@ -1,17 +1,23 @@
 <% if know_how.genre_before_type_cast == n %>
   <li class="list-group-item p-2">
-    <div class="row">
+    <div class="d-flex">
       <div class="d-flex align-items-center w-100">
-        <div class="col-auto" id="know-how-<%= know_how.id %>">
+        <div class="px-2" id="know-how-<%= know_how.id %>">
           <% if know_how.progressed_by?(current_user) %>
             <%= render "check", know_how: know_how %>
           <% else %>
             <%= render "uncheck", know_how: know_how %>
           <% end %>
         </div>
-        <div class="col">
+        <div class="px-2">
           <%= know_how.title %>
         </div>
+        <%= link_to know_how_path(know_how), type: "button", class: "btn btn-outline-secondary ml-auto d-flex align-items-center", data: { toggle: "modal", target: "#know-how-modal"}, remote: true do %>
+          <div class="d-none d-sm-block mr-2">
+            詳細を見る
+          </div>
+          <i class="fas fa-search-plus"></i>
+        <% end %>
       </div>
     </div>
   </li>
