@@ -35,7 +35,7 @@
       </div>
     <% else %>
       <div class="navbar-nav ml-auto">
-        <%= link_to users_guest_sign_in_path, method: :post, class: "nav-item nav-link" do %>
+        <%= link_to users_guest_sign_in_path, method: :post, class: "nav-item nav-link guest-login" do %>
           <i class="fas fa-id-card-alt"></i> ゲストログイン
         <% end %>
         <%= link_to new_user_registration_path, class: "nav-item nav-link" do %>
