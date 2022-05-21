@@ -55,7 +55,7 @@ RSpec.describe 'ユーザー登録・編集', type: :system do
     end
   end
 
-  describe 'アカウント編集' do
+  describe 'アカウント編集・削除' do
     before do
       visit new_user_session_path
       fill_in 'メールアドレス', with: user.email
@@ -111,6 +111,19 @@ RSpec.describe 'ユーザー登録・編集', type: :system do
         expect(page).to have_current_path root_path
         expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
       end
+    end
+  end
+
+  context 'ゲストユーザーの削除・更新をしようとした場合' do
+    before do
+      visit root_path
+      first('.guest-login').click
+    end
+
+    it 'エラーが発生すること' do
+      visit edit_user_registration_path
+      click_on 'アカウント削除'
+      expect(page).to have_content 'ゲストユーザーの削除・更新はできません'
     end
   end
 end
