@@ -26,13 +26,13 @@
   <div class="form-group">
     <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]+$", required: true %>
   </div>
 
   <div class="form-group">
     <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', required: true %>
+    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', pattern: "^([a-zA-Z0-9]{6,})$", required: true %>
 
     <% if @minimum_password_length %>
       <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
@@ -41,7 +41,7 @@
 
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', required: true %>
+    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', pattern: "^([a-zA-Z0-9]{6,})$", required: true %>
   </div>
 
   <div class="form-group">
