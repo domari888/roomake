@@ -10,7 +10,7 @@
   <div class="form-group">
     <div class="avatar-container">
       <%= f.label :avatar, class: "avatar-label rounded-circle" do %>
-        <%= f.file_field :avatar, class: 'avatar-image-field', accept: 'image/png,image/jpeg,image/gif', style: 'display:none;'%>
+        <%= f.file_field :avatar, class: 'avatar-image-field', accept: 'image/png,image/jpeg,image/gif'%>
         <%= f.hidden_field :avatar_cache %>
       <% end %>
     </div>
