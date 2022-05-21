@@ -30,19 +30,26 @@
   <div class="form-group">
     <span class="required"><%= t('devise.shared.required') %></span>
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]+$" %>
   </div>
 
   <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
+    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control', pattern: "^([a-zA-Z0-9]{6,})$" %>
 
-    <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+    <small class="form-text text-muted">
+      <%= t('.leave_blank_if_you_don_t_want_to_change_it') %>
+      <%= t('devise.shared.minimum_password_length', count: "半角英数字#{@minimum_password_length}") %>
+    </small>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'  %>
+    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control', pattern: "^([a-zA-Z0-9]{6,})$" %>
+
+    <% if @minimum_password_length %>
+      <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: "半角英数字#{@minimum_password_length}") %></small>
+    <% end %>
   </div>
 
   <div class="form-group">
