@@ -6,6 +6,7 @@ FactoryBot.define do
     age { rand(1..7) }
     address { rand(1..47) }
     household { rand(1..6) }
+    favorite_items { Faker::Lorem.word }
     profile { Faker::Lorem.sentence }
     avatar { Rack::Test::UploadedFile.new(Rails.root.join('public/images/fallback/default.png')) }
   end
