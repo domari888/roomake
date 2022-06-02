@@ -45,8 +45,7 @@ $(document).on('turbolinks:load', function() {
       if(checkedTagIds.toString() !== tagIds.toString()){
         $('.tags-check-box').prop('checked', false);
         tags.forEach(function(tag){
-          const tagsIndex = tag.id - 1;
-          const targetTag = $('.tags-check-box')[tagsIndex];
+          const targetTag = $(`#edit_post_form_tag_ids_${tag.id}`);
           $(targetTag).prop('checked', true);
         });
       }      
@@ -63,8 +62,7 @@ $(document).on('turbolinks:load', function() {
       if(checkedCategoryIds.toString() !== categoryIds.toString()){
         $('.categories-check-box').prop('checked', false);
         categories.forEach(function(category){
-          const categoriesIndex = category.id - 1
-          const targetCategory = $('.categories-check-box')[categoriesIndex];
+          const targetCategory = $(`#edit_post_form_category_ids_${category.id}`);
           $(targetCategory).prop('checked', true);
         });
       }
