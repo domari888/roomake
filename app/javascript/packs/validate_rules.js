@@ -26,11 +26,11 @@ $(document).on('turbolinks:load', function(){
           },
           "post_form[tag_ids][]": {
             required: '* タグを選択してください',
-            maxlength: '* 2つ以下で選択してください'
+            maxlength: '* タグは2つまで選択できます'
           },
           "post_form[category_ids][]": {
             required: '* カテゴリーを選択してください',
-            maxlength: '* 2つ以下で選択してください'
+            maxlength: '* カテゴリは2つまで選択できます'
           }
         },
         errorElement: 'div',

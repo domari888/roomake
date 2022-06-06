@@ -1,31 +1,32 @@
-<%= form_with model: PostForm.new, url: posts_path, class: 'post-form', local: true do |form| %>
+<%= form_with model: PostForm.new, url: posts_path, class: 'post-form', namespace: 'new', local: true do |form| %>
   <div class="form-group mt-3">
+    <%= form.label :content, 'キャプション', class: "font-weight-bold" %>
     <%= form.text_area :content, class: 'form-control', rows: '10', maxlength: 2000 %>
   </div>
   <small>* 2000文字以内で入力してください *</small>
   <hr>
   <div class="form-group mt-3">
     <div class="preview-box d-flex flex-wrap">
-      <label class="drop-container" id="new-drop">
-        <%= form.file_field :image, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", style: 'display: none;', data: {action: "new"} %>
+      <%= form.label :image, class: "drop-container", id: "new-drop" do %>
+        <%= form.file_field :image, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", data: {action: "new"} %>
         <i class="far fa-image" id="drop-container-icon" ></i>
-      </label>
+      <% end %>
     </div>
   </div>
   <small>* 最大6枚まで投稿できます *</small>
   <hr>
   <div class="form-group mt-3 tag-group">
     <i class="fas fa-tag tag-color"></i>
-    <%= form.label :tag_ids, "タグ", class: "font-weight-bold" %>
+    <span class="font-weight-bold">タグ</span>
     <ul class="row px-3">
-      <%= form.collection_check_boxes :tag_ids, Tag.all.order(id: :asc), :id, :name, include_hidden: false do |form| %>
+      <%= form.collection_check_boxes :tag_ids, Tag.all.order(id: :asc), :id, :name, include_hidden: false do |b| %>
         <li class="form-check col-6 col-md-4 col-lg-2 flex-wrap px-2">
-          <label class="border rounded-pill w-100">
-            <%= form.check_box class: "checkbox-visibility" %>
+          <%= b.label class: "border rounded-pill w-100" do %>
+            <%= b.check_box class: "checkbox-visibility" %>
             <span class="d-flex justify-content-center rounded-pill w-100 checkbox-position">
-              <%= form.text %>
+              <%= b.text %>
             </span>
-          </label>
+          <% end %>
         </li>
       <% end %>
     </ul>
@@ -34,16 +35,16 @@
   <hr>
   <div class="form-group mt-3 category-group">
     <i class="fas fa-folder category-color"></i>
-    <%= form.label :category_ids, "カテゴリー", class: "font-weight-bold" %>
+    <span class="font-weight-bold">カテゴリ</span>
     <ul class="row px-3">
-      <%= form.collection_check_boxes :category_ids, Category.all.order(id: :asc), :id, :name, include_hidden: false do |form| %>
+      <%= form.collection_check_boxes :category_ids, Category.all.order(id: :asc), :id, :name, include_hidden: false do |b| %>
         <li class="form-check col-6 col-md-4 col-lg-2 flex-wrap px-2">
-          <label class="border rounded-pill w-100">
-            <%= form.check_box class: "checkbox-visibility" %>
+          <%= b.label class: "border rounded-pill w-100" do %>
+            <%= b.check_box class: "checkbox-visibility" %>
             <span class="d-flex justify-content-center rounded-pill w-100 checkbox-position">
-              <%= form.text %>
+              <%= b.text %>
             </span>
-          </label>
+          <% end %>
         </li>
       <% end %>
     </ul>

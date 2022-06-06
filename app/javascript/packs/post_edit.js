@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
       const tags = gon.edit_tags
       const categories = gon.edit_categories
       // 投稿内容を表示
-      $('#content-form').val(content)
+      $('#edit_post_form_content').val(content)
       // 投稿画像を表示
       const previewData = $('#edit-drop').prevAll('.preview-item');
       const targetIds = $.map(previewData, function(preview) {
@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
         photos.forEach(function(photo){
         const html = `<div class="preview-item" data-id="photos-${photo.id}">
                         <img src="${photo.image.url}" class="preview-image">
-                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview" id="photo-delete" data-action="edit"><i class="fas fa-times"></i></button>
+                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview" data-action="edit"><i class="fas fa-times"></i></button>
                       </div>`;
           $('#edit-drop').before($(html));
           const previewItemLength = $('#edit-drop').prevAll('.preview-item').length;
@@ -45,8 +45,7 @@ $(document).on('turbolinks:load', function() {
       if(checkedTagIds.toString() !== tagIds.toString()){
         $('.tags-check-box').prop('checked', false);
         tags.forEach(function(tag){
-          const tagsIndex = tag.id - 1;
-          const targetTag = $('.tags-check-box')[tagsIndex];
+          const targetTag = $(`#edit_post_form_tag_ids_${tag.id}`);
           $(targetTag).prop('checked', true);
         });
       }      
@@ -63,8 +62,7 @@ $(document).on('turbolinks:load', function() {
       if(checkedCategoryIds.toString() !== categoryIds.toString()){
         $('.categories-check-box').prop('checked', false);
         categories.forEach(function(category){
-          const categoriesIndex = category.id - 1
-          const targetCategory = $('.categories-check-box')[categoriesIndex];
+          const targetCategory = $(`#edit_post_form_category_ids_${category.id}`);
           $(targetCategory).prop('checked', true);
         });
       }
