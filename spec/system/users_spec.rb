@@ -89,19 +89,23 @@ RSpec.describe 'ユーザー機能', type: :system do
     context '入力情報が条件を満たすとき' do
       let(:user) { build(:user) }
       it '新規登録ができること' do
-        click_button '会員登録'
-        expect(page).to have_current_path posts_path
-        expect(page).to have_content 'アカウント登録が完了しました。'
+        expect do
+          click_button '会員登録'
+          expect(page).to have_current_path posts_path
+          expect(page).to have_content 'アカウント登録が完了しました。'
+        end.to change(User, :count).by(1)
       end
     end
 
     context 'パスワードとパスワード(確認用)が一致しないとき' do
       let(:user) { build(:user, password: 'password') }
       it 'エラーが発生すること' do
-        fill_in 'パスワード（確認用）', with: 'confirm_password'
-        click_button '会員登録'
-        expect(page).to have_current_path '/users'
-        expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
+        expect do
+          fill_in 'パスワード（確認用）', with: 'confirm_password'
+          click_button '会員登録'
+          expect(page).to have_current_path '/users'
+          expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
+        end.to change(User, :count).by(0)
       end
     end
 
@@ -110,19 +114,23 @@ RSpec.describe 'ユーザー機能', type: :system do
 
       let(:user) { build(:user, email: 'test@example.com') }
       it 'エラーが発生すること' do
-        click_button '会員登録'
-        expect(page).to have_current_path '/users'
-        expect(page).to have_content 'メールアドレスはすでに存在します'
+        expect do
+          click_button '会員登録'
+          expect(page).to have_current_path '/users'
+          expect(page).to have_content 'メールアドレスはすでに存在します'
+        end.to change(User, :count).by(0)
       end
     end
 
     context '画像ファイルが条件を満たさないとき' do
       let(:user) { build(:user) }
       it 'エラーが発生すること' do
-        attach_file('user[avatar]', Rails.root.join('spec/fixtures/rspec_size_test.jpg'))
-        click_button '会員登録'
-        expect(page).to have_current_path '/users'
-        expect(page).to have_content 'プロフィール画像ファイルを5MBバイト以下のサイズにしてください'
+        expect do
+          attach_file('user[avatar]', Rails.root.join('spec/fixtures/rspec_size_test.jpg'))
+          click_button '会員登録'
+          expect(page).to have_current_path '/users'
+          expect(page).to have_content 'プロフィール画像ファイルを5MBバイト以下のサイズにしてください'
+        end.to change(User, :count).by(0)
       end
     end
   end
@@ -178,10 +186,12 @@ RSpec.describe 'ユーザー機能', type: :system do
     context 'アカウント削除ボタンを押下したとき' do
       let(:user) { create(:user) }
       it '削除されること' do
-        visit edit_user_registration_path
-        click_on 'アカウント削除'
-        expect(page).to have_current_path root_path
-        expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
+        expect do
+          visit edit_user_registration_path
+          click_on 'アカウント削除'
+          expect(page).to have_current_path root_path
+          expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
+        end.to change(User, :count).by(-1)
       end
     end
   end
@@ -194,8 +204,10 @@ RSpec.describe 'ユーザー機能', type: :system do
 
     it 'エラーが発生すること' do
       visit edit_user_registration_path
-      click_on 'アカウント削除'
-      expect(page).to have_content 'ゲストユーザーの削除・更新はできません'
+      expect do
+        click_on 'アカウント削除'
+        expect(page).to have_content 'ゲストユーザーの削除・更新はできません'
+      end.to change(User, :count).by(0)
     end
   end
 end
