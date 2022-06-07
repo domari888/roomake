@@ -1,6 +1,78 @@
 require 'rails_helper'
 
-RSpec.describe 'ユーザー登録・編集', type: :system do
+RSpec.describe 'ユーザー機能', type: :system do
+  describe 'ユーザー詳細ページ' do
+    let(:user) { create(:user) }
+    before do
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: user.email
+      fill_in 'パスワード', with: user.password
+      click_button 'ログイン'
+    end
+
+    context 'マイページへ遷移したとき' do
+      before do
+        create(:post, user: user)
+        create(:like, user: user)
+        create(:mark, user: user)
+        create(:item, user: user)
+      end
+
+      it 'ログインユーザーの情報が表示されていること' do
+        visit user_path(user)
+        expect(page).to have_selector "img[src='#{user.avatar.url}']"
+        expect(page).to have_content user.name
+        expect(page).to have_content user.address_i18n
+        expect(page).to have_content user.favorite_items
+        expect(page).to have_content user.profile
+        expect(page).to have_css '#user-menu-list'
+        user.post_with_photos.each do |post|
+          expect(page).to have_selector "img[src='#{post.photos.first.image.url}']"
+        end
+        user.like_with_photos.each do |post|
+          expect(page).to have_selector "img[src='#{post.photos.first.image.url}']"
+        end
+        user.mark_with_photos.each do |post|
+          expect(page).to have_selector "img[src='#{post.photos.first.image.url}']"
+        end
+        user.items.each do |item|
+          expect(page).not_to have_content item.name
+        end
+      end
+    end
+
+    context '他ユーザー詳細ページへ遷移したとき' do
+      let(:other_user) { create(:user) }
+      before do
+        create(:post, user: other_user)
+        create(:like, user: other_user)
+        create(:mark, user: other_user)
+        create(:item, user: other_user)
+      end
+
+      it 'そのユーザーの情報が表示されていること' do
+        visit user_path(other_user)
+        expect(page).to have_content other_user.name
+        expect(page).to have_content other_user.address_i18n
+        expect(page).to have_content other_user.favorite_items
+        expect(page).to have_content other_user.profile
+        expect(page).not_to have_css '#user-menu-list'
+        other_user.post_with_photos.each do |post|
+          expect(page).to have_selector "img[src='#{post.photos.first.image.url}']"
+        end
+        other_user.like_with_photos.each do |post|
+          expect(page).to have_selector "img[src='#{post.photos.first.image.url}']"
+        end
+        other_user.items.each do |item|
+          expect(page).to have_content item.name
+        end
+        other_user.mark_with_photos.each do |post|
+          expect(page).not_to have_selector "img[src='#{post.photos.first.image.url}']"
+        end
+      end
+    end
+  end
+
   describe 'アカウント登録' do
     before do
       visit new_user_registration_path
@@ -17,19 +89,23 @@ RSpec.describe 'ユーザー登録・編集', type: :system do
     context '入力情報が条件を満たすとき' do
       let(:user) { build(:user) }
       it '新規登録ができること' do
-        click_button '会員登録'
-        expect(page).to have_current_path posts_path
-        expect(page).to have_content 'アカウント登録が完了しました。'
+        expect do
+          click_button '会員登録'
+          expect(page).to have_current_path posts_path
+          expect(page).to have_content 'アカウント登録が完了しました。'
+        end.to change(User, :count).by(1)
       end
     end
 
     context 'パスワードとパスワード(確認用)が一致しないとき' do
       let(:user) { build(:user, password: 'password') }
       it 'エラーが発生すること' do
-        fill_in 'パスワード（確認用）', with: 'confirm_password'
-        click_button '会員登録'
-        expect(page).to have_current_path '/users'
-        expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
+        expect do
+          fill_in 'パスワード（確認用）', with: 'confirm_password'
+          click_button '会員登録'
+          expect(page).to have_current_path '/users'
+          expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
+        end.to change(User, :count).by(0)
       end
     end
 
@@ -38,19 +114,23 @@ RSpec.describe 'ユーザー登録・編集', type: :system do
 
       let(:user) { build(:user, email: 'test@example.com') }
       it 'エラーが発生すること' do
-        click_button '会員登録'
-        expect(page).to have_current_path '/users'
-        expect(page).to have_content 'メールアドレスはすでに存在します'
+        expect do
+          click_button '会員登録'
+          expect(page).to have_current_path '/users'
+          expect(page).to have_content 'メールアドレスはすでに存在します'
+        end.to change(User, :count).by(0)
       end
     end
 
     context '画像ファイルが条件を満たさないとき' do
       let(:user) { build(:user) }
       it 'エラーが発生すること' do
-        attach_file('user[avatar]', Rails.root.join('spec/fixtures/rspec_size_test.jpg'))
-        click_button '会員登録'
-        expect(page).to have_current_path '/users'
-        expect(page).to have_content 'プロフィール画像ファイルを5MBバイト以下のサイズにしてください'
+        expect do
+          attach_file('user[avatar]', Rails.root.join('spec/fixtures/rspec_size_test.jpg'))
+          click_button '会員登録'
+          expect(page).to have_current_path '/users'
+          expect(page).to have_content 'プロフィール画像ファイルを5MBバイト以下のサイズにしてください'
+        end.to change(User, :count).by(0)
       end
     end
   end
@@ -106,10 +186,12 @@ RSpec.describe 'ユーザー登録・編集', type: :system do
     context 'アカウント削除ボタンを押下したとき' do
       let(:user) { create(:user) }
       it '削除されること' do
-        visit edit_user_registration_path
-        click_on 'アカウント削除'
-        expect(page).to have_current_path root_path
-        expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
+        expect do
+          visit edit_user_registration_path
+          click_on 'アカウント削除'
+          expect(page).to have_current_path root_path
+          expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
+        end.to change(User, :count).by(-1)
       end
     end
   end
@@ -122,8 +204,10 @@ RSpec.describe 'ユーザー登録・編集', type: :system do
 
     it 'エラーが発生すること' do
       visit edit_user_registration_path
-      click_on 'アカウント削除'
-      expect(page).to have_content 'ゲストユーザーの削除・更新はできません'
+      expect do
+        click_on 'アカウント削除'
+        expect(page).to have_content 'ゲストユーザーの削除・更新はできません'
+      end.to change(User, :count).by(0)
     end
   end
 end
