@@ -28,7 +28,7 @@ items = RakutenWebService::Ichiba::Product.search(keyword: 'ダイソン', hits:
 # 管理者ユーザー用メールアドレス
 admin_email = 'admin@example.com'
 
-%w[users posts photos tags categories post_tags post_categories likes marks admin_users know_hows].each do |table_name|
+%w[users posts photos tags categories post_tags post_categories likes marks admin_users know_hows items].each do |table_name|
   ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{table_name} RESTART IDENTITY CASCADE")
 end
 
@@ -51,7 +51,7 @@ items.each do |item|
   Item.create!(
     name: item['productName'],
     genre: item['genreName'],
-    image: item['mediumImageUrl'],
+    remote_image_url: item['mediumImageUrl'],
     user_id: test_user.id
   )
 end
