@@ -2,11 +2,7 @@
   <div class="row bg-white w-100 m-0 py-1">
     <div class="col-3 align-self-center bg-white p-0">
       <div class="item-container mx-auto">
-        <% if item.image? %>
-          <%= image_tag item.image, class: "item-image fadein-image" %>
-        <% else %>
-          <%= image_tag '/images/fallback/no_image.png', class: "item-image fadein-image" %>
-        <% end %>
+        <%= image_tag item.image.url, class: "item-image fadein-image" %>
       </div>
     </div>
     <div class="col-9 d-flex w-100 p-0">
