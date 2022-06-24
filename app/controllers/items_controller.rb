@@ -10,9 +10,9 @@ class ItemsController < ApplicationController
 
   def create
     registered_item? and return
-    @item = current_user.items.build(name: params[:name], genre: params[:genre], image: params[:image])
+    @item = current_user.items.build(item_params)
     if @item.save
-      redirect_to user_items_path, notice: "#{params[:name]} をマイアイテムに追加しました"
+      redirect_to user_items_path, notice: "#{@item.name} をマイアイテムに追加しました"
     else
       redirect_to user_items_path, alert: 'アイテムを追加することができませんでした'
     end
@@ -29,9 +29,13 @@ class ItemsController < ApplicationController
     @item = current_user.items.find(params[:id])
   end
 
-  def registered_item?
-    return unless current_user.items.find_by(name: params[:name])
+  def item_params
+    params.require(:item).permit(:name, :genre, :remote_image_url)
+  end
 
-    redirect_to user_items_path, alert: "#{params[:name]} は既に登録されています"
+  def registered_item?
+    return unless current_user.items.find_by(name: item_params[:name])
+
+    redirect_to user_items_path, alert: "#{item_params[:name]} は既に登録されています"
   end
 end
