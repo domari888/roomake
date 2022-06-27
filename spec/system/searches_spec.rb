@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Searches", type: :system do
+RSpec.describe '投稿検索機能', type: :system do
   before do
     visit new_user_session_path
     fill_in 'メールアドレス', with: user.email
@@ -8,7 +8,7 @@ RSpec.describe "Searches", type: :system do
     click_button 'ログイン'
   end
 
-  describe '投稿検索機能' do
+  describe '投稿検索モーダル' do
     let(:user) { create(:user) }
     before do
       FactoryBot.rewind_sequences
