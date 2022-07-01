@@ -51,15 +51,14 @@ RSpec.describe 'コメント機能', type: :system do
       end
     end
 
-    context 'コメントが条件を満たさない場合' do
-      it 'エラーメッセージが表示され、コメントが作成されないこと', js: true do
+    context 'コメントを空で送信しようとした場合' do
+      it 'コメントが作成されないこと', js: true do
         visit post_path(post)
         expect do
           within '.comment-group' do
             find('#comment_content').set('')
             click_on '送信する'
           end
-          expect(page).to have_selector '#comment-error-messages', text: 'コメント内容を入力してください'
         end.to change { post.comments.count }.by(0)
       end
     end
