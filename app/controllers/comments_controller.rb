@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_post
+  before_action :set_post, on: :create
   def create
     @comment = @post.comments.build(comment_params)
     if @comment.save
@@ -10,8 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy!
+    @comment = current_user.comments.find_by(id: params[:id]).destroy!
     flash.now[:alert] = 'コメントを削除しました'
   end
 
