@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+// Bootstrap に color を追加
+$theme-colors: (
+	"main": #A40000,
+  "gray": #999999,
+  "light-gray": #F3F3F3
+);
+
 // Sprockets で Bootstrap を扱うためにインクルード
 @import "bootstrap/scss/bootstrap";
 // FontAwesome を扱うためにインクルード
