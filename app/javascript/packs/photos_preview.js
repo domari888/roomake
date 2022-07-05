@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function () {
         fileReader.onloadend = function() {
           const html = `<div class="preview-item" data-id="${file.id}">
                         <img src="${fileReader.result}" class="preview-image">
-                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
+                        <button type="button" class="btn btn-gray btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
                       </div>`;
           $(`#${action}-drop`).before($(html));
           const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
@@ -128,7 +128,7 @@ $(document).on('turbolinks:load', function () {
           fileReader.onloadend = function() {
             const html = `<div class="preview-item" data-id="${file.id}">
                         <img src="${fileReader.result}" class="preview-image">
-                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
+                        <button type="button" class="btn btn-gray btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
                       </div>`;
             $(`#${action}-drop`).before($(html));
             const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;

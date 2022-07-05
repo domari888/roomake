@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
     function iconUpdate(collapseButton){
-      if ($(collapseButton).hasClass('btn-outline-secondary')) {
-        $(collapseButton).toggleClass('btn-secondary btn-outline-secondary');
+      if ($(collapseButton).hasClass('btn-outline-gray')) {
+        $(collapseButton).toggleClass('btn-gray btn-outline-gray');
         const icon = $(collapseButton).children();
         $(icon).toggleClass('fa-plus fa-minus');
       } else {
-        $(collapseButton).toggleClass('btn-secondary btn-outline-secondary');
+        $(collapseButton).toggleClass('btn-gray btn-outline-gray');
         const icon = $(collapseButton).children();
         $(icon).toggleClass('fa-plus fa-minus');
       }
