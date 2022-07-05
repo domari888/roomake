@@ -158,3 +158,24 @@ input:checked + span {
     color: #212529;
   }
 }
+
+#custom-pagination {
+  justify-content: center;
+  .page-link {
+    background-color: transparent;
+    border: 0;
+    color: unset;
+    &:hover {
+      border-radius: 50%;
+      background-color: #dedcda;
+    }
+  }
+  .active .page-link {
+    border-radius: 50%;
+    background-color: #6c757d;
+    color: #f8f9fa;
+  }
+  .disabled .page-link {
+    background-color: transparent;
+  }
+}
