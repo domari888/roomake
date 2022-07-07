@@ -6,7 +6,7 @@
 </div>
 <% if current_user.id == @user.id %>
   <div class="search-item-group mb-3">
-    <button class="btn btn-outline-gray btn-block collapse-btn" type="button" data-toggle="collapse" data-target="#search-item" aria-expanded="false" aria-controls="search-item" id="collapse-search-item">
+    <button class="btn btn-outline-dark-gray btn-block collapse-btn" type="button" data-toggle="collapse" data-target="#search-item" aria-expanded="false" aria-controls="search-item" id="collapse-search-item">
       アイテムを追加する<i class="fas fa-plus ml-3"></i>
     </button>
     <div class="collapse item-collapse py-4 mb-4" id="search-item">
@@ -14,7 +14,7 @@
       <div class="input-group px-3">
         <%= form.text_field :keyword, class: "form-control", placeholder: "追加したいアイテムを検索", value: params[:keyword], required: true %>
         <div class="input-group-append">
-          <%= button_tag type: :submit, class: "btn btn-gray" do %>
+          <%= button_tag type: :submit, class: "btn btn-dark-gray" do %>
             <i class="fas fa-search"></i>
           <% end %>
         </div>

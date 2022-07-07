@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function(){
             dataBox.items.add(avatar)
             fileReader.onloadend = function(){
                 const avatarImage = `<img src="${fileReader.result}" class="rounded-circle avatar-preview bg-light">`;
-                const deleteButton = '<button type="button" class="btn btn-gray btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>';
+                const deleteButton = '<button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>';
                 $('.avatar-label').prepend(avatarImage).after(deleteButton);
             };
             fileReader.readAsDataURL(avatar);
