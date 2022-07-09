@@ -12,7 +12,7 @@
           <div class="d-inline-flex flex-column">
             <%= link_to "会員登録", new_user_registration_path, class: "btn btn-main mb-3" %>
             <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark-gray mb-3" %>
-            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-success mb-3 guest-login" %>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-bitter-orange mb-3 guest-login" %>
           </div>
         </div>
       <% end %>
@@ -119,7 +119,7 @@
         <% unless user_signed_in? %>
           <%= link_to "会員登録", new_user_registration_path, class: "btn btn-main mb-3" %>
           <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark-gray mb-3" %>
-          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-success mb-3 guest-login" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-bitter-orange mb-3 guest-login" %>
         <% end %>
       </div>
     </div>
