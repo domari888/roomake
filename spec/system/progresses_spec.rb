@@ -21,9 +21,9 @@ RSpec.describe 'ノウハウチェック機能', type: :system do
         visit know_hows_path
         expect do
           within "#know-how-#{know_how_first.id}" do
-            expect(page).not_to have_css '.text-success'
+            expect(page).not_to have_css '.check-color'
             find("a[href='#{know_how_progresses_path(know_how_first)}']").click
-            expect(page).to have_css '.text-success'
+            expect(page).to have_css '.check-color'
           end
         end.to change { user.progresses.count }.by(1)
       end
@@ -42,9 +42,9 @@ RSpec.describe 'ノウハウチェック機能', type: :system do
         visit know_hows_path
         expect do
           within "#know-how-#{know_how_first.id}" do
-            expect(page).not_to have_css '.text-muted'
+            expect(page).not_to have_css '.uncheck-color'
             find("a[href='#{know_how_progresses_path(know_how_first)}']").click
-            expect(page).to have_css '.text-muted'
+            expect(page).to have_css '.uncheck-color'
           end
         end.to change { user.progresses.count }.by(-1)
       end
