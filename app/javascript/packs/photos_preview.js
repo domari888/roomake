@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function () {
         fileReader.onloadend = function() {
           const html = `<div class="preview-item" data-id="${file.id}">
                         <img src="${fileReader.result}" class="preview-image">
-                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
+                        <button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
                       </div>`;
           $(`#${action}-drop`).before($(html));
           const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
@@ -97,12 +97,12 @@ $(document).on('turbolinks:load', function () {
       //ドロップエリアの上にある時に発火するイベント
       dropArea.addEventListener("dragover", function(e){
         e.preventDefault();
-        $(this).css({'border': '2px solid #9e9e9e', 'opacity': '0.5'});
+        $(this).css({'border': '2px solid $dark-gray', 'opacity': '0.5'});
       },false);
       //ドロップエリアから離れた時に発火するイベント
       dropArea.addEventListener("dragleave", function(e){
         e.preventDefault();
-        $(this).css({'border': '2px dashed #9c9c9c', 'background': '#f7f7f7', 'opacity': '1.0'});
+        $(this).css({'border': '2px dashed $dark-gray', 'opacity': '1.0'});
       },false);
       // ドロップしたときに発火するイベント
       dropArea.addEventListener("drop", function(e) {
@@ -116,7 +116,7 @@ $(document).on('turbolinks:load', function () {
           fileField = new_file_field
         }  
         e.preventDefault();
-        $(this).css({'border': '2px dashed #9c9c9c', 'background': '#f7f7f7', 'opacity': '1.0'});
+        $(this).css({'border': '2px dashed $dark-gray', 'opacity': '1.0'});
         const files = e.dataTransfer.files;
         $.each(files, function(i, file){
           const fileReader = new FileReader();
@@ -128,7 +128,7 @@ $(document).on('turbolinks:load', function () {
           fileReader.onloadend = function() {
             const html = `<div class="preview-item" data-id="${file.id}">
                         <img src="${fileReader.result}" class="preview-image">
-                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
+                        <button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
                       </div>`;
             $(`#${action}-drop`).before($(html));
             const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;

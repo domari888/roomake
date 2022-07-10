@@ -15,7 +15,7 @@
           <button class="btn btn-link btn-sm text-reset p-0" type="button" id="my-item-menu-<%= item.id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-h"></i>
           </button>
-          <div class="dropdown-menu dropdown-menu-right bg-light text-center" aria-labelledby="my-item-menu-<%= item.id %>">
+          <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="my-item-menu-<%= item.id %>">
             <%= link_to "削除", user_item_path(current_user, item), class: "dropdown-item text-danger", method: :delete, data: { confirm: "削除しますか?"}, remote: true %>
           </div>
         </div>

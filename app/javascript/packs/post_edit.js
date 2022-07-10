@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
         photos.forEach(function(photo){
         const html = `<div class="preview-item" data-id="photos-${photo.id}">
                         <img src="${photo.image.url}" class="preview-image">
-                        <button type="button" class="btn btn-dark btn-sm rounded-circle delete-preview" data-action="edit"><i class="fas fa-times"></i></button>
+                        <button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview" data-action="edit"><i class="fas fa-times"></i></button>
                       </div>`;
           $('#edit-drop').before($(html));
           const previewItemLength = $('#edit-drop').prevAll('.preview-item').length;

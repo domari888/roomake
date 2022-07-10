@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+// Bootstrap に color を追加
+@import 'valiables';
+$theme-colors: (
+	"main": $main,
+  "dark-gray": $dark-gray,
+  "light-gray": $light-gray,
+  "bitter-orange": $bitter-orange
+);
+
 // Sprockets で Bootstrap を扱うためにインクルード
 @import "bootstrap/scss/bootstrap";
 // FontAwesome を扱うためにインクルード
@@ -27,7 +37,7 @@ body {
   margin: 0;
   padding-top: 56px;
   padding-bottom: 56px;
-  background-color: #EEEDEC;
+  background-color: $light-gray;
   min-height: 100vh;
   @media (max-width: 575.98px) {
     padding-bottom: 54px;
@@ -111,11 +121,11 @@ a:hover {
 }
 
 .tag-color {
-  color: #baa877;
+  color: $gold;
 }
 
 .category-color {
-  color: #a8a9a8;
+  color: $silver;
 }
 
 .post-preview-image {
@@ -137,16 +147,37 @@ a:hover {
 }
 
 input:checked + span {
-  color: #EEEDEC;
-  background-color: #6c757d;
+  color: white;
+  background-color: $dark-gray;
 }
 
 .dropdown-item {
   &:hover {
-    background-color: #e4e8ec;
+    opacity: 0.6;
+    background-color: transparent;
   }
   &:active {
-    background-color: #e4e8ec;
     color: #212529;
+  }
+}
+
+#custom-pagination {
+  justify-content: center;
+  .page-link {
+    background-color: transparent;
+    border: 0;
+    color: unset;
+    &:hover {
+      border-radius: 50%;
+      background-color: #dedcda;
+    }
+  }
+  .active .page-link {
+    border-radius: 50%;
+    background-color: $dark-gray;
+    color: white;
+  }
+  .disabled .page-link {
+    background-color: transparent;
   }
 }

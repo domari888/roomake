@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import 'valiables';
+
 .key-visual-left {
   min-height: 80vh;
   background-image: url("top_left_reverse.jpg");
@@ -49,6 +51,6 @@
     height: 3px;
     content: '';
     border-radius: 3px;
-    background: #6c757d;
+    background: $dark-gray;
   }
 }
