@@ -4,6 +4,15 @@
 
 @import 'valiables';
 
+.top-title {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.sub-title {
+  font-size: 1.5rem;
+}
+
 .key-visual-left {
   min-height: 80vh;
   background-image: url("top_left_reverse.jpg");
