@@ -120,14 +120,20 @@
   </div>
 </div>
 <div class="bg-light py-4">
-  <p class="text-center py-4">さあ、あなたの "おうち" をシェアしてみよう！</p>
-  <div class="d-flex justify-content-center">
-    <div class="d-inline-flex flex-column">
-      <% unless user_signed_in? %>
-        <%= link_to "会員登録", new_user_registration_path, class: "btn btn-main mb-3" %>
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark-gray mb-3" %>
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-bitter-orange mb-3 guest-login" %>
-      <% end %>
+  <div class="mb-5">
+    <p class="text-center py-4">さあ、あなたの "おうち" をシェアしてみよう！</p>
+    <div class="d-flex justify-content-center">
+      <div class="d-inline-flex flex-column">
+        <% if user_signed_in? %>
+          <button type="button" class="btn btn-main" data-toggle="modal" data-target="#new-modal">
+            <i class="fas fa-plus-square"></i> 投稿する
+          </button>
+        <% else %>
+          <%= link_to "会員登録", new_user_registration_path, class: "btn btn-main mb-3" %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark-gray mb-3" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-bitter-orange mb-3 guest-login" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
