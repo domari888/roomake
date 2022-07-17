@@ -168,6 +168,7 @@ RSpec.describe User, type: :model do
 
     let(:user) { create(:user) }
     before do
+      FactoryBot.rewind_sequences
       create(:like)
       create(:mark)
       create(:comment)
