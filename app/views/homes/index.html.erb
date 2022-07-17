@@ -7,7 +7,7 @@
     <div class="key-visual-background">
       <div class="d-flex flex-column mx-md-auto h-100">
         <h1 class="top-title pt-5 pt-sm-0 px-4 my-sm-auto">MOKNOW</h1>
-        <h4 class="sub-title px-4 my-3 m-sm-0">理想の”おうち”で<br>素敵な”じかん”を<br>過ごそう</h4>
+        <h3 class="sub-title px-4 my-3 m-sm-0">理想の”おうち”で<br>素敵な”じかん”を<br>過ごそう</h3>
         <div class="key-image d-none d-sm-block mb-sm-auto"></div>
         <% unless user_signed_in? %>
           <div class="mx-md-auto px-4">
@@ -34,8 +34,8 @@
   <div class="row">
     <div class="col-12 col-sm-8">
       <h4>”MOKNOW”ってどんなアプリ？</h4>
-      <p class="pt-3">あなたが引っ越しの際やマイホームを建てた際に感じた ”成功・失敗エピソード” やあなたのおすすめの ”家具・家電” などをシェアするアプリです。</p>
-      <p>みんなの投稿やノウハウをチェックして引っ越しの際の”辞書”にしよう！</p>
+      <p class="pt-3">引っ越しやマイホーム建設の際に感じた ” 成功・失敗エピソード ” や、あなたのおすすめの ” 家具・家電 ” など、” おうち ” をシェアするアプリです。<br>みんなでシェアすることで理想のおうちや新しいアイデアの発見に繋がります。</p>
+      <p>みんなの投稿やノウハウをチェックしておうちの ” 辞書 ” にしよう！</p>
     </div>
     <div class="col-8 col-sm-4 col-md-3 mx-auto">
       <%= image_tag "feature.png", class: "img-fluid" %>
@@ -70,7 +70,7 @@
           </div>
           <div class="card-body p-3">
             <%= image_tag "timeline.png", class: "img-fluid" %>
-            <p class="card-text">自分のエピソードをシェアしてみよう！みんなの投稿をチェックすると理想の”おうち”が見つかります！</p>
+            <p class="card-text">みんなの投稿をチェックして理想のおうちを見つけてみよう！<br>気になる投稿を見つけたら ” いいね ” や ” マーク ” 機能を活用してみましょう！<br>あなたもおうちの投稿をしてみんなとシェアしてみませんか？</p>
           </div>
         <% end %>
       </div>
@@ -84,7 +84,7 @@
           </div>
           <div class="card-body p-3">
             <%= image_tag "myitem.png", class: "img-fluid" %>
-            <p class="card-text">”おうち”の家具・家電の寸法を記録しておこう！引っ越しの際の測り忘れの対策になります！</p>
+            <p class="card-text">おうちの ” 家具・家電 ” などを記録しておく事ができます！<br>今ある家具・家電などの種類やサイズが分からず、困ったことはありませんか？ 記録しておくことで迷わず簡単に確認する事ができ、購入や引っ越しなどの際の役に立ちます！</p>
           </div>
         <% end %>
       </div>
@@ -98,7 +98,7 @@
           </div>
           <div class="card-body p-3">
             <%= image_tag "about.png", class: "img-fluid" %>
-            <p class="card-text">引っ越しの際のノウハウをピックアップしているよ！チェックして”快適”な引っ越しをしましょう！</p>
+            <p class="card-text">引っ越しの際やっておくと良いことをピックアップしています！<br>準備するものや手順はノウハウ毎に確認する事ができます。<br>” ノウハウ ” をチェックをして快適な引っ越しをしましょう！</p>
           </div>
         <% end %>
       </div>
@@ -112,7 +112,7 @@
           </div>
           <div class="card-body p-3">
             <%= image_tag "data.png", class: "img-fluid" %>
-            <p class="card-text">アプリのデータの集計を誰でも見ることができるよ！”いいね”獲得数ランキングもチェックできます！</p>
+            <p class="card-text">人気の "タグ" や "カテゴリ" 、"いいね獲得数" などのランキングをチェックする事ができます！<br>人気の投稿を目指して、たくさんのいいねを獲得しランキング上位を目指しましょう！</p>
           </div>
         <% end %>
       </div>
@@ -120,7 +120,7 @@
   </div>
 </div>
 <div class="bg-light py-4">
-  <p class="text-center py-4">エピソードをシェアしてみよう！</p>
+  <p class="text-center py-4">さあ、あなたの "おうち" をシェアしてみよう！</p>
   <div class="d-flex justify-content-center">
     <div class="d-inline-flex flex-column">
       <% unless user_signed_in? %>
