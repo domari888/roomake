@@ -4,6 +4,10 @@ RSpec.describe Progress, type: :model do
   describe 'バリデーション' do
     subject { progress.valid? }
 
+    before do
+      FactoryBot.rewind_sequences
+    end
+
     context 'データが条件を満たすとき' do
       let(:progress) { build(:progress) }
       it '保存できること' do
