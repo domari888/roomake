@@ -31,13 +31,13 @@
     <h2 class="m-0">Feature</h2>
     <p class="text-center text-muted">アプリについて</p>
   </div>
-  <div class="row w-100 m-0">
-    <div class="col-12 col-sm-8 px-0">
+  <div class="row">
+    <div class="col-12 col-sm-8">
       <h4>”MOKNOW”ってどんなアプリ？</h4>
       <p class="pt-3">あなたが引っ越しの際やマイホームを建てた際に感じた ”成功・失敗エピソード” やあなたのおすすめの ”家具・家電” などをシェアするアプリです。</p>
       <p>みんなの投稿やノウハウをチェックして引っ越しの際の”辞書”にしよう！</p>
     </div>
-    <div class="col-8 offset-2 col-sm-4 offset-sm-0 col-md-3 offset-md-1 px-0 mt-n4">
+    <div class="col-8 col-sm-4 col-md-3 mx-auto">
       <%= image_tag "feature.png", class: "img-fluid" %>
     </div>
   </div>
@@ -49,7 +49,7 @@
         <h2 class="m-0">Pick Up</h2>
         <p class="text-center text-muted">ピックアップ</p>
       </div>
-      <div class="row w-100 m-0 flex-nowrap overflow-auto">
+      <div class="row flex-nowrap overflow-auto">
         <%= render partial: "pick_up", collection: @posts, as: "post" %>
       </div>
     </div>
@@ -64,7 +64,7 @@
     <div class="col-12 col-sm-6 col-md-3 mb-4">
       <div class="card text-center h-100">
         <%= link_to posts_path, class: "text-reset" do %>
-          <div class="card-header p-3">
+          <div class="card-header px-0">
             <h3 class="card-title">Time Line</h3>
             <h6 class="card-subtitle">タイムライン</h6>
           </div>
@@ -78,7 +78,7 @@
     <div class="col-12 col-sm-6 col-md-3 mb-4">
       <div class="card text-center h-100">
         <%= link_to user_item_page, class: "text-reset" do %>
-          <div class="card-header p-3">
+          <div class="card-header px-0">
             <h3 class="card-title">My Item</h3>
             <h6 class="card-subtitle">マイアイテム</h6>
           </div>
@@ -92,7 +92,7 @@
     <div class="col-12 col-sm-6 col-md-3 mb-4">
       <div class="card text-center h-100">
         <%= link_to know_hows_path, class: "text-reset" do %>
-          <div class="card-header p-3">
+          <div class="card-header px-0">
             <h3 class="card-title">Know How</h3>
             <h6 class="card-subtitle">ノウハウ</h6>
           </div>
@@ -106,7 +106,7 @@
     <div class="col-12 col-sm-6 col-md-3 mb-4">
       <div class="card text-center h-100">
         <%= link_to graphs_path, class: "text-reset" do %>
-          <div class="card-header p-3">
+          <div class="card-header px-0">
             <h3 class="card-title">Data</h3>
             <p class="card-subtitle">データ</p>
           </div>
