@@ -67,8 +67,8 @@ RSpec.describe PostForm, type: :model do
       end
     end
 
-    context 'categoryr_ids の値が6以上のとき' do
-      let(:post_form) { build(:post_form, category_ids: [7]) }
+    context 'categoryr_ids の値が18以上のとき' do
+      let(:post_form) { build(:post_form, category_ids: [19]) }
       it 'エラーが発生すること' do
         expect(subject).to eq false
         expect(post_form.errors.messages[:category_ids]).to include '入力された値は存在しません'
