@@ -43,8 +43,8 @@ RSpec.describe PostForm, type: :model do
       end
     end
 
-    context 'tag_ids の値が12以上のとき' do
-      let(:post_form) { build(:post_form, tag_ids: [13]) }
+    context 'tag_ids の値が18以上のとき' do
+      let(:post_form) { build(:post_form, tag_ids: [19]) }
       it 'エラーが発生すること' do
         expect(subject).to eq false
         expect(post_form.errors.messages[:tag_ids]).to include '入力された値は存在しません'
@@ -67,8 +67,8 @@ RSpec.describe PostForm, type: :model do
       end
     end
 
-    context 'categoryr_ids の値が6以上のとき' do
-      let(:post_form) { build(:post_form, category_ids: [7]) }
+    context 'categoryr_ids の値が18以上のとき' do
+      let(:post_form) { build(:post_form, category_ids: [19]) }
       it 'エラーが発生すること' do
         expect(subject).to eq false
         expect(post_form.errors.messages[:category_ids]).to include '入力された値は存在しません'
@@ -102,10 +102,9 @@ RSpec.describe PostForm, type: :model do
 
     let(:user) { create(:user) }
     before do
-      create(:tag, id: 1)
-      create(:tag, id: 2)
-      create(:category, id: 1)
-      create(:category, id: 2)
+      FactoryBot.rewind_sequences
+      create_list(:tag, 2)
+      create_list(:category, 2)
     end
 
     describe '#post_update' do
