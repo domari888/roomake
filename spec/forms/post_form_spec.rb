@@ -102,10 +102,9 @@ RSpec.describe PostForm, type: :model do
 
     let(:user) { create(:user) }
     before do
-      create(:tag, id: 1)
-      create(:tag, id: 2)
-      create(:category, id: 1)
-      create(:category, id: 2)
+      FactoryBot.rewind_sequences
+      create_list(:tag, 2)
+      create_list(:category, 2)
     end
 
     describe '#post_update' do
