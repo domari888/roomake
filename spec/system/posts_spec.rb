@@ -42,8 +42,7 @@ RSpec.describe '投稿機能', type: :system do
     context '入力内容が条件を満たすとき' do
       it '新しい投稿が作成されること', js: true do
         expect do
-          find('.navbar-toggler').click
-          within '.navbar-collapse' do
+          within '.navbar' do
             click_on '投稿する'
           end
           fill_in 'キャプション', with: post.content
@@ -64,8 +63,7 @@ RSpec.describe '投稿機能', type: :system do
     context '未入力の項目があるとき' do
       it 'エラーメッセージが表示され、新しい投稿が作成されないこと', js: true do
         expect do
-          find('.navbar-toggler').click
-          within '.navbar-collapse' do
+          within '.navbar' do
             click_on '投稿する'
           end
           expect(page).to have_button '投稿する', disabled: true
@@ -81,8 +79,7 @@ RSpec.describe '投稿機能', type: :system do
     context 'タグ・カテゴリが3つ以上選択されているとき' do
       it 'エラーメッセージが表示され、新しい投稿が作成されないこと', js: true do
         expect do
-          find('.navbar-toggler').click
-          within '.navbar-collapse' do
+          within '.navbar' do
             click_on '投稿する'
           end
           fill_in 'キャプション', with: post.content

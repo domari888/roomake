@@ -1,19 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <%= link_to "MOKNOW", root_path, class: "navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <% if user_signed_in? %>
+  <% if user_signed_in? %>
+    <div class="ml-auto mr-3">
       <button type="button" class="btn btn-main d-sm-inline d-none" data-toggle="modal" data-target="#new-modal">
         <i class="fas fa-plus-square"></i> 投稿する
       </button>
       <button type="button" class="btn btn-outline-dark-gray d-sm-inline d-none" data-toggle="modal" data-target="#search-modal">
         <i class="fas fa-search"></i> 検索する
       </button>
-      <%# 要素を右寄せで配置 %>
-      <div class="navbar-nav ml-auto">
+    </div>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <%# 要素を右寄せで配置 %>
+    <div class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
         <%= link_to graphs_path, class: "nav-item nav-link" do %>
           <i class="fas fa-chart-pie"></i> データ
         <% end %>
@@ -29,12 +33,7 @@
         <%= link_to user_path(current_user.id), class: "nav-item nav-link d-sm-block d-none" do %>
           <i class="fas fa-user"></i> マイページ
         <% end %>
-        <%= link_to inquiries_path, class: "nav-item nav-link d-block d-sm-none" do %>
-          <i class="fas fa-envelope"></i> お問い合わせ
-        <% end %>
-      </div>
-    <% else %>
-      <div class="navbar-nav ml-auto">
+      <% else %>
         <%= link_to users_guest_sign_in_path, method: :post, class: "nav-item nav-link guest-login" do %>
           <i class="fas fa-id-card-alt"></i> ゲストログイン
         <% end %>
@@ -44,16 +43,16 @@
         <%= link_to new_user_session_path, class: "nav-item nav-link" do %>
           <i class="fas fa-sign-in-alt"></i> ログイン
         <% end %>
-        <%= link_to graphs_path, class: "nav-item nav-link" do %>
-          <i class="fas fa-chart-pie"></i> データ
-        <% end %>
-        <%= link_to "#", class: "nav-item nav-link" do %>
-          <i class="fas fa-book"></i> ノウハウ
-        <% end %>
-        <%= link_to inquiries_path, class: "nav-item nav-link d-block d-sm-none" do %>
-          <i class="fas fa-envelope"></i> お問い合わせ
-        <% end %>
-      </div>
-    <% end %>
+      <% end %>
+      <%= link_to inquiries_path, class: "nav-item nav-link d-block d-sm-none" do %>
+        <i class="fas fa-envelope"></i> お問い合わせ
+      <% end %>
+      <%= link_to page_path('terms_of_use'), class: "nav-item nav-link d-block d-sm-none" do %>
+        <i class="fas fa-book"></i> 利用規約
+      <% end %>
+      <%= link_to page_path('privacy_policy'), class: "nav-item nav-link d-block d-sm-none" do %>
+        <i class="fas fa-key"></i> プライバシーポリシー
+      <% end %>
+    </div>
   </div>
 </nav>
