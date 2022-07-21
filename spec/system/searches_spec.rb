@@ -19,8 +19,7 @@ RSpec.describe '投稿検索機能', type: :system do
     context '検索条件を設定した場合' do
       let(:post) { Post.first }
       it 'その条件を含む投稿が表示されること', js: true do
-        find('.navbar-toggler').click
-        within '.navbar-collapse' do
+        within '.navbar' do
           click_on '検索する'
         end
         within '.modal-content' do
@@ -40,8 +39,7 @@ RSpec.describe '投稿検索機能', type: :system do
     context '条件を設定しない場合' do
       let(:post_last) { Post.last }
       it '投稿日時が降順で表示されること', js: true do
-        find('.navbar-toggler').click
-        within '.navbar-collapse' do
+        within '.navbar' do
           click_on '検索する'
         end
         within '.modal-content' do
@@ -57,8 +55,7 @@ RSpec.describe '投稿検索機能', type: :system do
 
     context '検索条件が一致する投稿がない場合' do
       it '投稿が表示されないこと', js: true do
-        find('.navbar-toggler').click
-        within '.navbar-collapse' do
+        within '.navbar' do
           click_on '検索する'
         end
         within '.modal-content' do
@@ -72,8 +69,7 @@ RSpec.describe '投稿検索機能', type: :system do
 
     context '検索モーダルでリセットボタンを押下したとき' do
       it '設定済みの検索条件が一括リセットされること', js: true do
-        find('.navbar-toggler').click
-        within '.navbar-collapse' do
+        within '.navbar' do
           click_on '検索する'
         end
         within '.modal-content' do
