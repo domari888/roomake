@@ -1,5 +1,5 @@
 if Rails.env.production?
-  host = 'moknow.herokuapp.com'
+  host = 'roomake.herokuapp.com'
   ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.default_url_options = { host: host }
