@@ -1,9 +1,9 @@
 class InquiryMailer < ApplicationMailer
-  ADMIN_EMAIL = 'moknow.app@gmail.com'.freeze
+  ADMIN_EMAIL = 'roomake.contact@gmail.com'.freeze
 
   def user_email(inquiry)
     @inquiry = inquiry
-    subject = '【moknow】お問い合わせを受付いたしました'
+    subject = '【Roomake】お問い合わせを受付いたしました'
     mail(
       to: inquiry.email,
       subject: subject
@@ -12,7 +12,7 @@ class InquiryMailer < ApplicationMailer
 
   def admin_email(inquiry)
     @inquiry = inquiry
-    subject = '【moknow】お客様よりお問い合わせがありました'
+    subject = '【Roomake】お客様よりお問い合わせがありました'
     mail(
       to: ADMIN_EMAIL,
       subject: subject
