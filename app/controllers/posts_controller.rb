@@ -48,6 +48,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post_form).permit(:content, image: [], tag_ids: [], category_ids: [], delete_ids: [])
+    params.require(:post_form).permit(:content, images: [], tag_ids: [], category_ids: [], delete_ids: [])
   end
 end

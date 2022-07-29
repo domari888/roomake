@@ -7,8 +7,8 @@
   <hr>
   <div class="form-group mt-3">
     <div class="preview-box d-flex flex-wrap">
-      <%= form.label :image, class: "drop-container", id: "new-drop" do %>
-        <%= form.file_field :image, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", data: {action: "new"} %>
+      <%= form.label :images, class: "drop-container", id: "new-drop" do %>
+        <%= form.file_field :images, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", data: {action: "new"} %>
         <i class="far fa-image" id="drop-container-icon" ></i>
       <% end %>
     </div>
