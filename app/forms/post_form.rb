@@ -22,6 +22,8 @@ class PostForm
         post_create
       end
     end
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 
   private
