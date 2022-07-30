@@ -75,24 +75,24 @@ RSpec.describe PostForm, type: :model do
       end
     end
 
-    context 'image が空のとき' do
-      let(:post_form) { build(:post_form, image: '') }
+    context 'images が空のとき' do
+      let(:post_form) { build(:post_form, images: '') }
       it 'エラーが発生する' do
         expect(post_form.valid?(:create)).to eq false
-        expect(post_form.errors.messages[:image]).to include 'を入力してください'
+        expect(post_form.errors.messages[:images]).to include 'を入力してください'
       end
     end
 
-    context 'image が6枚以上のとき' do
+    context 'images が6枚以上のとき' do
       before do
         @images = []
         7.times { @images << Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test.jpg')) }
       end
 
-      let(:post_form) { build(:post_form, image: @images) }
+      let(:post_form) { build(:post_form, images: @images) }
       it 'エラーが発生する' do
         expect(post_form.valid?(:create)).to eq false
-        expect(post_form.errors.messages[:image]).to include 'は最大6枚まで選択できます'
+        expect(post_form.errors.messages[:images]).to include 'は最大6枚まで選択できます'
       end
     end
   end
@@ -118,7 +118,7 @@ RSpec.describe PostForm, type: :model do
       end
 
       context '画像が1つも選択されていない場合' do
-        let(:post_form) { build(:post_form, post: post, delete_ids: [2], image: '') }
+        let(:post_form) { build(:post_form, post: post, delete_ids: [2], images: '') }
         it '更新されないこと' do
           expect { subject }.to change { post.photos.count }.by(0)
         end
@@ -134,7 +134,7 @@ RSpec.describe PostForm, type: :model do
       end
 
       context '画像が選択されていない場合' do
-        let(:post_form) { build(:post_form, user_id: user.id, image: '') }
+        let(:post_form) { build(:post_form, user_id: user.id, images: '') }
         it 'エラーが発生すること' do
           expect(subject).to eq false
         end

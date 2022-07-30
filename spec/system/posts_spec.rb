@@ -46,7 +46,7 @@ RSpec.describe '投稿機能', type: :system do
             click_on '投稿する'
           end
           fill_in 'キャプション', with: post.content
-          attach_file('post_form[image][]', Rails.root.join('spec/fixtures/test.jpg'), make_visible: true)
+          attach_file('post_form[images][]', Rails.root.join('spec/fixtures/test.jpg'), make_visible: true)
           within '.tag-group' do
             all('label')[0].click
           end
@@ -67,7 +67,7 @@ RSpec.describe '投稿機能', type: :system do
             click_on '投稿する'
           end
           expect(page).to have_button '投稿する', disabled: true
-          attach_file('post_form[image][]', Rails.root.join('spec/fixtures/test.jpg'), make_visible: true)
+          attach_file('post_form[images][]', Rails.root.join('spec/fixtures/test.jpg'), make_visible: true)
           find('#new-button').click
           expect(page).to have_content '* 投稿内容を入力してください'
           expect(page).to have_content '* タグを選択してください'
@@ -83,7 +83,7 @@ RSpec.describe '投稿機能', type: :system do
             click_on '投稿する'
           end
           fill_in 'キャプション', with: post.content
-          attach_file('post_form[image][]', Rails.root.join('spec/fixtures/test.jpg'), make_visible: true)
+          attach_file('post_form[images][]', Rails.root.join('spec/fixtures/test.jpg'), make_visible: true)
           within '.tag-group' do
             all('label')[0].click
             all('label')[1].click
@@ -136,7 +136,7 @@ RSpec.describe '投稿機能', type: :system do
           expect(page).to have_unchecked_field(@category.name, visible: :hidden)
           # 内容の更新
           fill_in 'キャプション', with: updated_post.content
-          attach_file('post_form[image][]', Rails.root.join('spec/fixtures/test_2.jpg'), make_visible: true)
+          attach_file('post_form[images][]', Rails.root.join('spec/fixtures/test_2.jpg'), make_visible: true)
           find("label[for='edit_post_form_tag_ids_#{@tag.id}']").click
           find("label[for='edit_post_form_category_ids_#{@category.id}']").click
         end
