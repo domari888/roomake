@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function () {
                         <button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
                       </div>`;
           $(`#${action}-drop`).before($(html));
-          const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
+          const previewItemLength = $(`#${action}-drop`).prevAll("[class$='preview-item']").length;
           if ( previewItemLength >= 1 && previewItemLength <= 6 ) $(`#${action}-button`).prop('disabled', false);
           if ( previewItemLength >= 6 ){
             $(`#${action}-drop`).hide();
@@ -59,7 +59,7 @@ $(document).on('turbolinks:load', function () {
         dataBox = newDataBox
         fileField = new_file_field
       }
-      const targetImage = $(this).parents('.preview-item');
+      const targetImage = $(this).parents("[class$='preview-item']");
       const targetId = $(targetImage).data('id');
       $.each(fileField.files, function(i, file){
         if(file.id === targetId){
@@ -74,7 +74,7 @@ $(document).on('turbolinks:load', function () {
         $('#edit-drop').before(`<input type="hidden" name="post_form[delete_ids][]" value="${deleteId}">`);
       }
       targetImage.remove();
-      const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
+      const previewItemLength = $(`#${action}-drop`).prevAll("[class$='preview-item']").length;
       if ( previewItemLength <= 6 ){
         $(`#${action}-button`).prop('disabled', false);
         if ( previewItemLength <= 5 ){
@@ -131,7 +131,7 @@ $(document).on('turbolinks:load', function () {
                         <button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview" data-action="${action}"><i class="fas fa-times"></i></button>
                       </div>`;
             $(`#${action}-drop`).before($(html));
-            const previewItemLength = $(`#${action}-drop`).prevAll('.preview-item').length;
+            const previewItemLength = $(`#${action}-drop`).prevAll("[class$='preview-item']").length;
             if ( previewItemLength >= 1 && previewItemLength <= 6){
               $(`#${action}-button`).prop('disabled', false);
                 if ( previewItemLength >= 6 ){

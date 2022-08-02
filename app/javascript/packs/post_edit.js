@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function() {
       // 投稿内容を表示
       $('#edit_post_form_content').val(content)
       // 投稿画像を表示
-      const previewData = $('#edit-drop').prevAll('.preview-item');
+      const previewData = $('#edit-drop').prevAll('.edit-preview-item');
       const targetIds = $.map(previewData, function(preview) {
         return $(preview).data('id');
       });
@@ -18,12 +18,12 @@ $(document).on('turbolinks:load', function() {
       if (targetIds.toString() !== photoIds.toString()) {
         $('#edit-drop').prevAll().remove();
         photos.forEach(function(photo){
-        const html = `<div class="preview-item" data-id="photos-${photo.id}">
+        const html = `<div class="edit-preview-item" data-id="photos-${photo.id}">
                         <img src="${photo.image.url}" class="preview-image">
                         <button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview" data-action="edit"><i class="fas fa-times"></i></button>
                       </div>`;
           $('#edit-drop').before($(html));
-          const previewItemLength = $('#edit-drop').prevAll('.preview-item').length;
+          const previewItemLength = $('#edit-drop').prevAll('.edit-preview-item').length;
           if ( previewItemLength >= 1 && previewItemLength <= 6 ) {
             $('#edit-button').prop('disabled', false);
             if ( previewItemLength === 6 ) {
