@@ -69,6 +69,13 @@ ja:
       progress:
         user: ユーザー
         know_how: ノウハウ
+  activemodel:
+    attributes:
+      post_form:
+        content: キャプション
+        images: 画像
+        tag_ids: タグ
+        category_ids: カテゴリ
   views:
     pagination:
       first: "&laquo;"
@@ -76,4 +83,3 @@ ja:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
-
