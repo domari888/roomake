@@ -9,8 +9,8 @@ class PostForm
   validates :images, presence: true, on: :create
   validates :images, number_of_images: true
 
-  validates :tag_ids, presence: true, length: { maximum: 2 }, custom_numericality: { allow_blank: true }
-  validates :category_ids, presence: true, length: { maximum: 2 }, custom_numericality: { allow_blank: true }
+  validates :tag_ids, presence: true, length: { maximum: 2, message: 'は最大2つまで選択できます' }, custom_numericality: { allow_blank: true }
+  validates :category_ids, presence: true, length: { maximum: 2, message: 'は最大2つまで選択できます' }, custom_numericality: { allow_blank: true }
 
   def save
     return false if invalid?
@@ -22,7 +22,8 @@ class PostForm
         post_create
       end
     end
-  rescue ActiveRecord::RecordInvalid
+  rescue ActiveRecord::RecordInvalid => e
+    errors.add(:base, message: e.record.errors.full_messages)
     false
   end
 
