@@ -11,7 +11,7 @@
   <div class="form-group mt-3">
     <div class="preview-box d-flex flex-wrap">
       <%= form.label :images, class: 'drop-container', id: 'edit-drop' do %>
-        <%= form.file_field :images, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', type: "file", data: { action: "edit" } %>
+        <%= form.file_field :images, multiple: true, class: 'form-control-file post-file-field', accept: 'image/png, image/jpeg, image/jpg', type: "file", data: { action: "edit" } %>
         <i class="far fa-image" id="drop-container-icon" ></i>
       <% end %>
     </div>
