@@ -17,6 +17,11 @@ $(document).on('turbolinks:load', function(){
           "post_form[category_ids][]": {
             required: true,
             maxlength: 2
+          },
+          "post_form[images][]": {
+            required: function() {
+              return $('.preview-image').length  == 0
+            }
           }
         },
         messages: {
@@ -31,6 +36,9 @@ $(document).on('turbolinks:load', function(){
           "post_form[category_ids][]": {
             required: '※ カテゴリーを選択してください',
             maxlength: '※ カテゴリは2つまで選択できます'
+          },
+          "post_form[images][]": {
+            required: '※ 画像を選択して下さい'
           }
         },
         errorElement: 'div',

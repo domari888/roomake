@@ -4,7 +4,6 @@ $(document).on('turbolinks:load', function () {
     let edit_file_field = document.querySelector('input[data-action=edit]');
     let newDataBox = new DataTransfer();
     let new_file_field = document.querySelector('input[data-action=new]');
-    $('#new-button').prop('disabled', true);
     // 画像選択時にプレビューを表示
     $('.post-preview-image').on("change", function(){
       let dataBox, fileField
@@ -37,12 +36,14 @@ $(document).on('turbolinks:load', function () {
                       </div>`;
           $(`#${action}-drop`).before($(html));
           const previewItemLength = $(`#${action}-drop`).prevAll("[class$='preview-item']").length;
-          if ( previewItemLength >= 1 && previewItemLength <= 6 ) $(`#${action}-button`).prop('disabled', false);
-          if ( previewItemLength >= 6 ){
-            $(`#${action}-drop`).hide();
-            if ( previewItemLength === 7 ){
-              $(`#${action}-button`).prop('disabled', true);
-              alert('画像は最大 6枚 にしてください');
+          if (previewItemLength > 0){
+            $("[id$='post_form_images-error']").css('display', 'none');
+            if ( previewItemLength >= 6 ){
+              $(`#${action}-drop`).hide();
+              if ( previewItemLength === 7 ){
+                $(`#${action}-button`).prop('disabled', true);
+                alert('画像は最大 6枚 にしてください');
+              }
             }
           }
         };
@@ -80,7 +81,7 @@ $(document).on('turbolinks:load', function () {
         if ( previewItemLength <= 5 ){
           $(`#${action}-drop`).show();
           if ( previewItemLength === 0 ){
-            $(`#${action}-button`).prop('disabled', true);
+            $("[id$='post_form_images-error']").css('display', 'block');
           }
         }
       }
@@ -132,9 +133,9 @@ $(document).on('turbolinks:load', function () {
                       </div>`;
             $(`#${action}-drop`).before($(html));
             const previewItemLength = $(`#${action}-drop`).prevAll("[class$='preview-item']").length;
-            if ( previewItemLength >= 1 && previewItemLength <= 6){
-              $(`#${action}-button`).prop('disabled', false);
-                if ( previewItemLength >= 6 ){
+            if (previewItemLength > 0){
+              $("[id$='post_form_images-error']").css('display', 'none');
+              if ( previewItemLength >= 6 ){
                 $(`#${action}-drop`).hide();
                 if ( previewItemLength === 7 ){
                   $(`#${action}-button`).prop('disabled', true);
