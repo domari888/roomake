@@ -17,31 +17,33 @@ $(document).on('turbolinks:load', function(){
           "post_form[category_ids][]": {
             required: true,
             maxlength: 2
+          },
+          "post_form[images][]": {
+            required: function() {
+              return $('.preview-image').length  == 0
+            }
           }
         },
         messages: {
           "post_form[content]": {
-            required: '* 投稿内容を入力してください',
-            maxlength: '* 2000文字以内で入力してください'
+            required: '※ キャプションを入力してください',
+            maxlength: '※ 2000文字以内で入力してください'
           },
           "post_form[tag_ids][]": {
-            required: '* タグを選択してください',
-            maxlength: '* タグは2つまで選択できます'
+            required: '※ タグを選択してください',
+            maxlength: '※ タグは2つまで選択できます'
           },
           "post_form[category_ids][]": {
-            required: '* カテゴリーを選択してください',
-            maxlength: '* カテゴリは2つまで選択できます'
+            required: '※ カテゴリーを選択してください',
+            maxlength: '※ カテゴリは2つまで選択できます'
+          },
+          "post_form[images][]": {
+            required: '※ 画像を選択して下さい'
           }
         },
         errorElement: 'div',
         errorPlacement: function(error, element){
-          if(element.attr('name') === 'post_form[tag_ids][]'){
-            error.insertAfter(element.parents('.tag-group'));
-          } else if(element.attr('name') === 'post_form[category_ids][]'){
-            error.insertAfter(element.parents('.category-group'));
-          } else {
-            error.insertAfter(element);
-          }
+          error.insertAfter(element.closest('.form-group'));
         }
       });
     });

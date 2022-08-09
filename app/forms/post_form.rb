@@ -1,16 +1,16 @@
 class PostForm
   include ActiveModel::Model
 
-  attr_accessor :content, :image, :post, :tag_ids, :category_ids, :delete_ids, :user_id
+  attr_accessor :content, :images, :post, :tag_ids, :category_ids, :delete_ids, :user_id
 
   # Post モデルのバリデーション
   validates :content, presence: true, length: { maximum: 2000 }
   # Photo モデルのバリデーション
-  validates :image, presence: true, on: :create
-  validates :image, number_of_images: true
+  validates :images, presence: true, on: :create
+  validates :images, number_of_images: true
 
-  validates :tag_ids, presence: true, length: { maximum: 2 }, custom_numericality: { allow_blank: true }
-  validates :category_ids, presence: true, length: { maximum: 2 }, custom_numericality: { allow_blank: true }
+  validates :tag_ids, presence: true, length: { maximum: 2, message: 'は最大2つまで選択できます' }, custom_numericality: { allow_blank: true }
+  validates :category_ids, presence: true, length: { maximum: 2, message: 'は最大2つまで選択できます' }, custom_numericality: { allow_blank: true }
 
   def save
     return false if invalid?
@@ -22,6 +22,9 @@ class PostForm
         post_create
       end
     end
+  rescue ActiveRecord::RecordInvalid => e
+    errors.add(:base, message: e.record.errors.full_messages)
+    false
   end
 
   private
@@ -32,8 +35,8 @@ class PostForm
         Photo.find(id.to_i).destroy!
       end
     end
-    if image.present?
-      image.each do |img|
+    if images.present?
+      images.each do |img|
         post.photos.build(image: img).save!
       end
     end
@@ -44,9 +47,9 @@ class PostForm
 
   def post_create
     post = Post.new(content: content, user_id: user_id, tag_ids: tag_ids, category_ids: category_ids)
-    return false if image.blank?
+    return false if images.blank?
 
-    image.each do |img|
+    images.each do |img|
       post.photos.build(image: img).save!
     end
   end

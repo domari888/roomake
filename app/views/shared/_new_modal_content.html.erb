@@ -1,4 +1,7 @@
-<%= form_with model: PostForm.new, url: posts_path, class: 'post-form', namespace: 'new', local: true do |form| %>
+<%= form_with model: PostForm.new, url: posts_path, class: 'post-form', namespace: 'new', local: false do |form| %>
+  <div id="post-create-error-messages">
+    <%= render "layouts/error_messages", model: form.object %>
+  </div>
   <div class="form-group mt-3">
     <%= form.label :content, 'キャプション', class: "font-weight-bold" %>
     <%= form.text_area :content, class: 'form-control', rows: '10', maxlength: 2000 %>
@@ -7,15 +10,15 @@
   <hr>
   <div class="form-group mt-3">
     <div class="preview-box d-flex flex-wrap">
-      <%= form.label :image, class: "drop-container", id: "new-drop" do %>
-        <%= form.file_field :image, multiple: true, class: 'form-control-file post-preview-image', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", data: {action: "new"} %>
+      <%= form.label :images, class: "drop-container", id: "new-drop" do %>
+        <%= form.file_field :images, multiple: true, class: 'form-control-file post-file-field', accept: 'image/png, image/jpeg, image/jpg', required: true, type: "file", data: {action: "new"} %>
         <i class="far fa-image" id="drop-container-icon" ></i>
       <% end %>
     </div>
   </div>
   <small>* 最大6枚まで投稿できます *</small>
   <hr>
-  <div class="form-group mt-3 tag-group">
+  <div class="form-group mt-3">
     <i class="fas fa-tag tag-color"></i>
     <span class="font-weight-bold">タグ</span>
     <ul class="row px-3">
@@ -33,7 +36,7 @@
   </div>
   <small>* 最大2つまで選択可能です *</small>
   <hr>
-  <div class="form-group mt-3 category-group">
+  <div class="form-group mt-3">
     <i class="fas fa-folder category-color"></i>
     <span class="font-weight-bold">カテゴリ</span>
     <ul class="row px-3">
