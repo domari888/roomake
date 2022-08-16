@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    registered_item? and return
     @item = current_user.items.build(item_params)
     if @item.save
       redirect_to user_items_path, notice: "#{@item.name} をマイアイテムに追加しました"
@@ -31,11 +30,5 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :genre, :remote_image_url)
-  end
-
-  def registered_item?
-    return unless current_user.items.find_by(name: item_params[:name])
-
-    redirect_to user_items_path, alert: "#{item_params[:name]} は既に登録されています"
   end
 end
