@@ -12,7 +12,7 @@
           <p class="text-muted px-2"><%= item["genreName"] %></p>
         <% end %>
         <% if registered_item?(item["productName"]) %>
-          <%= link_to "登録済み", user_items_path(current_user), type: "button", class: "btn btn-dark-gray mt-auto mx-lg-2 disabled" %>
+          <%= button_tag "登録済み", disabled: true, class: "btn btn-dark-gray mx-lg-2" %>
         <% else %>
           <%= link_to "追加", user_items_path(current_user, item: {name: item["productName"], genre: item["genreName"], remote_image_url: item["mediumImageUrl"]}), method: :post, type: "button", class: "btn btn-outline-main mx-lg-2", data: { disable_with: "追加..."} %>
         <% end %>
