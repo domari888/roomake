@@ -1,4 +1,4 @@
-<% if search_items.count > 0 %>
+<% if params[:keyword].present? && search_items.count > 0 %>
   <ul class="row bg-white py-3 px-0 mb-0">
     <% search_items.each do |item| %>
       <li class="col-6 col-sm-4 col-lg-2 d-flex flex-column px-lg-1 pt-2 mb-3">
