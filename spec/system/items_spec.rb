@@ -89,6 +89,13 @@ RSpec.describe 'アイテム機能', type: :system do
         end.to change { user.items.count }.by(0)
       end
     end
+
+    context 'キーワードを入力せずに直接アイテム検索ページへアクセスした場合' do
+      it 'フラッシュメッセージが表示されること' do
+        visit search_items_path
+        expect(page).to have_content 'キーワードを入力して下さい'
+      end
+    end
   end
 
   describe 'アイテム削除機能' do
