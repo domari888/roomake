@@ -3,11 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .user-name {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .user-info {
-  font-size: 18px;
+  font-size: 12px;
+  align-items: center;
 }
 
 #list-tab {
@@ -52,4 +53,13 @@
   content: "";
   display: block;
   padding-top: 100%;
+}
+
+@media (min-width: 576px) {
+  .user-name {
+    font-size: 24px;
+  }
+  .user-info {
+    font-size: 16px;
+  }
 }
