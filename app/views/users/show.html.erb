@@ -19,18 +19,18 @@
         <div class="user-info text-muted">
           <ul class="d-flex flex-wrap pl-0">
             <li class="pr-3 pr-sm-5">
-              <%= @user.household_i18n %>
+              <i class="fas fa-house-user mr-1"></i><%= @user.household_i18n %>
             </li>
             <li class="pr-3 pr-sm-5">
-              <%= @user.address_i18n %>
+              <i class="fas fa-map-marker-alt mr-1"></i><%= @user.address_i18n %>
             </li>
             <li class="pr-3 pr-sm-5">
-              <%= @user.age_i18n %>
+              <i class="fas fa-user-clock mr-1"></i><%= @user.age_i18n %>
             </li>
           </ul>
           <% if @user.favorite_items? %>
             <p class="mb-3">
-              <%= @user.favorite_items %>
+              <i class="far fa-star mr-2"></i><%= @user.favorite_items %>
             </p>
           <% end %>
         </div>
