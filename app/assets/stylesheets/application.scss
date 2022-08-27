@@ -53,6 +53,10 @@ footer {
   }
 }
 
+ul {
+  list-style: none;
+}
+
 @media (max-width: 575.98px) {
   .footer-before-signing {
     margin-bottom: -54px;
@@ -87,12 +91,12 @@ button.close, button.navbar-toggler {
 
 .avatar-container {
   position: relative;
-  max-width: 200px;
+  max-width: 160px;
   .avatar-label {
     position: absolute;
     top: 0;
-    height: 200px;
-    width: 200px;
+    height: 100%;
+    width: 100%;
     background-image: url("/images/fallback/default.png");
     background-position: center;
     background-repeat: no-repeat;

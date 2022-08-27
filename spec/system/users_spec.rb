@@ -25,7 +25,8 @@ RSpec.describe 'ユーザー機能', type: :system do
         expect(page).to have_content user.address_i18n
         expect(page).to have_content user.favorite_items
         expect(page).to have_content user.profile
-        expect(page).to have_css '#user-menu-list'
+        expect(page).to have_link 'プロフィール編集'
+        expect(page).to have_link 'マイアイテム'
         user.post_with_photos.each do |post|
           expect(page).to have_selector "img[src='#{post.photos.first.image.url}']"
         end
@@ -56,7 +57,8 @@ RSpec.describe 'ユーザー機能', type: :system do
         expect(page).to have_content other_user.address_i18n
         expect(page).to have_content other_user.favorite_items
         expect(page).to have_content other_user.profile
-        expect(page).not_to have_css '#user-menu-list'
+        expect(page).not_to have_link 'プロフィール編集'
+        expect(page).not_to have_link 'マイアイテム'
         other_user.post_with_photos.each do |post|
           expect(page).to have_selector "img[src='#{post.photos.first.image.url}']"
         end
