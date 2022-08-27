@@ -92,6 +92,7 @@ button.close, button.navbar-toggler {
 .avatar-container {
   position: relative;
   max-width: 160px;
+  min-width: 32px;
   .avatar-label {
     position: absolute;
     top: 0;
