@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import 'valiables';
+
 .user-name {
   font-size: 20px;
 }
@@ -16,6 +18,7 @@
     border: 0;
     background-color: transparent;
     opacity: 0.5;
+    border-bottom: 2px solid $dark-gray;
     &:hover {
       background-color: #dedcda;
       opacity: 1.0;
@@ -25,6 +28,9 @@
   border-bottom: 2px solid;
   background-color: transparent;
   opacity: 1.0;
+  }
+  .tab-font-size {
+    font-size: 12px;
   }
 }
 
