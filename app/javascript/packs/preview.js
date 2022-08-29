@@ -27,13 +27,11 @@ $(document).on('turbolinks:load', function(){
         });
         // 【プロフィール画像削除】
         $('.avatar-container').on('click', '.delete-preview', function(){
-            if($('.avatar-image-field').val()){
-                dataBox.clearData();
-                fileField.files = dataBox.files
-            } else {
-                $('.avatar-label').prepend('<input type="hidden" name="user[avatar]" value="">');
-            }
+            dataBox.clearData();
+            fileField.files = dataBox.files
             $('.avatar-preview, .delete-preview').remove();
+            // プロフィール画像を空で更新するために、value=""のinput要素を追加
+            $('.avatar-label').prepend('<input type="hidden" name="user[avatar]" class="avatar-preview" value="">');
         });
         // 【プロフィール画像ドロップ機能】
         if (document.querySelector('.avatar-label')) {
