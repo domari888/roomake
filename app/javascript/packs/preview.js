@@ -5,12 +5,10 @@ $(document).on('turbolinks:load', function(){
         // 【プロフィール画像プレビュー】
         function avatarPreview(avatar){
             const fileReader = new FileReader();
-            if ($('.avatar-preview').length ) {
-                if ($('#current-avatar-image').length) $('.avatar-label').prepend('<input type="hidden" name="user[avatar]" value="">')
-                dataBox.clearData();
-                $('.avatar-preview, .delete-preview').remove();
-            }
+            dataBox.clearData();
+            $('.avatar-preview, .delete-preview').remove();
             dataBox.items.add(avatar)
+            fileField.files = dataBox.files
             fileReader.onloadend = function(){
                 const avatarImage = `<img src="${fileReader.result}" class="rounded-circle avatar-preview bg-light">`;
                 const deleteButton = '<button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview"><i class="fas fa-times"></i></button>';
