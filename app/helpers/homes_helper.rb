@@ -3,7 +3,7 @@ module HomesHelper
     if user_signed_in?
       user_items_path(current_user)
     else
-      user_items_path('#')
+      search_items_path
     end
   end
 end
