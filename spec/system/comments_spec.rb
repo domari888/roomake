@@ -59,7 +59,7 @@ RSpec.describe 'コメント機能', type: :system do
             find('#comment_content').set('')
             click_on '送信する'
           end
-        end.to change { post.comments.count }.by(0)
+        end.not_to(change { post.comments.count })
       end
     end
   end

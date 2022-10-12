@@ -63,7 +63,7 @@ RSpec.describe 'アイテム機能', type: :system do
             expect(first('li')).to have_content item.genre
             expect(first('li')).to have_button '登録済み', disabled: true
           end
-        end.to change { user.items.count }.by(0)
+        end.not_to(change { user.items.count })
       end
     end
 
@@ -86,7 +86,7 @@ RSpec.describe 'アイテム機能', type: :system do
             first('li').click_on '追加'
           end
           expect(page).to have_content 'アイテムを追加することができませんでした'
-        end.to change { user.items.count }.by(0)
+        end.not_to(change { user.items.count })
       end
     end
 

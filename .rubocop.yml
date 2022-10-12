@@ -93,6 +93,10 @@ RSpec/EmptyLineAfterFinalLet:
 RSpec/ExampleLength:
   Enabled: false
 
+# I18n とロケールファイル使用の強制を解除して、文字列を使えるように設定
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 # 一貫した暗黙の期待スタイルが使われているかどうかのチェックを解除
 RSpec/ImplicitExpect:
   Enabled: false

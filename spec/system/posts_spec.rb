@@ -65,7 +65,7 @@ RSpec.describe '投稿機能', type: :system do
           expect(page).to have_content '※ 画像を選択して下さい'
           expect(page).to have_content '※ タグを選択してください'
           expect(page).to have_content '※ カテゴリーを選択してください'
-        end.to change { user.posts.count }.by(0)
+        end.not_to(change { user.posts.count })
       end
     end
 
@@ -88,7 +88,7 @@ RSpec.describe '投稿機能', type: :system do
           end
           expect(page).to have_content '※ タグは2つまで選択できます'
           expect(page).to have_content '※ カテゴリは2つまで選択できます'
-        end.to change { user.posts.count }.by(0)
+        end.not_to(change { user.posts.count })
       end
     end
   end

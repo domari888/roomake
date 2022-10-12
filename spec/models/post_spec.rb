@@ -13,13 +13,13 @@ RSpec.describe Post, type: :model do
 
       context 'いいねした投稿の場合' do
         it 'true となること' do
-          expect(post1.liked_by?(user)).to eq true
+          expect(post1.liked_by?(user)).to be true
         end
       end
 
       context 'いいねした投稿では無い場合' do
         it 'false となること' do
-          expect(post2.liked_by?(user)).to eq false
+          expect(post2.liked_by?(user)).to be false
         end
       end
     end
@@ -32,13 +32,13 @@ RSpec.describe Post, type: :model do
 
       context 'マークした投稿の場合' do
         it 'true となること' do
-          expect(post1.marked_by?(user)).to eq true
+          expect(post1.marked_by?(user)).to be true
         end
       end
 
       context 'マークした投稿では無い場合' do
         it 'false となること' do
-          expect(post2.marked_by?(user)).to eq false
+          expect(post2.marked_by?(user)).to be false
         end
       end
     end

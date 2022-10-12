@@ -107,7 +107,7 @@ RSpec.describe 'ユーザー機能', type: :system do
           click_button '会員登録'
           expect(page).to have_current_path '/users'
           expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
-        end.to change(User, :count).by(0)
+        end.not_to change(User, :count)
       end
     end
 
@@ -120,7 +120,7 @@ RSpec.describe 'ユーザー機能', type: :system do
           click_button '会員登録'
           expect(page).to have_current_path '/users'
           expect(page).to have_content 'メールアドレスはすでに存在します'
-        end.to change(User, :count).by(0)
+        end.not_to change(User, :count)
       end
     end
 
@@ -132,7 +132,7 @@ RSpec.describe 'ユーザー機能', type: :system do
           click_button '会員登録'
           expect(page).to have_current_path '/users'
           expect(page).to have_content 'プロフィール画像ファイルを5MBバイト以下のサイズにしてください'
-        end.to change(User, :count).by(0)
+        end.not_to change(User, :count)
       end
     end
   end
@@ -209,7 +209,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       expect do
         click_on 'アカウント削除'
         expect(page).to have_content 'ゲストユーザーの削除・更新はできません'
-      end.to change(User, :count).by(0)
+      end.not_to change(User, :count)
     end
   end
 end

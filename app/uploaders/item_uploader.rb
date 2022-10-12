@@ -49,6 +49,6 @@ class ItemUploader < CarrierWave::Uploader::Base
   # end
   # ファイルサイズのバリデーション
   def size_range
-    0..5.megabytes
+    0..(5.megabytes)
   end
 end

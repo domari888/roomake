@@ -7,14 +7,14 @@ RSpec.describe PostCategory, type: :model do
     context 'データが条件を満たすとき' do
       let(:post_category) { build(:post_category) }
       it '保存できること' do
-        expect(subject).to eq true
+        expect(subject).to be true
       end
     end
 
     context 'post_id が空のとき' do
       let(:post_category) { build(:post_category, post_id: nil) }
       it 'エラーが発生すること' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(post_category.errors.messages[:post]).to include 'を入力してください'
       end
     end
@@ -22,7 +22,7 @@ RSpec.describe PostCategory, type: :model do
     context 'category_id が空のとき' do
       let(:post_category) { build(:post_category, category_id: nil) }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(post_category.errors.messages[:category]).to include 'を入力してください'
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe PostCategory, type: :model do
       end
 
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(post_category.errors.messages[:post_id]).to include 'ではすでにこのカテゴリが選択されています'
       end
     end
