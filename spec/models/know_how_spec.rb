@@ -7,14 +7,14 @@ RSpec.describe KnowHow, type: :model do
     context 'データが条件を満たすとき' do
       let(:know_how) { build(:know_how) }
       it '保存できること' do
-        expect(subject).to eq true
+        expect(subject).to be true
       end
     end
 
     context 'genre が空のとき' do
       let(:know_how) { build(:know_how, genre: '') }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(know_how.errors.messages[:genre]).to include 'を入力してください'
       end
     end
@@ -22,7 +22,7 @@ RSpec.describe KnowHow, type: :model do
     context 'title が空のとき' do
       let(:know_how) { build(:know_how, title: '') }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(know_how.errors.messages[:title]).to include 'を入力してください'
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe KnowHow, type: :model do
     context 'content が空のとき' do
       let(:know_how) { build(:know_how, content: '') }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(know_how.errors.messages[:content]).to include 'を入力してください'
       end
     end

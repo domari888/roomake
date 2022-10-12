@@ -7,14 +7,14 @@ RSpec.describe Mark, type: :model do
     context 'データが条件を満たすとき' do
       let(:mark) { build(:mark) }
       it '保存できること' do
-        expect(subject).to eq true
+        expect(subject).to be true
       end
     end
 
     context 'user_id が空のとき' do
       let(:mark) { build(:mark, user_id: nil) }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(mark.errors.messages[:user]).to include 'を入力してください'
       end
     end
@@ -22,7 +22,7 @@ RSpec.describe Mark, type: :model do
     context 'post_id が空のとき' do
       let(:mark) { build(:mark, post_id: nil) }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(mark.errors.messages[:post]).to include 'を入力してください'
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe Mark, type: :model do
       end
 
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(mark.errors.messages[:user_id]).to include 'は同じ投稿に2回以上マークはできません'
       end
     end

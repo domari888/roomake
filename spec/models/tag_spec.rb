@@ -7,14 +7,14 @@ RSpec.describe Tag, type: :model do
     context 'データが条件を満たすとき' do
       let(:tag) { build(:tag) }
       it '保存されること' do
-        expect(subject).to eq true
+        expect(subject).to be true
       end
     end
 
     context 'name が空のとき' do
       let(:tag) { build(:tag, name: '') }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(tag.errors.messages[:name]).to include 'を入力してください'
       end
     end

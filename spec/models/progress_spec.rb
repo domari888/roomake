@@ -11,14 +11,14 @@ RSpec.describe Progress, type: :model do
     context 'データが条件を満たすとき' do
       let(:progress) { build(:progress) }
       it '保存できること' do
-        expect(subject).to eq true
+        expect(subject).to be true
       end
     end
 
     context 'user_id が空のとき' do
       let(:progress) { build(:progress, user_id: '') }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(progress.errors.messages[:user]).to include 'を入力してください'
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe Progress, type: :model do
     context 'know_how_id が空のとき' do
       let(:progress) { build(:progress, know_how_id: '') }
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(progress.errors.messages[:know_how]).to include 'を入力してください'
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe Progress, type: :model do
       end
 
       it 'エラーが発生する' do
-        expect(subject).to eq false
+        expect(subject).to be false
         expect(progress.errors.messages[:user_id]).to include 'は同じノウハウに2回以上チェックはできません'
       end
     end

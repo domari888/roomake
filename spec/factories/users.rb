@@ -8,7 +8,7 @@ FactoryBot.define do
     household { rand(1..6) }
     favorite_items { Faker::Lorem.word }
     profile { Faker::Lorem.sentence }
-    avatar { Rack::Test::UploadedFile.new(Rails.root.join('public/images/fallback/default.png')) }
+    avatar { Rack::Test::UploadedFile.new(Rails.public_path.join('images/fallback/default.png')) }
   end
 
   factory :guest_user, class: 'User' do

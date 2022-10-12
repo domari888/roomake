@@ -28,9 +28,11 @@ $(document).on('turbolinks:load', function () {
         if(maxFileSize < file.size){
           // 画像ファイルが 5MB より大きい場合の処理
           alert('画像ファイルは最大 5MB 以下にしてください');
+          fileField.files = dataBox.files
         } else if (!mimeType.includes(file.type)){
           // 画像ファイルが .jpeg, .jpg, .png 以外の場合の処理
           alert('画像ファイルは .jpg, .jpeg, .png のみアップロードできます');
+          fileField.files = dataBox.files
         } else {
           const fileReader = new FileReader();
           const lastFileId = dataBox.files.length === 0 ? 0 : $(dataBox.files).last()[0].id;
