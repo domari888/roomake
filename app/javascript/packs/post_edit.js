@@ -18,7 +18,7 @@ $(document).on('turbolinks:load', function() {
       if (targetIds.toString() !== photoIds.toString()) {
         $('#edit-drop').prevAll().remove();
         photos.forEach(function(photo){
-        const html = `<div class="edit-preview-item" data-id="photos-${photo.id}">
+        const html = `<div class="edit-preview-item" data-id="${photo.id}">
                         <img src="${photo.image.url}" class="preview-image">
                         <button type="button" class="btn btn-dark-gray btn-sm rounded-circle delete-preview" data-action="edit"><i class="fas fa-times"></i></button>
                       </div>`;
