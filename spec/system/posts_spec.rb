@@ -140,7 +140,7 @@ RSpec.describe '投稿機能', type: :system do
         within '.modal-content' do
           find('label', text: post.tags[0].name).click
           find('label', text: post.categories[0].name).click
-          find("div[data-id='photos-#{post.photos[0].id}'] .delete-preview").click
+          find("div[data-id='#{post.photos[0].id}'].edit-preview-item .delete-preview").click
           find('#edit-button').click
         end
         expect(page).to have_content '※ キャプションを入力してください'

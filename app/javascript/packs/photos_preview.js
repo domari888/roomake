@@ -74,17 +74,16 @@ $(document).on('turbolinks:load', function () {
       }
       const targetImage = $(this).parents("[class$='preview-item']");
       const targetId = $(targetImage).data('id');
-      $.each(fileField.files, function(i, file){
-        if(file.id === targetId){
-          dataBox.items.remove(i);
-          fileField.files = dataBox.files;
-          return false;
-        }
-      });
-      if(typeof(targetId) === 'string'){
-        const photoId = targetId.replace('photos-', '');
-        const deleteId = parseInt(photoId);
-        $('#edit-drop').before(`<input type="hidden" name="post_form[delete_ids][]" value="${deleteId}">`);
+      if($(targetImage).hasClass('preview-item')){
+        $.each(fileField.files, function(i, file){
+          if(file.id === targetId){
+            dataBox.items.remove(i);
+            fileField.files = dataBox.files;
+            return false;
+          }
+        });
+      }else{
+        $('#edit-drop').before(`<input type="hidden" name="post_form[delete_ids][]" value="${targetId}">`);
       }
       targetImage.remove();
       const previewItemLength = $(`#${action}-drop`).prevAll("[class$='preview-item']").length;
