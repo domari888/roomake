@@ -1,10 +1,16 @@
 <div class="comment-user py-2 d-flex" id="comment-<%= comment.id %>">
-  <%= image_tag comment.user_avatar.url, class: "rounded-circle", size: "24x24" %>
   <div class="flex-column">
-    <div class="font-weight-bold">
-      <%= comment.user_name %>
+    <%= link_to user_path(comment.user), class: 'd-flex text-reset' do %>
+      <div class="mr-2">
+        <%= image_tag comment.user_avatar.url, class: "rounded-circle", size: "24x24" %>
+      </div>
+      <div class="font-weight-bold">
+        <%= comment.user_name %>
+      </div>
+    <% end %>
+    <div class="ml-4 pl-2">
+      <%= comment.content %>
     </div>
-    <%= comment.content %>
   </div>
   <% if comment.user == current_user %>
     <%= link_to "×", post_comment_path(comment.post, comment), class: "text-reset mr-3 ml-auto", method: :delete, remote: true, data: {confirm: "コメントを削除しますか?"} %>
