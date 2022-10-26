@@ -104,16 +104,17 @@ button.close, button.navbar-toggler {
     background-size: cover;
     cursor: pointer;
   }
-  .user-avatar,.avatar-preview {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 }
 
-.avatar-container::before {
+.user-avatar,.avatar-preview {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-container::before,.comment-avatar-container::before {
   content: "";
   display: block;
   padding-top: 100%;

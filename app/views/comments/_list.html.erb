@@ -1,8 +1,8 @@
 <div class="comment-user py-2 d-flex" id="comment-<%= comment.id %>">
-  <div class="flex-column">
-    <%= link_to user_path(comment.user), class: 'd-flex text-reset' do %>
-      <div class="mr-2">
-        <%= image_tag comment.user_avatar.url, class: "rounded-circle", size: "24x24" %>
+  <div class="flex-column w-100">
+    <%= link_to user_path(comment.user), class: 'd-inline-flex text-reset mw-100' do %>
+      <div class="comment-avatar-container">
+        <%= image_tag comment.user_avatar.url, class: "user-avatar rounded-circle", size: "24x24" %>
       </div>
       <div class="font-weight-bold text-truncate">
         <%= comment.user_name %>
