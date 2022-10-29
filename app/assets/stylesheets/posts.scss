@@ -26,6 +26,12 @@
     text-decoration: none;
   }
 }
+
+.card-user {
+  padding: 16px;
+  border-bottom: 1px solid $light-gray;
+}
+
 .card-body {
   max-height: 600px;
 }
