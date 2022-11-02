@@ -55,14 +55,12 @@ $(document).on('turbolinks:load', function () {
         dataBox = newDataBox
         fileField = new_file_field
       }
-      // 画像選択でキャンセルした場合
-      if ($(this).val() === "") {
-        $('.preview-item').remove();
+      if ($(this).val()) {
+        const files = $(this).prop('files');
+        postsPreview(files, action, dataBox, fileField);
+      } else {
         fileField.files = dataBox.files
-        dataBox.clearData();
       }
-      const files = $(this).prop('files');
-      postsPreview(files, action, dataBox, fileField);
     });
     // 画像の削除
     $('.preview-box').on("click", '.delete-preview', function(){
