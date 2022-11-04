@@ -8,18 +8,16 @@
   <div class="col-12 col-xl-6 d-flex flex-column h-100">
     <div class="d-flex flex-column mb-4">
       <div class="row no-gutters mb-3 mb-sm-0">
-        <div class="col-3 mr-3">
+        <div class="col-3">
           <div class="avatar-container mx-auto">
             <%= image_tag @user.avatar.url, class: "rounded-circle user-avatar bg-light" %>
           </div>
         </div>
-        <div class="col d-flex flex-column">
-          <div class="d-flex">
-            <div class="font-weight-bold user-name mb-3">
-              <%= @user.name %>
-            </div>
+        <div class="col-9 d-flex flex-column">
+          <div class="profile-name pl-3">
+            <%= @user.name %>
           </div>
-          <div class="user-info text-muted">
+          <div class="user-info text-muted pl-3">
             <ul class="d-flex flex-wrap pl-0">
               <li class="pr-3 pr-sm-5">
                 <i class="fas fa-house-user mr-1"></i><%= @user.household_i18n %>

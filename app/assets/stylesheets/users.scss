@@ -4,8 +4,11 @@
 
 @import 'valiables';
 
-.user-name {
+.profile-name {
   font-size: 20px;
+  overflow-wrap: break-word;
+  font-weight: bold;
+  margin-bottom: 16px;
 }
 
 .user-info {
@@ -65,7 +68,7 @@
 }
 
 @media (min-width: 576px) {
-  .user-name {
+  .profile-name {
     font-size: 24px;
   }
   .user-info {
