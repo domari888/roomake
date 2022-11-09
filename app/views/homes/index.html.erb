@@ -4,22 +4,22 @@
   </div>
   <div class="col col-sm-7 col-md px-0">
     <div class="d-flex justify-content-end justify-content-sm-start justify-content-md-center text-right text-sm-left bg-light h-100 key-visual-center">
-    <div class="key-visual-background">
-      <div class="d-flex flex-column mx-md-auto h-100">
-        <h1 class="top-title pt-5 pt-sm-0 px-4 my-sm-auto">Roomake</h1>
-        <h3 class="sub-title px-4 my-3 m-sm-0">理想の”おうち”で<br>素敵な”じかん”を<br>過ごそう</h3>
-        <div class="key-image d-none d-sm-block mb-sm-auto"></div>
-        <% unless user_signed_in? %>
-          <div class="mx-md-auto px-4">
-            <div class="d-inline-flex flex-column">
-              <%= link_to "会員登録", new_user_registration_path, class: "btn btn-main mb-3" %>
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark-gray mb-3" %>
-              <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-bitter-orange mb-3 guest-login" %>
+      <div class="key-visual-background">
+        <div class="d-flex flex-column mx-md-auto h-100">
+          <h1 class="top-title pt-5 pt-sm-0 px-4 my-sm-auto">Roomake</h1>
+          <h3 class="sub-title px-4 my-3 m-sm-0">理想の”おうち”で<br>素敵な”じかん”を<br>過ごそう</h3>
+          <div class="key-image d-none d-sm-block mb-sm-auto"></div>
+          <% unless user_signed_in? %>
+            <div class="mx-md-auto px-4">
+              <div class="d-inline-flex flex-column">
+                <%= link_to "会員登録", new_user_registration_path, class: "btn btn-main mb-3" %>
+                <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark-gray mb-3" %>
+                <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-bitter-orange mb-3 guest-login" %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
     </div>
   </div>
   <div class="col d-none d-md-block p-0">
