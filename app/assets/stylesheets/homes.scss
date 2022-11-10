@@ -63,11 +63,22 @@
   }
 }
 
+.function-visual {
+  max-width: 50%;
+  height: auto;
+}
+
 @media (min-width: 576px) {
   .key-visual-center {
     background-image: none;
     .key-visual-background {
       background-color: transparent;
     }
+  }
+}
+
+@media (min-width: 992px) {
+  .function-visual {
+    max-width: 75%;
   }
 }
