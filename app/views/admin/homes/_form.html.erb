@@ -1,0 +1,28 @@
+<%= semantic_form_for [:admin, @home], builder: ActiveAdmin::FormBuilder do |f| %>
+  <fieldset class="inputs">
+    <ol>
+      <li>
+        <p class="inline-hints">
+          <%= image_tag resource.image.url, size: "100x100" %>
+        </p>
+        <%= f.input :image %>
+        <%= f.input :image_cache, as: :hidden %>
+      </li>
+      <li>
+        <%= f.input :title %>
+      </li>
+      <li>
+        <%= f.input :subtitle %>
+      </li>
+      <li>
+        <%= f.input :content %>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="actions">
+    <ol>
+      <li><%= f.submit "保存" %></li>
+      <li class="cancel"><%= link_to("取り消す", admin_users_path)%></li>
+    </ol>
+  </fieldset>
+<% end %>
