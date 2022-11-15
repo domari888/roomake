@@ -32,7 +32,7 @@ items = RakutenWebService::Ichiba::Product.search(keyword: 'ダイソン', hits:
 # 管理者ユーザー用メールアドレス
 admin_email = 'admin@example.com'
 
-%w[tags categories admin_users know_hows].each do |table_name|
+%w[tags categories admin_users know_hows homes].each do |table_name|
   ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{table_name} RESTART IDENTITY CASCADE")
 end
 
@@ -55,6 +55,16 @@ CSV.foreach('db/csv_data/know_how_data.csv', headers: true) do |row|
   )
 end
 puts 'ノウハウの初期データインポートに成功しました。'
+
+CSV.foreach('db/csv_data/top_page_content.csv', headers: true) do |row|
+  Home.create!(
+    title: row['title'],
+    subtitle: row['subtitle'],
+    image: File.open(Rails.root.join("app/assets/images/#{row['image']}")),
+    content: row['content']
+  )
+end
+puts 'トップページの機能コンテンツの初期データインポートに成功しました。'
 
 # 開発環境用の初期データ
 if Rails.env.development?

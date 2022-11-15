@@ -11,6 +11,7 @@ ja:
       inquiry: お問い合わせ
       know_how: ノウハウ
       progress: 進捗状況
+      home: トップページ
     attributes:
       post:
         content: 投稿内容
@@ -69,6 +70,13 @@ ja:
       progress:
         user: ユーザー
         know_how: ノウハウ
+      home:
+        title: 機能タイトル
+        subtitle: 機能サブタイトル
+        image: 機能ビジュアル
+        content: 機能内容
+        created_at: 作成日
+        updated_at: 更新日
   activemodel:
     attributes:
       post_form:

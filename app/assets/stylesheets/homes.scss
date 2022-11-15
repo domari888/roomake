@@ -4,20 +4,6 @@
 
 @import 'valiables';
 
-@media (max-width: 575.98px) {
-  .key-visual-center {
-    min-height: 80vh;
-    background-image: url("top_left_reverse.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    .key-visual-background {
-      background-color:rgba(255,255,255,0.3);
-      width: 100%;
-    }
-  }
-}
-
 .top-title {
   font-size: 4rem;
   font-weight: bold;
@@ -25,6 +11,18 @@
 
 .sub-title {
   font-size: 1.5rem;
+}
+
+.key-visual-center {
+  min-height: 80vh;
+  background-image: url("top_left_reverse.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .key-visual-background {
+    background-color:rgba(255,255,255,0.3);
+    width: 100%;
+  }
 }
 
 .key-visual-left {
@@ -62,5 +60,25 @@
     content: '';
     border-radius: 3px;
     background: $dark-gray;
+  }
+}
+
+.function-visual {
+  max-width: 50%;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .key-visual-center {
+    background-image: none;
+    .key-visual-background {
+      background-color: transparent;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .function-visual {
+    max-width: 75%;
   }
 }
