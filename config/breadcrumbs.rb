@@ -1,28 +1,67 @@
 crumb :root do
-  link "Home", root_path
+  link 'トップページ', root_path
 end
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
+crumb :sign_in do
+  link 'ログイン', new_user_session_path
+  parent :root
+end
 
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
+crumb :sign_up do
+  link '会員登録'
+  parent :root
+end
 
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
+crumb :password_reissue do
+  link 'パスワード再発行'
+  parent :sign_in
+end
 
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
+crumb :user_show do |user|
+  if user == current_user
+    link 'マイページ', user_path(user)
+  else
+    link user.name, user_path(user)
+  end
+  parent :root
+end
 
-# If you want to split your breadcrumbs configuration over multiple files, you
-# can create a folder named `config/breadcrumbs` and put your configuration
-# files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
-# folder are loaded and reloaded automatically when you change them, just like
-# this file (`config/breadcrumbs.rb`).
+crumb :user_edit do |user|
+  link '編集'
+  parent :user_show, user
+end
+
+crumb :items do |user|
+  link item_page_title(user)[:sub_title], user_items_path(user)
+  parent :user_show, user
+end
+
+crumb :item_search do
+  if (keyword = params[:keyword].presence)
+    link "#{keyword} の検索結果"
+    parent :items, current_user
+  else
+    link 'アイテム検索', search_items_path
+    parent :root
+  end
+end
+
+crumb :posts_index do
+  link 'タイムライン', posts_path
+  parent :root
+end
+
+crumb :post_show do |post|
+  link "#{post.user_name} の投稿"
+  parent :posts_index
+end
+
+crumb :data do
+  link 'データ'
+  parent :root
+end
+
+crumb :know_hows do
+  link 'ノウハウ'
+  parent :root
+end
