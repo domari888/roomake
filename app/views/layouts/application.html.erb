@@ -22,6 +22,7 @@
       <%= render 'layouts/flash_messages' %>
     </div>
     <div class='container-fluid <%= max_width %>'>
+      <%= breadcrumbs separator: "&ensp;&rsaquo;&ensp;" %>
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

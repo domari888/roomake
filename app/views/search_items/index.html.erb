@@ -1,16 +1,19 @@
-<div class="d-flex justify-content-center pt-3">
-  <div class="d-inline-flex flex-column headline pb-4">
-    <h2 class="m-0">Item_Search</h2>
-    <p class="text-center text-muted">アイテム検索</p>
+<% breadcrumb :item_search, current_user %>
+<div class="d-flex justify-content-center my-4">
+  <div class="headline">
+    <h2 class="headline-en">Item Search</h2>
+    <p class="headline-jp text-muted">アイテム検索</p>
   </div>
 </div>
 <%= form_with url: search_items_path, method: :get, local: false do |form| %>
-  <div class="input-group mb-3">
-    <%= form.text_field :keyword, class: "form-control", placeholder: "アイテムを検索", value: params[:keyword], required: true %>
-    <div class="input-group-append">
-      <%= button_tag type: :submit, class: "btn btn-dark-gray" do %>
-        <i class="fas fa-search"></i>
-      <% end %>
+  <div class="form-group">
+    <div class="input-group">
+      <%= form.text_field :keyword, class: "form-control", placeholder: "追加したいアイテムを検索", value: params[:keyword], required: true %>
+      <div class="input-group-append">
+        <%= button_tag type: :submit, class: "btn btn-dark-gray" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

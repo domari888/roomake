@@ -1,7 +1,8 @@
-<div class="d-flex justify-content-center pt-3">
-  <div class="d-inline-flex flex-column headline pb-4">
-    <h2 class="m-0">Sign Up</h2>
-    <p class="text-center text-muted">会員登録</p>
+<% breadcrumb :sign_up %>
+<div class="d-flex justify-content-center my-3">
+  <div class="headline">
+    <h2 class="headline-en">Sign Up</h2>
+    <p class="headline-jp text-muted">会員登録</p>
   </div>
 </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
