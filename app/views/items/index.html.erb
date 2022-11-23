@@ -21,7 +21,7 @@
 <% end %>
 <% if @items.present? %>
   <div id="jscroll-item">
-    <ul class="row bg-white px-0 mb-0">
+    <ul class="row bg-white px-0 mb-0" id="interiors">
       <%= render @items, user: @user %>
     </ul>
     <div id="interiors-paginate">
