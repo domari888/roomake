@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :profile, length: { maximum: 2000 }
   validates :household, presence: true
-  validates :terms_of_use, acceptance: { message: 'について同意してください' }, on: :create
+  validates :agreement, acceptance: { message: 'について同意してください' }, on: :create
 
   # AvaterUploader と users テーブルの avater カラムを連携
   mount_uploader :avatar, AvatarUploader

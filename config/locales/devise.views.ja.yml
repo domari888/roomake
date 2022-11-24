@@ -32,7 +32,7 @@ ja:
         household: 家族構成
         favorite_items: お気に入りの家具・家電
         profile: プロフィール
-        terms_of_use: 利用規約
+        agreement: 利用規約とプライバシーポリシー
       admin_user: *user
     models:
       user: ユーザー

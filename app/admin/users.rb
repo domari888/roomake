@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :name, :password, :password_confirmation, :email, :age, :address, :profile, :household, :favorite_items, :avatar, :avatar_cache, :terms_of_use,
+  permit_params :name, :password, :password_confirmation, :email, :age, :address, :profile, :household, :favorite_items, :avatar, :avatar_cache, :agreement,
                 :remove_avatar
 
   index do
