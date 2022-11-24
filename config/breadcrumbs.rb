@@ -65,3 +65,18 @@ crumb :know_hows do
   link 'ノウハウ'
   parent :root
 end
+
+crumb :inquiry do
+  link 'お問い合わせ'
+  parent :root
+end
+
+crumb :terms_of_use do
+  link '利用規約'
+  parent :root
+end
+
+crumb :privacy_policy do
+  link 'プライバシーポリシー'
+  parent :root
+end
