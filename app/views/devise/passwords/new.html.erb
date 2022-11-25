@@ -1,10 +1,11 @@
-<div class="d-flex justify-content-center pt-3">
-  <div class="d-inline-flex flex-column headline pb-4">
-    <h2 class="m-0">Password Reissue</h2>
-    <p class="text-center text-muted">パスワード再発行</p>
+<% breadcrumb :password_reissue %>
+<div class="d-flex justify-content-center my-3">
+  <div class="headline">
+    <h2 class="headline-en">Password Reissue</h2>
+    <p class="headline-jp text-muted">パスワード再発行</p>
   </div>
 </div>
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">

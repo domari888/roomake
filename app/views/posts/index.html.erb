@@ -1,10 +1,5 @@
+<% breadcrumb :posts_index %>
 <% if @posts.present? %>
-  <div class="d-flex justify-content-center pt-3">
-    <div class="d-inline-flex flex-column headline pb-4">
-      <h2 class="m-0">Time Line</h2>
-      <p class="text-center text-muted">タイムライン</p>
-    </div>
-  </div>
   <div id="jscroll-timeline">
     <div class="row" id="timeline">
       <%= render partial: "time_line", collection: @posts, as: "post" %>
@@ -14,8 +9,8 @@
     </div>
   </div>
 <% elsif @posts.blank? && Post.exists? %>
-  <h3 class="d-flex justify-content-center pt-5">検索結果が見つかりませんでした</h3>
-  <div class="d-flex justify-content-center py-2">
+  <h3 class="d-flex justify-content-center my-5">検索結果が見つかりませんでした</h3>
+  <div class="d-flex justify-content-center my-2">
     <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#search-modal">
       <i class="fas fa-search"></i><p class="d-sm-inline d-none"> 検索する</p>
     </button>

@@ -1,11 +1,12 @@
-<div class="d-flex justify-content-center pt-3">
-  <div class="d-inline-flex flex-column headline pb-4">
-    <h2 class="m-0">Data</h2>
-    <p class="text-center text-muted">データ</p>
+<% breadcrumb :data %>
+<div class="d-flex justify-content-center my-3">
+  <div class="headline">
+    <h2 class="headline-en">Data</h2>
+    <p class="headline-jp text-muted">データ</p>
   </div>
 </div>
 <div class="d-flex justify-content-end text-muted">
-  <small class="mb-3">＊グラフは TOP3 まで表示しています＊</small>
+  <small class="py-3">＊円グラフでは TOP3 までを表示しています＊</small>
 </div>
 <div class="row px-3">
   <%= render "collapse", datas: @tags_count_graph, table: "tags-count", title: "タグ別使用投稿数" %>

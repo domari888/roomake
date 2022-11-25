@@ -1,6 +1,6 @@
-document.getElementsByClassName('my-items')[0].textContent = '';
-document.getElementsByClassName('my-items')[0].insertAdjacentHTML('afterbegin', '<%= j render(@items, user: @user) %>');
-document.getElementById('my-item-paginate').textContent = '';
-document.getElementById('my-item-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @items, remote: true) %>');
+document.getElementById('interiors').textContent = '';
+document.getElementById('interiors').insertAdjacentHTML('afterbegin', '<%= j render(@items, user: @user) %>');
+document.getElementById('interiors-paginate').textContent = '';
+document.getElementById('interiors-paginate').insertAdjacentHTML('afterbegin', '<%= j (paginate @items, remote: true) %>');
 history.replaceState( "", "" ,"?page=<%= @page %>");
 scrollTo(0, 0);
