@@ -1,2 +1,7 @@
-document.getElementById('my-item-<%= @item.id %>').remove();
-document.getElementById('flash-messages').innerHTML = '<%= j render("layouts/flash_messages") %>';
+productId = document.getElementById('<%= @item["productId"] %>')
+if(productId) {
+  productId.innerHTML = '<%= j render("search_items/register", item: @item) %>'
+} else {
+  document.getElementById('my-item-<%= @item["id"] %>').remove();
+}
+document.getElementById('flash-messages').innerHTML = '<%= j render("layouts/flash_messages") %>'

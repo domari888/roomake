@@ -10,22 +10,30 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(item_params)
+    @product_id = params[:product_id]
     if @item.save
-      redirect_to user_items_path, notice: "#{@item.name} をマイアイテムに追加しました"
+      flash.now[:notice] = "#{@item.name} を追加しました"
     else
-      redirect_to user_items_path, alert: 'アイテムを追加することができませんでした'
+      flash.now[:alert] = "#{@item.name} を追加することができませんでした"
     end
   end
 
   def destroy
-    @item.destroy!
-    flash.now[:alert] = "#{@item.name} を削除しました"
+    item = current_user.items.find(params[:id])
+    item.destroy!
+    flash.now[:alert] = "#{item.name} を削除しました"
   end
 
   private
 
   def set_item
-    @item = current_user.items.find(params[:id])
+    @item = {
+      'id' => params[:id],
+      'productName' => params[:name],
+      'genreName' => params[:genre],
+      'mediumImageUrl' => params[:remote_image_url],
+      'productId' => params[:product_id]
+    }
   end
 
   def item_params

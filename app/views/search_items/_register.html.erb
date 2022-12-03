@@ -1,0 +1,1 @@
+<%= link_to "追加", user_items_path(current_user, product_id: item["productId"], item: {name: item["productName"], genre: item["genreName"], remote_image_url: item["mediumImageUrl"]}), method: :post, type: "button", class: "btn btn-outline-main w-100", remote: true %>
