@@ -2,7 +2,7 @@
 アプリ名の「**Roomake**(ルーメイク)」は部屋を意味する「Room」と作るを意味する「Make」を掛け合わせて命名しました。
 トップページのサブタイトルにもあるように、理想のおうちで素敵なじかんを過ごす為に「**Room(部屋意外にも家の好きなところ)** の **Make(理想を作り上げていく)** をする」という想いを込めています。
   
-- **URL** : https://roomake.herokuapp.com
+- **URL** : ~~https://roomake.herokuapp.com~~ (修正中)
   
 ### トップページ
 <img height="400px" alt="トップページ(pc)スクリーンショット" src="https://user-images.githubusercontent.com/81894935/190972135-1e9ae214-e286-4d72-894e-10bb58874a58.png"> <img height="400px" alt="トップページ(mobile)スクリーンショット" src="https://user-images.githubusercontent.com/81894935/190972170-69f254ff-7a15-46aa-9057-84a0d70cc86b.png">
