@@ -1,0 +1,22 @@
+databases:
+  - name: roomake_db
+    databaseName: roomake_production
+    region: singapore
+    plan: free
+
+services:
+  - type: web
+    name: roomake_web
+    env: ruby
+    region: singapore
+    plan: free
+    branch: main
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: roomake_db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
