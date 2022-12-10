@@ -84,3 +84,4 @@ production:
   database: roomake_production
   username: roomake
   password: <%= ENV['roomake_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
