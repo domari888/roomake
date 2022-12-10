@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     if @item.save
       flash.now[:notice] = "#{@item.name} を追加しました"
     else
-      flash.now[:alert] = "#{@item.name} を追加することができませんでした"
+      render :error_messages
     end
   end
 
