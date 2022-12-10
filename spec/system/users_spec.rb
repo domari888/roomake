@@ -85,7 +85,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       select user.age_i18n, from: '年代'
       select user.address_i18n, from: 'お住まい'
       select user.household_i18n, from: '家族構成'
-      check '利用規約について同意する'
+      check '利用規約とプライバシーポリシーについて同意する'
     end
 
     context '入力情報が条件を満たすとき' do

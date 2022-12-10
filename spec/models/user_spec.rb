@@ -154,11 +154,11 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '利用規約に同意していないとき' do
-      let(:user) { build(:user, terms_of_use: '0') }
+    context '利用規約とプライバシーポリシーに同意していないとき' do
+      let(:user) { build(:user, agreement: '0') }
       it 'エラーが発生する' do
         expect(subject).to be false
-        expect(user.errors.messages[:terms_of_use]).to include 'について同意してください'
+        expect(user.errors.messages[:agreement]).to include 'について同意してください'
       end
     end
   end
