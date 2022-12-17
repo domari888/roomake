@@ -6,8 +6,16 @@
   resize: none;
 }
 
-.comment-user:hover {
-  background-color: #f7f7f7;
+.comment-user {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.comment-content {
+  padding-left: 32px;
 }
 
 .comment-avatar-container {
