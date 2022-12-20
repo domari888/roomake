@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 #comment-area {
+  outline: none;
+  border: none;
+  box-shadow: none;
   resize: none;
   max-height: 300px;
 }
