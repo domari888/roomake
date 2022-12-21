@@ -20,8 +20,8 @@ RSpec.describe 'コメント機能', type: :system do
             expect(page).not_to have_content comment.content
           end
           within '.comment-group' do
-            find('#comment_content').set(comment.content)
-            click_on '送信する'
+            find('#comment-area').set(comment.content)
+            click_on '送信'
           end
           within '.comment-container' do
             expect(page).to have_content comment.content
@@ -56,8 +56,8 @@ RSpec.describe 'コメント機能', type: :system do
         visit post_path(post)
         expect do
           within '.comment-group' do
-            find('#comment_content').set('')
-            click_on '送信する'
+            find('#comment-area').set('')
+            click_on '送信'
           end
         end.not_to(change { post.comments.count })
       end
