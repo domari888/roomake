@@ -1,11 +1,11 @@
-<%= form_with model: [post, comment], class: "form-inline", local: false do |form| %>
+<%= form_with model: [post, comment], local: false do |form| %>
   <div class="w-100" id="comment-error-messages">
     <%= render "layouts/error_messages", model: comment %>
   </div>
   <div class="form-group w-100">
-    <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= form.hidden_field :post_id, value: post.id %>
-    <%= form.text_area :content, class: "form-control comment-form flex-grow-1", placeholder: "コメント...", required: true, maxlength: 140, rows: "1" %>
-    <%= form.submit "送信する", class: "btn btn-main ml-auto" %>
+    <%= form.label :content, class: "border rounded w-100 mb-0", for: "comment-area" do %>
+      <%= form.text_area :content, class: "form-control flex-grow-1", id: "comment-area", placeholder: "コメント...", required: true, maxlength: 140, rows: "1" %>
+      <%= form.submit "送信", class: "d-flex btn btn-main btn-sm mt-auto ml-auto" %>
+    <% end %>
   </div>
 <% end %>

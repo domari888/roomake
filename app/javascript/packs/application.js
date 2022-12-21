@@ -26,6 +26,7 @@ import "./search"
 import "chartkick/highcharts"
 import "./collapse"
 import "./post-show"
+import "./comment"
 
 Rails.start()
 Turbolinks.start()

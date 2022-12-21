@@ -2,12 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.comment-form {
+#comment-area {
+  outline: none;
+  border: none;
+  box-shadow: none;
   resize: none;
+  max-height: 300px;
 }
 
-.comment-user:hover {
-  background-color: #f7f7f7;
+.comment-user {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.comment-content {
+  padding-left: 32px;
 }
 
 .comment-avatar-container {
