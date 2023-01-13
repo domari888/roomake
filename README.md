@@ -58,7 +58,7 @@
   - Ruby
   - Ruby on Rails
 - インフラ
-  - Heroku
+  - Render
   - AWS(S3, IAM, CloudFront)
 - DB
   - PostgreSQL
